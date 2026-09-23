@@ -66,10 +66,10 @@ export default function FaqSection() {
         <div className="mb-12 sm:mb-16">
           {/* Eyebrow kicker with accent line */}
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-xs font-extrabold tracking-[0.25em] text-[#0F9D7A] uppercase font-[Manrope]">
+            <span className="text-xs font-extrabold tracking-[0.25em] text-amber-600 uppercase font-[Manrope]">
               FAQ
             </span>
-            <span className="w-8 h-[2px] bg-[#0F9D7A]" />
+            <span className="w-8 h-[2px] bg-gradient-to-r from-amber-400 to-yellow-400" />
           </div>
 
           {/* Main Title */}
@@ -99,7 +99,7 @@ export default function FaqSection() {
                   aria-expanded={isOpen}
                   className="w-full py-5 sm:py-6 flex items-center justify-between gap-4 text-left group cursor-pointer"
                 >
-                  <span className="font-bold text-[#0B1F3A] group-hover:text-[#0F9D7A] text-base sm:text-lg font-[Manrope] transition-colors duration-200">
+                  <span className="font-bold text-[#0B1F3A] group-hover:text-amber-600 text-base sm:text-lg font-[Manrope] transition-colors duration-200">
                     {faq.question}
                   </span>
 
@@ -108,8 +108,8 @@ export default function FaqSection() {
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
                     className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${isOpen
-                        ? 'bg-[#0F9D7A] text-white shadow-sm'
-                        : 'bg-slate-100 text-[#0B1F3A] group-hover:bg-emerald-50 group-hover:text-[#0F9D7A]'
+                        ? 'bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-bold shadow-sm shadow-amber-400/30'
+                        : 'bg-slate-100 text-[#0B1F3A] group-hover:bg-amber-50 group-hover:text-amber-600'
                       }`}
                   >
                     <TbPlus size={18} strokeWidth={2.5} />

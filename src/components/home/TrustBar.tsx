@@ -38,9 +38,9 @@ export default function TrustBar() {
           {certifications.map((cert) => (
             <div
               key={cert.label}
-              className="flex flex-col sm:flex-row items-center sm:items-start gap-3.5 p-4 rounded-xl border border-slate-200 bg-white shadow-sm hover:border-[#0F9D7A]/50 hover:shadow transition-all duration-200"
+              className="flex flex-col sm:flex-row items-center sm:items-start gap-3.5 p-4 rounded-xl border border-slate-200 bg-white shadow-sm hover:border-amber-400/50 hover:shadow transition-all duration-200"
             >
-              <div className="w-11 h-11 rounded-lg bg-[#0F9D7A]/10 text-[#0F9D7A] flex items-center justify-center flex-shrink-0">
+              <div className="w-11 h-11 rounded-lg bg-amber-500/10 text-amber-600 flex items-center justify-center flex-shrink-0">
                 <cert.icon size={24} />
               </div>
               <div className="text-center sm:text-left">

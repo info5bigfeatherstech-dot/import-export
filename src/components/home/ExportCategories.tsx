@@ -10,7 +10,7 @@ export default function ExportCategories() {
       className="w-full py-20 lg:py-28 bg-[#FCFDFD] border-b border-slate-200/80 relative overflow-hidden"
     >
       {/* Background Subtle Gradient Accents */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-[#0F9D7A]/5 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-amber-500/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -22,11 +22,11 @@ export default function ExportCategories() {
             transition={{ duration: 0.4 }}
             className="flex items-center justify-center gap-2 mb-3"
           >
-            <span className="w-8 h-[2px] bg-[#0F9D7A]" />
-            <p className="text-xs font-bold tracking-[0.25em] text-[#0F9D7A] uppercase font-[Manrope]">
+            <span className="w-8 h-[2px] bg-gradient-to-r from-amber-400 to-yellow-400" />
+            <p className="text-xs font-bold tracking-[0.25em] text-amber-600 uppercase font-[Manrope]">
               Core Trading Sectors
             </p>
-            <span className="w-8 h-[2px] bg-[#0F9D7A]" />
+            <span className="w-8 h-[2px] bg-gradient-to-r from-amber-400 to-yellow-400" />
           </motion.div>
 
           <motion.h2
@@ -61,7 +61,7 @@ export default function ExportCategories() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: (i % 6) * 0.08 }}
-              className="group bg-white rounded-t-[100px] rounded-b-3xl p-2.5 pt-3 sm:p-3 sm:pt-3.5 border border-slate-200/90 shadow-sm hover:shadow-2xl hover:border-[#0F9D7A]/50 transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between"
+              className="group bg-white rounded-t-[100px] rounded-b-3xl p-2.5 pt-3 sm:p-3 sm:pt-3.5 border border-slate-200/90 shadow-sm hover:shadow-2xl hover:border-amber-400/50 transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between"
             >
               <div>
                 {/* Arched Architectural Window */}
@@ -84,10 +84,10 @@ export default function ExportCategories() {
 
                 {/* Content */}
                 <div className="text-center px-3 sm:px-4">
-                  <span className="text-[11px] font-extrabold tracking-widest text-[#0F9D7A] uppercase font-[Manrope] block mb-1">
+                  <span className="text-[11px] font-extrabold tracking-widest text-amber-600 uppercase font-[Manrope] block mb-1">
                     ARCH {cat.number}
                   </span>
-                  <h3 className="text-xl font-bold text-[#0B1F3A] font-[Manrope] mb-2 group-hover:text-[#0F9D7A] transition-colors">
+                  <h3 className="text-xl font-bold text-[#0B1F3A] font-[Manrope] mb-2 group-hover:text-amber-600 transition-colors">
                     {cat.title}
                   </h3>
                   <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-4 line-clamp-3 font-[Inter]">
@@ -111,7 +111,7 @@ export default function ExportCategories() {
                 <a
                   href="#contact"
                   id={`category-arch-${cat.id}`}
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0F9D7A] hover:text-[#0B1F3A] transition-colors group/link"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 hover:text-amber-700 transition-colors group/link"
                 >
                   <span>Explore Industry Line</span>
                   <HiArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform duration-200" />

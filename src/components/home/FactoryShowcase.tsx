@@ -54,8 +54,8 @@ export default function FactoryShowcase() {
           >
             {/* Eyebrow / Kicker */}
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-[#0F9D7A] text-xs">✦</span>
-              <p className="text-xs font-bold tracking-[0.22em] text-[#0F9D7A] uppercase font-[Manrope]">
+              <span className="text-amber-500 text-xs">✦</span>
+              <p className="text-xs font-bold tracking-[0.22em] text-amber-600 uppercase font-[Manrope]">
                 01 GENVIET FACTORY
               </p>
             </div>
@@ -83,7 +83,7 @@ export default function FactoryShowcase() {
                 <ul className="space-y-3">
                   {capabilities.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="flex-shrink-0 mt-0.5 text-[#0F9D7A]">
+                      <span className="flex-shrink-0 mt-0.5 text-amber-500">
                         <TbCheck className="w-4 h-4 stroke-[3]" />
                       </span>
                       <span className="text-slate-800 text-sm sm:text-[15px] font-medium leading-snug">
@@ -97,7 +97,7 @@ export default function FactoryShowcase() {
                   <a
                     href="#contact"
                     id="factory-capabilities-btn"
-                    className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#0F9D7A] hover:bg-[#0B7A5E] text-white font-bold text-sm sm:text-base rounded-md shadow-lg shadow-[#0F9D7A]/25 hover:shadow-xl hover:shadow-[#0F9D7A]/35 transition-all duration-200 group hover:-translate-y-0.5"
+                    className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 font-bold text-sm sm:text-base rounded-md shadow-md shadow-amber-400/30 hover:shadow-lg hover:shadow-amber-500/40 transition-all duration-200 group hover:-translate-y-0.5"
                   >
                     <TbArrowUpRight
                       className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"

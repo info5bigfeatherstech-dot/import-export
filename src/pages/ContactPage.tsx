@@ -54,18 +54,18 @@ export default function ContactPage() {
       {/* 1. HERO SECTION */}
       <section className="relative w-full bg-[#0B1F3A] text-white pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 overflow-hidden">
         <div className="absolute inset-0 opacity-15 pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#0F9D7A] blur-3xl" />
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-amber-500/20 blur-3xl" />
           <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-blue-600 blur-3xl" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-[#0F9D7A]/30 text-[#0F9D7A] text-xs font-bold uppercase tracking-widest mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#0F9D7A] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-400 text-xs font-bold uppercase tracking-widest mb-6">
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
             Direct Trade Desk & Inquiries
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-[Manrope] tracking-tight leading-tight mb-6">
-            Let’s Discuss Your Next <span className="text-[#0F9D7A]">Global Consignment</span>
+            Let’s Discuss Your Next <span className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">Global Consignment</span>
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
@@ -88,16 +88,16 @@ export default function ContactPage() {
               <div className="space-y-4">
                 <a
                   href="tel:+917297960397"
-                  className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-emerald-50/50 border border-slate-200/80 hover:border-[#0F9D7A]/40 transition-colors group"
+                  className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-amber-50/50 border border-slate-200/80 hover:border-amber-400/40 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white shadow-sm text-[#0F9D7A] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-white shadow-sm text-amber-500 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <TbPhone size={20} />
                   </div>
                   <div>
                     <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                       Commercial Desk Phone
                     </div>
-                    <div className="text-sm font-bold text-[#0B1F3A] group-hover:text-[#0F9D7A] transition-colors">
+                    <div className="text-sm font-bold text-[#0B1F3A] group-hover:text-amber-600 transition-colors">
                       +91 72979 60397
                     </div>
                     <div className="text-[11px] text-slate-500">Mon - Fri: 8:00 AM - 7:00 PM GMT</div>
@@ -106,16 +106,16 @@ export default function ContactPage() {
 
                 <a
                   href="mailto:contact@shivasunmoderno.com"
-                  className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-emerald-50/50 border border-slate-200/80 hover:border-[#0F9D7A]/40 transition-colors group"
+                  className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-amber-50/50 border border-slate-200/80 hover:border-amber-400/40 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white shadow-sm text-[#0F9D7A] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-white shadow-sm text-amber-500 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <TbMail size={20} />
                   </div>
                   <div>
                     <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                       Official Trade Email
                     </div>
-                    <div className="text-sm font-bold text-[#0B1F3A] group-hover:text-[#0F9D7A] transition-colors">
+                    <div className="text-sm font-bold text-[#0B1F3A] group-hover:text-amber-600 transition-colors">
                       contact@shivasunmoderno.com
                     </div>
                     <div className="text-[11px] text-slate-500">Guaranteed response within 24 hours</div>
@@ -126,13 +126,13 @@ export default function ContactPage() {
                   href="https://wa.me/917297960397"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-4 p-4 rounded-2xl bg-emerald-50/60 hover:bg-emerald-100/60 border border-emerald-200/80 transition-colors group"
+                  className="flex items-start gap-4 p-4 rounded-2xl bg-amber-50/60 hover:bg-amber-100/60 border border-amber-200/80 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[#0F9D7A] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-bold flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
                     <TbMessageCircle size={20} />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-[#0F9D7A] uppercase tracking-wider">
+                    <div className="text-xs font-bold text-amber-600 uppercase tracking-wider">
                       WhatsApp Quick Chat
                     </div>
                     <div className="text-sm font-bold text-[#0B1F3A]">
@@ -169,7 +169,7 @@ export default function ContactPage() {
 
             {/* Quality & Trust Banner */}
             <div className="bg-[#0B1F3A] text-white rounded-3xl p-6 border border-white/10 space-y-3">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#0F9D7A] uppercase tracking-wider">
+              <div className="flex items-center gap-2 text-xs font-bold text-amber-600 uppercase tracking-wider">
                 <TbShieldCheck size={18} />
                 <span>Our Quality Commitment</span>
               </div>
@@ -183,7 +183,7 @@ export default function ContactPage() {
           <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl">
             {submitted ? (
               <div className="py-14 text-center space-y-5">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#0F9D7A] flex items-center justify-center mx-auto text-2xl shadow-inner">
+                <div className="w-16 h-16 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center mx-auto text-2xl shadow-inner">
                   <TbCheck size={36} />
                 </div>
                 <h3 className="text-2xl font-extrabold text-[#0B1F3A] font-[Manrope]">
@@ -236,7 +236,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Jane Doe"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                     />
                   </div>
 
@@ -250,7 +250,7 @@ export default function ContactPage() {
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="Modern Retailers Ltd"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                     />
                   </div>
                 </div>
@@ -266,7 +266,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="procurement@company.com"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                     />
                   </div>
 
@@ -280,7 +280,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+91 72979 60397"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                     />
                   </div>
                 </div>
@@ -293,7 +293,7 @@ export default function ContactPage() {
                     <select
                       value={formData.product}
                       onChange={(e) => setFormData({ ...formData, product: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                     >
                       <option value="Garments & Ready-to-Wear">Garments & Ready-to-Wear</option>
                       <option value="Fabrics & Textiles">Fabrics & Textiles</option>
@@ -313,7 +313,7 @@ export default function ContactPage() {
                       value={formData.destination}
                       onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
                       placeholder="e.g. Southampton, UK / Rotterdam / New York"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                     />
                   </div>
                 </div>
@@ -326,7 +326,7 @@ export default function ContactPage() {
                     <select
                       value={formData.volume}
                       onChange={(e) => setFormData({ ...formData, volume: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                     >
                       <option value="Trial / Sampling Batch">Trial / Sampling Batch (300 - 1,000 pcs)</option>
                       <option value="Commercial Medium (1,000 - 5,000 pcs)">Commercial Medium (1,000 - 5,000 pcs)</option>
@@ -342,7 +342,7 @@ export default function ContactPage() {
                     <select
                       value={formData.incoterm}
                       onChange={(e) => setFormData({ ...formData, incoterm: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                     >
                       <option value="FOB (Free on Board)">FOB (Free on Board)</option>
                       <option value="CIF (Cost, Insurance & Freight)">CIF (Cost, Insurance & Freight)</option>
@@ -362,14 +362,14 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Please specify fabric types, GSM, sizing ratios, trim types, target shipment date, or custom instructions..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                   />
                 </div>
 
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-[#0F9D7A] hover:bg-[#0B7A5E] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 font-bold text-sm shadow-md shadow-amber-500/25 hover:shadow-lg transition-all flex items-center justify-center gap-2"
                   >
                     <TbSend size={16} />
                     <span>Send Commercial Inquiry & Request Quotation</span>
@@ -387,7 +387,7 @@ export default function ContactPage() {
       {/* 3. TRADE FAQ SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F9D7A]">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
             Quick Answers
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] font-[Manrope] tracking-tight mt-1">
@@ -399,7 +399,7 @@ export default function ContactPage() {
           {tradeFaqs.map((faq, i) => (
             <div key={i} className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-xs">
               <h3 className="text-sm font-bold text-[#0B1F3A] font-[Manrope] mb-2 flex items-start gap-2">
-                <TbHelpCircle size={18} className="text-[#0F9D7A] shrink-0 mt-0.5" />
+                <TbHelpCircle size={18} className="text-amber-500 shrink-0 mt-0.5" />
                 <span>{faq.q}</span>
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed pl-6">

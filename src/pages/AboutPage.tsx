@@ -121,20 +121,20 @@ export default function AboutPage() {
       <section className="relative w-full bg-[#0B1F3A] text-white pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 overflow-hidden">
         {/* Subtle background glow */}
         <div className="absolute inset-0 opacity-15 pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-[#0F9D7A] blur-3xl" />
+          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-amber-500/20 blur-3xl" />
           <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-blue-600 blur-3xl" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-[#0F9D7A]/30 text-[#0F9D7A] text-xs font-bold uppercase tracking-widest mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#0F9D7A] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-400 text-xs font-bold uppercase tracking-widest mb-6">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
               About ShivaSun Moderno Impex Private Limited
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-[Manrope] tracking-tight leading-tight mb-6">
               Your One-Stop Solution for Global Trade in{' '}
-              <span className="text-[#0F9D7A]">Garments, Fabrics & Accessories</span>
+              <span className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">Garments, Fabrics & Accessories</span>
             </h1>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
@@ -144,7 +144,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#0F9D7A] hover:bg-[#0B7A5E] text-white font-bold text-sm shadow-lg shadow-emerald-900/30 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 font-bold text-sm shadow-lg shadow-amber-500/25 transition-all duration-200"
               >
                 <span>Connect With Our Trade Desk</span>
                 <TbArrowRight size={16} />
@@ -167,7 +167,7 @@ export default function AboutPage() {
               <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Export Destination Countries</div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#0F9D7A] font-[Manrope]">100%</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-amber-400 font-[Manrope]">100%</div>
               <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Strict Quality Audits</div>
             </div>
             <div>
@@ -175,7 +175,7 @@ export default function AboutPage() {
               <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Commercial Shipments</div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#0F9D7A] font-[Manrope]">AQL 2.5</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-amber-400 font-[Manrope]">AQL 2.5</div>
               <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Standard Inspection Protocol</div>
             </div>
           </div>
@@ -187,7 +187,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[#0F9D7A]">
+              <div className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-amber-600">
                 <span>—— Company Overview</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0B1F3A] font-[Manrope] tracking-tight leading-snug">
@@ -202,25 +202,25 @@ export default function AboutPage() {
 
               <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-semibold text-slate-800">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-emerald-100 text-[#0F9D7A] flex items-center justify-center shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
                     <TbCheck size={13} />
                   </div>
                   <span>Transparent FOB & CIF Terms</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-emerald-100 text-[#0F9D7A] flex items-center justify-center shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
                     <TbCheck size={13} />
                   </div>
                   <span>Cost-Effective Supply Sourcing</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-emerald-100 text-[#0F9D7A] flex items-center justify-center shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
                     <TbCheck size={13} />
                   </div>
                   <span>Rapid Sample Turnaround</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-emerald-100 text-[#0F9D7A] flex items-center justify-center shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
                     <TbCheck size={13} />
                   </div>
                   <span>Full Customs & Duty Guidance</span>
@@ -237,7 +237,7 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/90 via-transparent to-transparent flex items-end p-6 sm:p-8">
                   <div className="text-white">
-                    <div className="text-xs font-bold uppercase tracking-widest text-[#0F9D7A] mb-1">
+                    <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-1">
                       International Multimodal Hub
                     </div>
                     <div className="text-base sm:text-lg font-bold font-[Manrope]">
@@ -250,7 +250,7 @@ export default function AboutPage() {
               {/* Floating Quote Badge */}
               <div className="hidden sm:block absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl border border-slate-100 max-w-xs">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#0F9D7A]/10 text-[#0F9D7A] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0">
                     <TbHeartHandshake size={22} />
                   </div>
                   <div>
@@ -268,7 +268,7 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F9D7A]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
               Our Core Specializations
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1F3A] font-[Manrope] tracking-tight mt-2 mb-4">
@@ -299,14 +299,14 @@ export default function AboutPage() {
                         {sector.tag}
                       </span>
                     </div>
-                    <div className="absolute bottom-3 left-3 w-10 h-10 rounded-xl bg-[#0F9D7A] text-white flex items-center justify-center shadow-md">
+                    <div className="absolute bottom-3 left-3 w-10 h-10 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 flex items-center justify-center shadow-md font-bold">
                       <Icon size={20} />
                     </div>
                   </div>
 
                   <div className="p-6 flex-1 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-lg font-bold text-[#0B1F3A] font-[Manrope] mb-2 group-hover:text-[#0F9D7A] transition-colors">
+                      <h3 className="text-lg font-bold text-[#0B1F3A] font-[Manrope] mb-2 group-hover:text-amber-600 transition-colors">
                         {sector.title}
                       </h3>
                       <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
@@ -318,7 +318,7 @@ export default function AboutPage() {
                       <div className="grid grid-cols-1 gap-1.5 text-xs text-slate-700">
                         {sector.features.map((feat, i) => (
                           <div key={i} className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#0F9D7A]" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                             <span>{feat}</span>
                           </div>
                         ))}
@@ -337,7 +337,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[#0F9D7A] text-xs font-bold uppercase tracking-widest">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold uppercase tracking-widest">
                 <TbShieldCheck size={15} />
                 Quality Assurance
               </div>
@@ -352,7 +352,7 @@ export default function AboutPage() {
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/90 text-sm text-slate-700 space-y-2">
                 <div className="font-bold text-[#0B1F3A] flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#0F9D7A]" />
+                  <span className="w-2 h-2 rounded-full bg-amber-400" />
                   AQL 2.5 Standard Guarantee
                 </div>
                 <p className="text-xs text-slate-500 leading-relaxed">
@@ -362,7 +362,7 @@ export default function AboutPage() {
 
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#0F9D7A] hover:text-[#0B7A5E] transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors"
               >
                 <span>Request Quality Inspection Protocol PDF</span>
                 <TbArrowRight size={14} />
@@ -375,9 +375,9 @@ export default function AboutPage() {
                 return (
                   <div
                     key={idx}
-                    className="p-5 rounded-2xl bg-slate-50 hover:bg-emerald-50/40 border border-slate-200/80 hover:border-[#0F9D7A]/40 transition-all duration-300"
+                    className="p-5 rounded-2xl bg-slate-50 hover:bg-amber-50/40 border border-slate-200/80 hover:border-amber-400/40 transition-all duration-300"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-white shadow-sm text-[#0F9D7A] flex items-center justify-center mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-white shadow-sm text-amber-500 flex items-center justify-center mb-4">
                       <Icon size={20} />
                     </div>
                     <h3 className="text-sm font-bold text-[#0B1F3A] font-[Manrope] mb-1.5">
@@ -398,7 +398,7 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F9D7A]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
               Your Trusted Ally
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1F3A] font-[Manrope] tracking-tight mt-2 mb-4">
@@ -418,7 +418,7 @@ export default function AboutPage() {
                   className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#0F9D7A] flex items-center justify-center mb-5">
+                    <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-5">
                       <Icon size={24} />
                     </div>
                     <h3 className="text-xl font-bold text-[#0B1F3A] font-[Manrope] mb-3">
@@ -433,7 +433,7 @@ export default function AboutPage() {
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
                       Key Advantage
                     </span>
-                    <span className="text-xs font-semibold text-[#0F9D7A]">
+                    <span className="text-xs font-semibold text-amber-600">
                       {client.benefit}
                     </span>
                   </div>
@@ -448,7 +448,7 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <div className="relative rounded-3xl bg-gradient-to-r from-[#0B1F3A] via-[#0D284C] to-[#0B1F3A] text-white p-8 sm:p-12 overflow-hidden shadow-2xl">
           <div className="relative z-10 max-w-2xl">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F9D7A]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
               Start Your Trade Partnership
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold font-[Manrope] tracking-tight mt-2 mb-4">
@@ -460,7 +460,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="px-6 py-3.5 rounded-xl bg-[#0F9D7A] hover:bg-[#0B7A5E] text-white font-bold text-sm shadow-lg transition-all"
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 font-bold text-sm shadow-lg shadow-amber-500/25 transition-all"
               >
                 Inquire For Your Sourcing Needs
               </Link>

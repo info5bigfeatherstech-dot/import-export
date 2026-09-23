@@ -79,7 +79,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Follow on ${s.label}`}
-                  className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 hover:border-[#0F9D7A] hover:bg-[#0F9D7A]/10 text-slate-400 hover:text-[#0F9D7A] flex items-center justify-center transition-colors duration-200"
+                  className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 hover:border-amber-400 hover:bg-amber-400/10 text-slate-400 hover:text-amber-400 flex items-center justify-center transition-colors duration-200"
                 >
                   <s.icon size={18} />
                 </a>
@@ -98,14 +98,14 @@ export default function Footer() {
                   {item.isRoute ? (
                     <Link
                       to={item.href}
-                      className="text-sm text-slate-400 hover:text-[#0F9D7A] transition-colors"
+                      className="text-sm text-slate-400 hover:text-amber-400 transition-colors"
                     >
                       {item.label}
                     </Link>
                   ) : (
                     <a
                       href={item.href}
-                      className="text-sm text-slate-400 hover:text-[#0F9D7A] transition-colors"
+                      className="text-sm text-slate-400 hover:text-amber-400 transition-colors"
                     >
                       {item.label}
                     </a>
@@ -125,7 +125,7 @@ export default function Footer() {
                 <li key={cat}>
                   <Link
                     to="/#products"
-                    className="text-sm text-slate-400 hover:text-[#0F9D7A] transition-colors"
+                    className="text-sm text-slate-400 hover:text-amber-400 transition-colors"
                   >
                     {cat}
                   </Link>
@@ -141,7 +141,7 @@ export default function Footer() {
             </h3>
             <address className="not-italic space-y-3.5 text-sm text-slate-400">
               <div className="flex items-start gap-3">
-                <TbMapPin className="text-[#0F9D7A] flex-shrink-0 mt-1" size={18} />
+                <TbMapPin className="text-amber-400 flex-shrink-0 mt-1" size={18} />
                 <div>
                   <p className="text-white font-medium">ShivaSun Moderno Impex Pvt Ltd</p>
                   <p>12 Canary Wharf Business Centre</p>
@@ -150,27 +150,27 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-3">
-                <TbMail className="text-[#0F9D7A] flex-shrink-0" size={18} />
+                <TbMail className="text-amber-400 flex-shrink-0" size={18} />
                 <a
                   href="mailto:contact@shivasunmoderno.com"
-                  className="hover:text-[#0F9D7A] transition-colors text-white"
+                  className="hover:text-amber-400 transition-colors text-white"
                 >
                   contact@shivasunmoderno.com
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
-                <TbPhone className="text-[#0F9D7A] flex-shrink-0" size={18} />
+                <TbPhone className="text-amber-400 flex-shrink-0" size={18} />
                 <a
                   href="tel:+917297960397"
-                  className="hover:text-[#0F9D7A] transition-colors text-white"
+                  className="hover:text-amber-400 transition-colors text-white"
                 >
                   +91 72979 60397
                 </a>
               </div>
 
               <div className="flex items-center gap-3 pt-2 text-xs text-slate-500">
-                <TbClock className="text-[#0F9D7A] flex-shrink-0" size={16} />
+                <TbClock className="text-amber-400 flex-shrink-0" size={16} />
                 <span>Trading Hours: Mon–Fri, 08:00–18:00 GMT</span>
               </div>
             </address>

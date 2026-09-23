@@ -10,13 +10,13 @@ export default function CtaSection() {
       {/* Background pattern */}
       <div className="absolute inset-0 world-map-pattern opacity-15 pointer-events-none" />
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-[#0F9D7A]/20 via-transparent to-[#142849]/30 rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-amber-500/20 via-transparent to-[#142849]/30 rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block px-3.5 py-1.5 rounded-full border border-[#0F9D7A]/40 bg-[#0F9D7A]/10 text-[#0F9D7A] text-xs font-semibold tracking-wider uppercase mb-5">
+          <span className="inline-block px-3.5 py-1.5 rounded-full border border-amber-400/40 bg-amber-500/10 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-5">
             Direct Trade Advisory
           </span>
 
@@ -36,7 +36,7 @@ export default function CtaSection() {
             <a
               href="mailto:trade@brittradeglobal.co.uk?subject=Import%20Export%20Quotation%20Request"
               id="cta-get-quote"
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#0F9D7A] hover:bg-[#0C7A60] text-white font-bold text-sm sm:text-base rounded-xl shadow-xl hover:shadow-emerald-900/40 transition-all duration-200 group"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 font-bold text-sm sm:text-base rounded-xl shadow-xl shadow-amber-500/25 transition-all duration-200 group"
             >
               <span>Request Free Trade Call</span>
               <HiArrowRight className="group-hover:translate-x-1 transition-transform duration-200" size={18} />
@@ -46,7 +46,7 @@ export default function CtaSection() {
               id="cta-contact-team"
               className="inline-flex items-center gap-2.5 px-7 py-4 border border-white/25 hover:border-white/60 text-white font-semibold text-sm sm:text-base rounded-xl transition-colors duration-200 hover:bg-white/10"
             >
-              <HiPhone className="text-[#0F9D7A]" size={18} />
+              <HiPhone className="text-amber-400" size={18} />
               <span>+91 72979 60397</span>
             </a>
           </div>
@@ -54,15 +54,15 @@ export default function CtaSection() {
           {/* Three fast facts & Career Anchor */}
           <div id="career" className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-white/10 max-w-3xl mx-auto">
             <div className="flex items-center justify-center gap-2 text-xs font-medium text-slate-300">
-              <HiClock className="text-[#0F9D7A]" size={18} />
+              <HiClock className="text-amber-400" size={18} />
               <span>24-Hour Turnaround</span>
             </div>
             <div className="flex items-center justify-center gap-2 text-xs font-medium text-slate-300">
-              <HiMail className="text-[#0F9D7A]" size={18} />
+              <HiMail className="text-amber-400" size={18} />
               <span>careers@shivasunmoderno.com</span>
             </div>
             <div className="flex items-center justify-center gap-2 text-xs font-medium text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-[#0F9D7A]" />
+              <span className="w-2 h-2 rounded-full bg-amber-400" />
               <span>Global Careers & Opportunities</span>
             </div>
           </div>

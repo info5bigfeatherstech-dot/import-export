@@ -61,6 +61,9 @@ export default function Navbar() {
         scrolled ? 'shadow-sm py-2.5' : 'py-3.5'
       }`}
     >
+      {/* Top golden-yellow sun gradient accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500" />
+
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <Link
@@ -100,13 +103,13 @@ export default function Navbar() {
                   <Link
                     to="/#products"
                     onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-[#0F9D7A] hover:bg-slate-50 transition-colors duration-200"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-amber-600 hover:bg-amber-50/60 transition-colors duration-200"
                   >
                     <span>{link.label}</span>
                     <TbChevronDown
                       size={14}
                       className={`text-slate-500 transition-transform duration-200 ${
-                        dropdownOpen ? 'rotate-180 text-[#0F9D7A]' : ''
+                        dropdownOpen ? 'rotate-180 text-amber-500' : ''
                       }`}
                     />
                   </Link>
@@ -129,9 +132,9 @@ export default function Navbar() {
                                 key={cat.id}
                                 to={`/#cat-${cat.id}`}
                                 onClick={() => setDropdownOpen(false)}
-                                className="group/item flex flex-col px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors"
+                                className="group/item flex flex-col px-3 py-2 rounded-xl hover:bg-amber-50/50 transition-colors"
                               >
-                                <span className="text-xs font-bold text-[#0B1F3A] group-hover/item:text-[#0F9D7A] transition-colors truncate font-[Manrope]">
+                                <span className="text-xs font-bold text-[#0B1F3A] group-hover/item:text-amber-600 transition-colors truncate font-[Manrope]">
                                   {cat.title}
                                 </span>
                                 <span className="text-[10px] text-slate-500 truncate">
@@ -155,8 +158,8 @@ export default function Navbar() {
                   to={link.href}
                   className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                     isActive
-                      ? 'text-[#0F9D7A] font-bold bg-emerald-50'
-                      : 'text-slate-700 hover:text-[#0F9D7A] hover:bg-slate-50'
+                      ? 'text-amber-700 font-bold bg-amber-50/90 ring-1 ring-amber-200/60'
+                      : 'text-slate-700 hover:text-amber-600 hover:bg-amber-50/60'
                   }`}
                 >
                   {link.label}
@@ -168,7 +171,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-[#0F9D7A] hover:bg-slate-50 transition-colors duration-200"
+                className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-amber-600 hover:bg-amber-50/60 transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -180,15 +183,15 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-4">
           <a
             href="tel:+917297960397"
-            className="flex items-center gap-1.5 text-xs font-semibold tracking-wide text-slate-700 hover:text-[#0B1F3A] transition-colors"
+            className="flex items-center gap-1.5 text-xs font-semibold tracking-wide text-slate-700 hover:text-amber-600 transition-colors"
           >
-            <HiPhone className="text-[#0F9D7A]" size={15} />
+            <HiPhone className="text-amber-500" size={15} />
             <span>+91 72979 60397</span>
           </a>
           <Link
             to="/contact"
             id="nav-request-quote"
-            className="px-5 py-2.5 bg-[#0F9D7A] hover:bg-[#0C7A60] text-white text-sm font-semibold rounded-lg shadow-sm transition-all duration-200 hover:shadow hover:-translate-y-0.5"
+            className="px-5 py-2.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 text-sm font-bold rounded-lg shadow-sm shadow-amber-400/30 transition-all duration-200 hover:shadow hover:-translate-y-0.5"
           >
             Request Quote
           </Link>
@@ -225,11 +228,11 @@ export default function Navbar() {
                 if (link.hasDropdown) {
                   return (
                     <div key={link.label} className="flex flex-col">
-                      <div className="flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">
+                      <div className="flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-amber-50/50">
                         <Link
                           to="/#products"
                           onClick={() => setMobileOpen(false)}
-                          className="hover:text-[#0F9D7A]"
+                          className="hover:text-amber-600"
                         >
                           {link.label}
                         </Link>
@@ -238,13 +241,14 @@ export default function Navbar() {
                           onClick={() =>
                             setMobileCategoriesOpen(!mobileCategoriesOpen)
                           }
-                          className="p-1 text-slate-400 hover:text-[#0F9D7A]"
+                          className="p-1 text-slate-400 hover:text-amber-600"
                           aria-label="Toggle categories list"
                         >
                           <TbChevronDown
                             size={16}
-                            className={`transition-transform duration-200 ${mobileCategoriesOpen ? 'rotate-180 text-[#0F9D7A]' : ''
-                              }`}
+                            className={`transition-transform duration-200 ${
+                              mobileCategoriesOpen ? 'rotate-180 text-amber-500' : ''
+                            }`}
                           />
                         </button>
                       </div>
@@ -257,7 +261,7 @@ export default function Navbar() {
                               key={cat.id}
                               to={`/#cat-${cat.id}`}
                               onClick={() => setMobileOpen(false)}
-                              className="block px-3 py-2 text-xs font-medium text-slate-700 hover:text-[#0F9D7A] rounded-lg hover:bg-white transition-colors"
+                              className="block px-3 py-2 text-xs font-medium text-slate-700 hover:text-amber-600 rounded-lg hover:bg-white transition-colors"
                             >
                               <span>{cat.title}</span>
                             </Link>
@@ -280,10 +284,11 @@ export default function Navbar() {
                       key={link.label}
                       to={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive
-                          ? 'bg-emerald-50 text-[#0F9D7A] font-bold'
-                          : 'text-slate-700 hover:bg-slate-50 hover:text-[#0F9D7A]'
-                        }`}
+                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                        isActive
+                          ? 'bg-amber-50 text-amber-700 font-bold border-l-2 border-amber-500'
+                          : 'text-slate-700 hover:bg-slate-50 hover:text-amber-600'
+                      }`}
                     >
                       {link.label}
                     </Link>
@@ -295,7 +300,7 @@ export default function Navbar() {
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-[#0F9D7A] transition-colors"
+                    className="px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-amber-600 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -305,16 +310,16 @@ export default function Navbar() {
               <div className="pt-3 border-t border-slate-100 mt-2 flex flex-col gap-3">
                 <a
                   href="tel:+917297960397"
-                  className="flex items-center justify-center gap-2 text-sm text-slate-600 font-semibold py-2"
+                  className="flex items-center justify-center gap-2 text-sm text-slate-600 hover:text-amber-600 font-semibold py-2"
                 >
-                  <HiPhone className="text-[#0F9D7A]" size={16} />
+                  <HiPhone className="text-amber-500" size={16} />
                   +91 72979 60397
                 </a>
                 <Link
                   to="/contact"
                   id="mobile-request-quote"
                   onClick={() => setMobileOpen(false)}
-                  className="w-full py-3 bg-[#0F9D7A] text-white text-sm font-semibold rounded-lg text-center transition-colors hover:bg-[#0C7A60] shadow-sm block"
+                  className="w-full py-3 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 text-sm font-bold rounded-lg text-center transition-colors shadow-sm shadow-amber-400/30 block"
                 >
                   Request a Free Quote
                 </Link>

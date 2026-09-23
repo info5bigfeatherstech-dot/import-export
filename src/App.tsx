@@ -10,7 +10,7 @@ import ScrollToTop from './components/ScrollToTop'
 
 export default function App() {
   return (
-    <div className="w-full min-h-screen flex flex-col bg-white text-[#1F2937] antialiased selection:bg-[#0F9D7A] selection:text-white">
+    <div className="w-full min-h-screen flex flex-col bg-white text-[#1F2937] antialiased selection:bg-amber-400 selection:text-slate-950">
       <ScrollToTop />
       <Navbar />
       <main className="w-full flex-1 flex flex-col">

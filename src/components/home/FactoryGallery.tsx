@@ -112,10 +112,10 @@ export default function FactoryGallery() {
         <div className="mb-10 sm:mb-12">
           {/* Eyebrow with horizontal accent bar */}
           <div className="flex items-center gap-3 mb-2.5">
-            <span className="text-xs font-extrabold tracking-[0.22em] text-[#0F9D7A] uppercase font-[Manrope]">
+            <span className="text-xs font-extrabold tracking-[0.22em] text-amber-600 uppercase font-[Manrope]">
               INSIDE OUR FACTORIES
             </span>
-            <span className="w-8 h-[2px] bg-[#0F9D7A]" />
+            <span className="w-8 h-[2px] bg-gradient-to-r from-amber-400 to-yellow-400" />
           </div>
 
           {/* Headline */}
@@ -139,7 +139,7 @@ export default function FactoryGallery() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: (index % 4) * 0.08 }}
               onClick={() => setActiveImageIndex(index)}
-              className="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 border border-slate-200/80 shadow-xs hover:shadow-xl hover:border-[#0F9D7A]/50 transition-all duration-300 cursor-pointer"
+              className="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 border border-slate-200/80 shadow-xs hover:shadow-xl hover:border-amber-400/50 transition-all duration-300 cursor-pointer"
             >
               {/* Image */}
               <img
@@ -151,7 +151,7 @@ export default function FactoryGallery() {
 
               {/* Hover Dark Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 sm:p-5">
-                <span className="inline-block self-start text-[10px] font-bold text-white uppercase tracking-wider bg-[#0F9D7A] px-2 py-0.5 rounded-full mb-1.5 font-[Manrope]">
+                <span className="inline-block self-start text-[10px] font-bold text-slate-950 uppercase tracking-wider bg-gradient-to-r from-amber-400 to-yellow-400 px-2.5 py-0.5 rounded-full mb-1.5 font-[Manrope] shadow-sm">
                   {item.category}
                 </span>
                 <p className="text-white text-xs sm:text-sm font-semibold font-[Manrope] leading-snug line-clamp-2">
@@ -160,7 +160,7 @@ export default function FactoryGallery() {
 
                 {/* Zoom Icon Pill */}
                 <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 text-slate-800 flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <TbZoomIn size={16} className="text-[#0F9D7A]" />
+                  <TbZoomIn size={16} className="text-amber-500" />
                 </div>
               </div>
             </motion.div>
@@ -221,7 +221,7 @@ export default function FactoryGallery() {
                 className="max-h-[75vh] w-auto rounded-xl object-contain shadow-2xl"
               />
               <div className="mt-4 text-center">
-                <span className="text-[11px] font-bold text-[#34D399] uppercase tracking-wider bg-emerald-950/80 border border-emerald-500/30 px-3 py-1 rounded-full font-[Manrope]">
+                <span className="text-[11px] font-bold text-amber-300 uppercase tracking-wider bg-amber-950/80 border border-amber-500/30 px-3 py-1 rounded-full font-[Manrope]">
                   {galleryItems[activeImageIndex].category}
                 </span>
                 <p className="text-white text-base sm:text-lg font-bold font-[Manrope] mt-2">

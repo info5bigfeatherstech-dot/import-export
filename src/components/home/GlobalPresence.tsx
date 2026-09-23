@@ -28,7 +28,7 @@ export default function GlobalPresence() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-xs font-bold tracking-widest text-[#0F9D7A] uppercase mb-3">
+          <p className="text-xs font-bold tracking-widest text-amber-400 uppercase mb-3">
             Worldwide Logistics Coverage
           </p>
           <h2
@@ -71,7 +71,7 @@ export default function GlobalPresence() {
               {/* Europe & UK */}
               <path
                 d="M440 90 L520 80 L540 150 L470 170 L430 130 Z"
-                fill="#0F9D7A"
+                fill="#F59E0B"
                 fillOpacity="0.6"
               />
               {/* Africa */}
@@ -96,28 +96,28 @@ export default function GlobalPresence() {
               {/* Trade shipping connection arcs */}
               <path
                 d="M480 125 Q360 160 240 160"
-                stroke="#0F9D7A"
+                stroke="#F59E0B"
                 strokeWidth="2"
                 strokeDasharray="4 4"
                 opacity="0.8"
               />
               <path
                 d="M480 125 Q540 160 610 195"
-                stroke="#0F9D7A"
+                stroke="#F59E0B"
                 strokeWidth="2"
                 strokeDasharray="4 4"
                 opacity="0.8"
               />
               <path
                 d="M610 195 Q685 210 760 240"
-                stroke="#0F9D7A"
+                stroke="#F59E0B"
                 strokeWidth="2"
                 strokeDasharray="4 4"
                 opacity="0.8"
               />
               <path
                 d="M480 125 Q510 190 540 260"
-                stroke="#0F9D7A"
+                stroke="#F59E0B"
                 strokeWidth="2"
                 strokeDasharray="4 4"
                 opacity="0.8"
@@ -132,13 +132,13 @@ export default function GlobalPresence() {
                 style={{ left: hub.cx, top: hub.cy }}
               >
                 <div className="relative flex items-center justify-center">
-                  <div className="absolute w-6 h-6 rounded-full bg-[#0F9D7A]/40 animate-ping" />
-                  <div className="w-3.5 h-3.5 rounded-full bg-[#0F9D7A] border-2 border-white shadow-lg relative z-10" />
+                  <div className="absolute w-6 h-6 rounded-full bg-amber-400/40 animate-ping" />
+                  <div className="w-3.5 h-3.5 rounded-full bg-amber-400 border-2 border-white shadow-lg relative z-10" />
 
                   {/* Tooltip on hover/display */}
                   <div className="absolute top-5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#07162A]/95 border border-white/20 px-2.5 py-1 rounded-md shadow-xl z-20 pointer-events-none">
                     <p className="text-[11px] font-bold text-white leading-none">{hub.name}</p>
-                    <p className="text-[9px] text-[#0F9D7A] leading-none mt-1">{hub.port}</p>
+                    <p className="text-[9px] text-amber-300 leading-none mt-1">{hub.port}</p>
                   </div>
                 </div>
               </div>
@@ -150,7 +150,7 @@ export default function GlobalPresence() {
             {hubs.map((hub) => (
               <div
                 key={hub.name}
-                className="p-2.5 rounded-lg bg-white/5 border border-white/10 text-center hover:border-[#0F9D7A]/40 transition-colors"
+                className="p-2.5 rounded-lg bg-white/5 border border-white/10 text-center hover:border-amber-400/40 transition-colors"
               >
                 <p className="text-xs font-bold text-white">{hub.name}</p>
                 <p className="text-[10px] text-slate-400 mt-0.5">{hub.port}</p>
@@ -166,7 +166,7 @@ export default function GlobalPresence() {
               key={m.label}
               className="text-center p-6 rounded-xl bg-white/5 border border-white/10 shadow-sm"
             >
-              <p className="text-3xl sm:text-4xl font-extrabold text-[#0F9D7A] font-[Manrope]">
+              <p className="text-3xl sm:text-4xl font-extrabold text-amber-400 font-[Manrope]">
                 {m.value}
               </p>
               <p className="text-slate-300 text-sm font-medium mt-1">{m.label}</p>

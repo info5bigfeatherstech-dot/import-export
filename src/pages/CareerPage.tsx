@@ -197,18 +197,18 @@ export default function CareerPage() {
       {/* 1. HERO SECTION */}
       <section className="relative w-full bg-[#0B1F3A] text-white pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 overflow-hidden">
         <div className="absolute inset-0 opacity-15 pointer-events-none">
-          <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#0F9D7A] blur-3xl" />
+          <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-amber-500/20 blur-3xl" />
           <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-indigo-600 blur-3xl" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-[#0F9D7A]/30 text-[#0F9D7A] text-xs font-bold uppercase tracking-widest mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-400 text-xs font-bold uppercase tracking-widest mb-6">
             <TbSparkles size={14} />
             Careers at ShivaSun Moderno Impex Private Limited
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-[Manrope] tracking-tight leading-tight mb-6">
-            Shape the Future of <span className="text-[#0F9D7A]">Global Trade & Fashion</span>
+            Shape the Future of <span className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">Global Trade & Fashion</span>
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
@@ -217,7 +217,7 @@ export default function CareerPage() {
 
           <a
             href="#openings"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#0F9D7A] hover:bg-[#0B7A5E] text-white font-bold text-sm shadow-lg shadow-emerald-900/30 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 font-bold text-sm shadow-lg shadow-amber-500/25 transition-all duration-200"
           >
             <span>Explore Open Positions ({positions.length})</span>
             <TbArrowRight size={16} />
@@ -229,7 +229,7 @@ export default function CareerPage() {
       <section className="py-16 sm:py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F9D7A]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
               Why Work With Us
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0B1F3A] font-[Manrope] tracking-tight mt-2 mb-3">
@@ -246,10 +246,10 @@ export default function CareerPage() {
               return (
                 <div
                   key={i}
-                  className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#0F9D7A]/50 transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
+                  className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-amber-400/50 transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-white shadow-sm text-[#0F9D7A] flex items-center justify-center mb-5">
+                    <div className="w-12 h-12 rounded-xl bg-white shadow-sm text-amber-500 flex items-center justify-center mb-5">
                       <Icon size={24} />
                     </div>
                     <h3 className="text-base font-bold text-[#0B1F3A] font-[Manrope] mb-2">
@@ -271,7 +271,7 @@ export default function CareerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F9D7A]">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
                 Current Opportunities
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] font-[Manrope] tracking-tight mt-1">
@@ -287,7 +287,7 @@ export default function CareerPage() {
                   onClick={() => setSelectedDept(dept)}
                   className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
                     selectedDept === dept
-                      ? 'bg-[#0F9D7A] text-white shadow-sm'
+                      ? 'bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-bold shadow-sm'
                       : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                   }`}
                 >
@@ -307,7 +307,7 @@ export default function CareerPage() {
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                   <div className="space-y-2 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="px-2.5 py-0.5 rounded-md bg-emerald-50 text-[#0F9D7A] font-bold text-[11px] uppercase tracking-wider">
+                      <span className="px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-700 font-bold text-[11px] uppercase tracking-wider">
                         {job.department}
                       </span>
                       <span className="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-600 font-semibold text-[11px]">
@@ -325,11 +325,11 @@ export default function CareerPage() {
 
                     <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-2">
                       <div className="flex items-center gap-1.5">
-                        <TbMapPin size={15} className="text-[#0F9D7A]" />
+                        <TbMapPin size={15} className="text-amber-500" />
                         <span>{job.location}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <TbClock size={15} className="text-[#0F9D7A]" />
+                        <TbClock size={15} className="text-amber-500" />
                         <span>Exp: {job.experience}</span>
                       </div>
                     </div>
@@ -339,7 +339,7 @@ export default function CareerPage() {
                     <button
                       type="button"
                       onClick={() => setActiveModalJob(job)}
-                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#0F9D7A] hover:bg-[#0B7A5E] text-white text-xs font-bold transition-all shadow-sm hover:shadow"
+                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 text-xs font-bold transition-all shadow-sm hover:shadow"
                     >
                       View Details & Apply
                     </button>
@@ -362,7 +362,7 @@ export default function CareerPage() {
             </p>
             <a
               href="mailto:careers@shivasunmoderno.com"
-              className="inline-flex items-center gap-2 text-sm font-bold text-[#0F9D7A] hover:text-[#0B7A5E]"
+              className="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700"
             >
               <span>careers@shivasunmoderno.com</span>
               <TbArrowRight size={14} />
@@ -384,7 +384,7 @@ export default function CareerPage() {
               {/* Modal Header */}
               <div className="px-6 py-5 bg-[#0B1F3A] text-white flex items-center justify-between shrink-0">
                 <div>
-                  <span className="text-[11px] font-bold text-[#0F9D7A] uppercase tracking-wider block">
+                  <span className="text-[11px] font-bold text-amber-600 uppercase tracking-wider block">
                     Job Application
                   </span>
                   <h3 className="text-lg font-bold font-[Manrope]">{activeModalJob.title}</h3>
@@ -402,7 +402,7 @@ export default function CareerPage() {
               <div className="p-6 overflow-y-auto flex-1 space-y-6">
                 {submitted ? (
                   <div className="py-12 text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#0F9D7A] flex items-center justify-center mx-auto text-2xl">
+                    <div className="w-16 h-16 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center mx-auto text-2xl">
                       <TbCheck size={32} />
                     </div>
                     <h4 className="text-xl font-bold text-[#0B1F3A] font-[Manrope]">
@@ -414,7 +414,7 @@ export default function CareerPage() {
                     </p>
                     <button
                       onClick={closeModal}
-                      className="px-6 py-2.5 rounded-xl bg-[#0F9D7A] text-white text-xs font-bold"
+                      className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 text-xs font-bold"
                     >
                       Close Window
                     </button>
@@ -444,7 +444,7 @@ export default function CareerPage() {
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                             placeholder="John Doe"
-                            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                           />
                         </div>
 
@@ -458,7 +458,7 @@ export default function CareerPage() {
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             placeholder="john@example.com"
-                            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                           />
                         </div>
                       </div>
@@ -474,7 +474,7 @@ export default function CareerPage() {
                             value={formData.phone}
                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                             placeholder="+91 72979 60397"
-                            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                           />
                         </div>
 
@@ -487,7 +487,7 @@ export default function CareerPage() {
                             value={formData.linkedin}
                             onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
                             placeholder="https://linkedin.com/in/username"
-                            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                           />
                         </div>
                       </div>
@@ -501,7 +501,7 @@ export default function CareerPage() {
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                           placeholder="Tell us briefly about your experience in apparel, fabrics, or supply chain logistics..."
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-[#0F9D7A] focus:ring-1 focus:ring-[#0F9D7A]"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                         />
                       </div>
 
@@ -515,7 +515,7 @@ export default function CareerPage() {
                         </button>
                         <button
                           type="submit"
-                          className="px-6 py-2.5 rounded-xl bg-[#0F9D7A] hover:bg-[#0B7A5E] text-white text-xs font-bold shadow-md inline-flex items-center gap-2"
+                          className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 text-xs font-bold shadow-md shadow-amber-500/25 inline-flex items-center gap-2"
                         >
                           <TbSend size={14} />
                           <span>Submit Application</span>

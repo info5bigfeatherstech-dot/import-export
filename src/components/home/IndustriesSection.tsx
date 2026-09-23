@@ -38,13 +38,13 @@ const industries: Industry[] = [
     highlights: ['Tiered Volume Price Rebates', 'Bonded Warehouse Facilities', 'Full Container Load (FCL) Specialists'],
   },
   {
-    id: 'hospitality',
-    title: 'Hospitality & Commercial Groups',
-    headline: 'Commercial Provisions & Hotel Operating Supplies',
+    id: 'fashion-brands',
+    title: 'Fashion Brands & Designers',
+    headline: 'Bespoke Collections, Sample Prototyping & Custom Apparel',
     description:
-      'Supplying international luxury hotel chains, restaurant groups, and caterers with British specialty foods, linen textiles, table equipment, and eco-certified consumables.',
-    image: '/ind_hospitality_1790144778784.jpg',
-    highlights: ['Cold-Chain Temperature Logging', 'Certified Commercial Grade Linens', 'Consistent Batch Replenishment'],
+      'We partner with contemporary fashion designers, boutique labels, and global apparel brands to turn concepts into market-ready collections—from precision tech-pack development and fabric sourcing to rapid prototype sampling and high-volume garment manufacturing.',
+    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=80',
+    highlights: ['Low MOQ & Rapid Prototype Sampling', 'Custom Pattern & Tech-Pack Engineering', 'Bespoke Trims, Labels & Finishing'],
   },
 ]
 
@@ -58,7 +58,7 @@ export default function IndustriesSection() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-xs font-bold tracking-widest text-[#0F9D7A] uppercase mb-3">
+          <p className="text-xs font-bold tracking-widest text-amber-600 uppercase mb-3">
             Industry Focus
           </p>
           <h2
@@ -90,7 +90,7 @@ export default function IndustriesSection() {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/60 via-transparent to-transparent" />
-                  <span className="absolute bottom-4 left-4 px-3.5 py-1.5 rounded-full bg-[#0F9D7A] text-white text-xs font-bold shadow">
+                  <span className="absolute bottom-4 left-4 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 text-xs font-bold shadow-md shadow-amber-500/20">
                     {ind.title}
                   </span>
                 </div>
@@ -98,7 +98,7 @@ export default function IndustriesSection() {
 
               {/* Text content (6 cols) */}
               <div className="lg:col-span-6 flex flex-col items-start">
-                <span className="text-xs font-bold tracking-wider uppercase text-[#0F9D7A] mb-2">
+                <span className="text-xs font-bold tracking-wider uppercase text-amber-600 mb-2">
                   Industry Solution
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] font-[Manrope] mb-3 leading-tight">
@@ -112,7 +112,7 @@ export default function IndustriesSection() {
                 <div className="space-y-2.5 mb-8 w-full">
                   {ind.highlights.map((h) => (
                     <div key={h} className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-700">
-                      <HiCheckCircle className="text-[#0F9D7A] flex-shrink-0" size={18} />
+                      <HiCheckCircle className="text-amber-500 flex-shrink-0" size={18} />
                       <span>{h}</span>
                     </div>
                   ))}

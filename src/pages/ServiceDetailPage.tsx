@@ -29,18 +29,18 @@ export default function ServiceDetailPage() {
       <section className="relative w-full bg-[#0B1F3A] text-white pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 overflow-hidden">
         {/* Ambient Glow */}
         <div className="absolute inset-0 opacity-15 pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#0F9D7A] blur-3xl" />
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-amber-500/20 blur-3xl" />
           <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-blue-600 blur-3xl" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb & Back Link */}
           <div className="flex items-center gap-2 text-xs text-slate-400 mb-6 font-medium">
-            <Link to="/" className="hover:text-[#0F9D7A] transition-colors">
+            <Link to="/" className="hover:text-amber-400 transition-colors">
               Home
             </Link>
             <span>/</span>
-            <Link to="/#apparel-services" className="hover:text-[#0F9D7A] transition-colors">
+            <Link to="/#apparel-services" className="hover:text-amber-400 transition-colors">
               Manufacturing Services
             </Link>
             <span>/</span>
@@ -48,8 +48,8 @@ export default function ServiceDetailPage() {
           </div>
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-[#0F9D7A]/30 text-[#0F9D7A] text-xs font-bold uppercase tracking-widest mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#0F9D7A] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-400 text-xs font-bold uppercase tracking-widest mb-6">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
               Service {currentService.number} • ShivaSun Moderno Impex
             </div>
 
@@ -64,7 +64,7 @@ export default function ServiceDetailPage() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#0F9D7A] hover:bg-[#0B7A5E] text-white font-bold text-sm shadow-lg shadow-emerald-900/30 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 font-bold text-sm shadow-lg shadow-amber-500/25 transition-all duration-200"
               >
                 <span>Request Commercial Quotation</span>
                 <TbArrowRight size={16} />
@@ -83,7 +83,7 @@ export default function ServiceDetailPage() {
         <div className="mt-16 border-t border-white/10 pt-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-[#0F9D7A] flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-amber-500 flex items-center justify-center shrink-0">
                 <TbClock size={20} />
               </div>
               <div>
@@ -93,7 +93,7 @@ export default function ServiceDetailPage() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-[#0F9D7A] flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-amber-500 flex items-center justify-center shrink-0">
                 <TbBuildingFactory2 size={20} />
               </div>
               <div>
@@ -103,7 +103,7 @@ export default function ServiceDetailPage() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-[#0F9D7A] flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-amber-500 flex items-center justify-center shrink-0">
                 <TbShieldCheck size={20} />
               </div>
               <div>
@@ -113,7 +113,7 @@ export default function ServiceDetailPage() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-[#0F9D7A] flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-amber-500 flex items-center justify-center shrink-0">
                 <TbSparkles size={20} />
               </div>
               <div>
@@ -139,7 +139,7 @@ export default function ServiceDetailPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#091422]/90 via-transparent to-transparent flex items-end p-6 sm:p-8">
                   <div className="text-white">
-                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#0F9D7A] block mb-1">
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-amber-600 block mb-1">
                       Certified Manufacturing Excellence
                     </span>
                     <h3 className="text-xl sm:text-2xl font-bold font-[Manrope]">
@@ -151,7 +151,7 @@ export default function ServiceDetailPage() {
 
               {/* Floating Badge */}
               <div className="hidden sm:flex absolute -bottom-5 -right-5 bg-white rounded-2xl p-4 shadow-xl border border-slate-100 items-center gap-3.5 max-w-xs">
-                <div className="w-11 h-11 rounded-xl bg-emerald-50 text-[#0F9D7A] flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center shrink-0">
                   <Icon size={22} />
                 </div>
                 <div>
@@ -163,7 +163,7 @@ export default function ServiceDetailPage() {
 
             {/* Right Column: Capabilities & Specializations */}
             <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F9D7A]">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
                 ✦ Production Scope & Focus
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0B1F3A] font-[Manrope] tracking-tight leading-snug">
@@ -179,7 +179,7 @@ export default function ServiceDetailPage() {
                 </div>
                 {currentService.specializations.map((spec, i) => (
                   <div key={i} className="flex items-start gap-3 text-sm text-slate-700">
-                    <div className="w-5 h-5 rounded-full bg-emerald-100 text-[#0F9D7A] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
                       <TbCheck size={13} />
                     </div>
                     <span>{spec}</span>
@@ -195,7 +195,7 @@ export default function ServiceDetailPage() {
       <section id="workflow" className="py-16 sm:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F9D7A]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
               Execution Framework
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1F3A] font-[Manrope] tracking-tight mt-2 mb-4">
@@ -210,7 +210,7 @@ export default function ServiceDetailPage() {
             {currentService.processSteps.map((stepItem, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-lg hover:border-[#0F9D7A]/40 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-lg hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-slate-100 text-[#0B1F3A] font-extrabold text-sm flex items-center justify-center mb-4 font-[Manrope]">
@@ -224,7 +224,7 @@ export default function ServiceDetailPage() {
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-bold text-[#0F9D7A]">
+                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-bold text-amber-600">
                   <span>Verified Stage</span>
                   <TbCheck size={13} />
                 </div>
@@ -239,7 +239,7 @@ export default function ServiceDetailPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-5 space-y-4">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F9D7A]">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
                 Guaranteed Output
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] font-[Manrope]">
@@ -251,7 +251,7 @@ export default function ServiceDetailPage() {
               <div className="pt-2">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-[#0F9D7A] hover:text-[#0B7A5E] uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-amber-600 hover:text-amber-700 uppercase tracking-wider"
                 >
                   <span>Inquire with your technical requirements</span>
                   <TbArrowRight size={14} />
@@ -265,7 +265,7 @@ export default function ServiceDetailPage() {
                   key={idx}
                   className="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 flex items-start gap-3.5"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-emerald-100 text-[#0F9D7A] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
                     <TbFileCertificate size={18} />
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
@@ -283,7 +283,7 @@ export default function ServiceDetailPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F9D7A]">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
                 Explore Full Capabilities
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] font-[Manrope] mt-1">
@@ -292,7 +292,7 @@ export default function ServiceDetailPage() {
             </div>
             <Link
               to="/#apparel-services"
-              className="text-xs font-bold text-[#0F9D7A] hover:text-[#0B7A5E] inline-flex items-center gap-1.5"
+              className="text-xs font-bold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1.5"
             >
               <span>View All on Homepage</span>
               <TbArrowRight size={14} />
@@ -310,7 +310,7 @@ export default function ServiceDetailPage() {
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-slate-100 text-[#0B1F3A] group-hover:bg-[#0F9D7A] group-hover:text-white transition-colors flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-xl bg-slate-100 text-[#0B1F3A] group-hover:bg-gradient-to-r group-hover:from-amber-400 group-hover:to-yellow-400 group-hover:text-slate-950 transition-colors flex items-center justify-center">
                         <OtherIcon size={20} />
                       </div>
                       <span className="text-xs font-bold text-slate-400 font-[Manrope]">
@@ -318,7 +318,7 @@ export default function ServiceDetailPage() {
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-[#0B1F3A] font-[Manrope] mb-2 group-hover:text-[#0F9D7A] transition-colors">
+                    <h3 className="text-lg font-bold text-[#0B1F3A] font-[Manrope] mb-2 group-hover:text-amber-400 transition-colors">
                       {other.shortTitle}
                     </h3>
                     <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
@@ -326,7 +326,7 @@ export default function ServiceDetailPage() {
                     </p>
                   </div>
 
-                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0F9D7A]">
+                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-amber-600">
                     <span>Read Details</span>
                     <TbArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -341,7 +341,7 @@ export default function ServiceDetailPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <div className="relative rounded-3xl bg-gradient-to-r from-[#0B1F3A] via-[#0D284C] to-[#0B1F3A] text-white p-8 sm:p-12 overflow-hidden shadow-2xl">
           <div className="relative z-10 max-w-2xl">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F9D7A]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
               Direct Trade Desk
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold font-[Manrope] tracking-tight mt-2 mb-4">
@@ -353,7 +353,7 @@ export default function ServiceDetailPage() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="px-6 py-3.5 rounded-xl bg-[#0F9D7A] hover:bg-[#0B7A5E] text-white font-bold text-sm shadow-lg transition-all"
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 font-bold text-sm shadow-lg shadow-amber-500/25 transition-all"
               >
                 Inquire For This Service
               </Link>

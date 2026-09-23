@@ -57,16 +57,16 @@ export default function ExportMarketSection() {
           >
             {/* Horizontal Line Kicker */}
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-[2px] bg-[#0F9D7A]" />
-              <p className="text-xs font-bold tracking-[0.22em] text-[#0F9D7A] uppercase font-[Manrope]">
+              <span className="w-10 h-[2px] bg-gradient-to-r from-amber-400 to-yellow-400" />
+              <p className="text-xs font-bold tracking-[0.22em] text-amber-600 uppercase font-[Manrope]">
                 Export Market
               </p>
             </div>
 
-            {/* Main Headline in Theme Green */}
-            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-[#0B7A5E] uppercase tracking-tight leading-[1.18] mb-5 font-[Manrope]">
+            {/* Main Headline in Theme Gold/Navy */}
+            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-[#0B1F3A] uppercase tracking-tight leading-[1.18] mb-5 font-[Manrope]">
               PROVIDING INTERNATIONAL <br className="hidden sm:inline" />
-              STANDARD GARMENT PRODUCTS
+              <span className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 bg-clip-text text-transparent">STANDARD GARMENT PRODUCTS</span>
             </h2>
 
             {/* Description Copy */}
@@ -78,12 +78,12 @@ export default function ExportMarketSection() {
               global commercial benchmarks.
             </p>
 
-            {/* Pill Outline Button in Theme Green */}
+            {/* Pill Outline Button in Theme Amber */}
             <div>
               <a
                 href="#contact"
                 id="export-market-see-more"
-                className="inline-flex items-center gap-2.5 px-8 py-3 rounded-full border-2 border-[#0F9D7A] text-[#0F9D7A] hover:bg-[#0F9D7A] hover:text-white font-bold text-sm sm:text-base transition-all duration-300 shadow-sm hover:shadow-md hover:shadow-[#0F9D7A]/20 group"
+                className="inline-flex items-center gap-2.5 px-8 py-3 rounded-full border-2 border-amber-500 text-amber-600 hover:bg-gradient-to-r hover:from-amber-400 hover:via-yellow-400 hover:to-amber-500 hover:border-transparent hover:text-slate-950 font-bold text-sm sm:text-base transition-all duration-300 shadow-sm hover:shadow-md hover:shadow-amber-400/20 group"
               >
                 <span>See More</span>
                 <TbArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -104,7 +104,7 @@ export default function ExportMarketSection() {
               {targetMarkets.map((market) => (
                 <div
                   key={market.label}
-                  className="flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-full border border-slate-200/80 shadow-xs hover:border-[#0F9D7A]/40 transition-colors"
+                  className="flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-full border border-slate-200/80 shadow-xs hover:border-amber-400/40 transition-colors"
                 >
                   <span className="text-base sm:text-lg drop-shadow-xs" role="img" aria-label={market.label}>
                     {market.flag}
@@ -125,7 +125,7 @@ export default function ExportMarketSection() {
             <WorldMap
               dots={tradeRoutes}
               theme="light"
-              lineColor="#0F9D7A"
+              lineColor="#F59E0B"
             />
           </motion.div>
         </div>

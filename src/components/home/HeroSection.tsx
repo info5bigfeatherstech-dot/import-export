@@ -96,8 +96,8 @@ export default function HeroSection() {
             transition={{ duration: 0.4 }}
             className="flex items-center gap-2.5 mb-4"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-[#0F9D7A] animate-pulse" />
-            <p className="text-xs font-extrabold tracking-[0.25em] text-emerald-400 uppercase font-[Manrope]">
+            <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 shadow-sm shadow-amber-400/50 animate-pulse" />
+            <p className="text-xs font-extrabold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 uppercase font-[Manrope]">
               SHIVASUN MODERNO APPAREL
             </p>
           </motion.div>
@@ -113,7 +113,10 @@ export default function HeroSection() {
               Welcome to
             </span>
             <span className="block text-white drop-shadow-md">
-              SHIVASUN <span className="text-[#0F9D7A]">MODERNO</span>
+              SHIVASUN{' '}
+              <span className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent drop-shadow-sm">
+                MODERNO
+              </span>
             </span>
             <span className="block mt-2 sm:mt-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide text-slate-100 normal-case font-[Manrope]">
               Where Style Meets{' '}
@@ -150,7 +153,7 @@ export default function HeroSection() {
             <a
               href="#products"
               id="hero-shop-now"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#0F9D7A] hover:bg-[#0B7A5E] text-white font-extrabold text-base sm:text-lg rounded-xl shadow-2xl shadow-emerald-950/50 transition-all duration-200 group hover:-translate-y-0.5 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 font-extrabold text-base sm:text-lg rounded-xl shadow-2xl shadow-amber-500/25 transition-all duration-200 group hover:-translate-y-0.5 cursor-pointer"
             >
               <span>Shop Now</span>
               <TbArrowUpRight
@@ -164,7 +167,7 @@ export default function HeroSection() {
               <a
                 href="#products"
                 id="hero-categories-link"
-                className="underline underline-offset-4 decoration-white/70 hover:decoration-[#0F9D7A] hover:text-[#0F9D7A] transition-colors"
+                className="underline underline-offset-4 decoration-white/70 hover:decoration-amber-400 hover:text-amber-300 transition-colors"
               >
                 Explore Categories
               </a>
@@ -172,7 +175,7 @@ export default function HeroSection() {
               <a
                 href="#gallery"
                 id="hero-gallery-link"
-                className="underline underline-offset-4 decoration-white/70 hover:decoration-[#0F9D7A] hover:text-[#0F9D7A] transition-colors"
+                className="underline underline-offset-4 decoration-white/70 hover:decoration-amber-400 hover:text-amber-300 transition-colors"
               >
                 Inside Factories
               </a>
@@ -195,7 +198,7 @@ export default function HeroSection() {
         </span>
         <TbArrowDown
           size={16}
-          className="animate-bounce text-[#0F9D7A] mt-1"
+          className="animate-bounce text-amber-400 mt-1"
         />
       </a>
     </section>

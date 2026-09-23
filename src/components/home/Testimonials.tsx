@@ -53,7 +53,7 @@ export default function Testimonials() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-xs font-bold tracking-widest text-[#0F9D7A] uppercase mb-3">
+          <p className="text-xs font-bold tracking-widest text-amber-600 uppercase mb-3">
             Client Endorsements
           </p>
           <h2
@@ -72,7 +72,7 @@ export default function Testimonials() {
           {testimonials.map((t) => (
             <div
               key={t.id}
-              className="flex flex-col justify-between p-7 sm:p-8 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#0F9D7A]/50 hover:shadow-xl transition-all duration-300"
+              className="flex flex-col justify-between p-7 sm:p-8 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-amber-400/50 hover:shadow-xl transition-all duration-300"
             >
               <div>
                 {/* 5-Star Rating & Quote Icon */}
@@ -82,7 +82,7 @@ export default function Testimonials() {
                       <TbStarFilled key={i} size={17} />
                     ))}
                   </div>
-                  <TbQuote size={30} className="text-[#0F9D7A] opacity-40" />
+                  <TbQuote size={30} className="text-amber-500 opacity-40" />
                 </div>
 
                 <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-6 italic">
@@ -102,7 +102,7 @@ export default function Testimonials() {
                   <p className="text-xs text-slate-500 font-medium">
                     {t.title}, {t.company}
                   </p>
-                  <p className="text-xs font-semibold text-[#0F9D7A] mt-0.5">
+                  <p className="text-xs font-semibold text-amber-600 mt-0.5">
                     {t.country}
                   </p>
                 </div>

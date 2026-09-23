@@ -50,7 +50,7 @@ export default function TradeProcess() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-xs font-bold tracking-widest text-[#0F9D7A] uppercase mb-3">
+          <p className="text-xs font-bold tracking-widest text-amber-600 uppercase mb-3">
             Execution Framework
           </p>
           <h2
@@ -69,15 +69,15 @@ export default function TradeProcess() {
           {steps.map((item) => (
             <div
               key={item.step}
-              className="relative flex flex-col bg-slate-50 rounded-2xl p-6 sm:p-7 border border-slate-200 hover:border-[#0F9D7A]/50 hover:shadow-lg transition-all duration-300"
+              className="relative flex flex-col bg-slate-50 rounded-2xl p-6 sm:p-7 border border-slate-200 hover:border-amber-400/50 hover:shadow-lg transition-all duration-300"
             >
               {/* Step number badge & icon */}
               <div className="flex items-center justify-between mb-5">
-                <span className="text-2xl font-black font-[Manrope] text-[#0F9D7A]">
+                <span className="text-2xl font-black font-[Manrope] text-amber-500">
                   {item.step}
                 </span>
                 <div className="w-12 h-12 rounded-xl bg-white shadow-sm border border-slate-200 flex items-center justify-center text-[#0B1F3A]">
-                  <item.icon size={26} className="text-[#0F9D7A]" />
+                  <item.icon size={26} className="text-amber-500" />
                 </div>
               </div>
 
@@ -92,7 +92,7 @@ export default function TradeProcess() {
               <div className="pt-4 border-t border-slate-200/80 space-y-1.5">
                 {item.deliverables.map((del) => (
                   <div key={del} className="flex items-center gap-2 text-xs font-medium text-slate-700">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0F9D7A]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                     <span>{del}</span>
                   </div>
                 ))}

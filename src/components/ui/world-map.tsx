@@ -24,7 +24,7 @@ export default function WorldMap({
   const isLight = theme === "light";
 
   // Dynamic colors based on theme
-  const activeLineColor = lineColor || (isLight ? "#0F9D7A" : "#10B981");
+  const activeLineColor = lineColor || (isLight ? "#F59E0B" : "#FBBF24");
   const dotColor = isLight ? "#94A3B8" : "#CBD5E1";
 
   const svgMap = useMemo(() => {
@@ -61,14 +61,14 @@ export default function WorldMap({
     <div
       className={`w-full aspect-[16/10] min-h-[380px] sm:min-h-[440px] lg:min-h-[500px] rounded-3xl relative font-sans overflow-hidden transition-colors duration-500 ${isLight
           ? "bg-white border border-slate-200/90 shadow-2xl shadow-slate-200/70"
-          : "bg-[#07162A] border border-white/10 shadow-2xl shadow-emerald-950/40"
+          : "bg-[#07162A] border border-white/10 shadow-2xl shadow-amber-950/40"
         } ${className}`}
     >
       {/* Background ambient radial glow */}
       <div
         className={`absolute inset-0 pointer-events-none transition-opacity duration-500 ${isLight
-            ? "bg-[radial-gradient(circle_at_50%_40%,rgba(15,157,122,0.1),transparent_75%)]"
-            : "bg-[radial-gradient(circle_at_50%_40%,rgba(16,185,129,0.18),transparent_75%)]"
+            ? "bg-[radial-gradient(circle_at_50%_40%,rgba(245,158,11,0.12),transparent_75%)]"
+            : "bg-[radial-gradient(circle_at_50%_40%,rgba(245,158,11,0.18),transparent_75%)]"
           }`}
       />
 
@@ -95,7 +95,7 @@ export default function WorldMap({
             <stop offset="90%" stopColor={activeLineColor} stopOpacity="1" />
             <stop offset="100%" stopColor="transparent" stopOpacity="0" />
           </linearGradient>
-          <filter id="emerald-glow" x="-30%" y="-30%" width="160%" height="160%">
+          <filter id="amber-glow" x="-30%" y="-30%" width="160%" height="160%">
             <feGaussianBlur stdDeviation="3" result="blur" />
             <feComposite in="SourceGraphic" in2="blur" operator="over" />
           </filter>
@@ -113,7 +113,7 @@ export default function WorldMap({
                 stroke={activeLineColor}
                 strokeWidth="4.5"
                 strokeOpacity={isLight ? "0.25" : "0.35"}
-                filter="url(#emerald-glow)"
+                filter="url(#amber-glow)"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 1.4, delay: 0.22 * i, ease: "easeOut" }}
@@ -144,7 +144,7 @@ export default function WorldMap({
                   cx={startPos.x}
                   cy={startPos.y}
                   r="3.5"
-                  fill={isLight ? "#0F9D7A" : "#34D399"}
+                  fill={isLight ? "#F59E0B" : "#FBBF24"}
                 />
                 <circle
                   cx={startPos.x}
@@ -182,7 +182,7 @@ export default function WorldMap({
                         rx="4"
                         fill={isLight ? "#FFFFFF" : "#07162A"}
                         fillOpacity={isLight ? "0.98" : "0.94"}
-                        stroke={isLight ? "#0F9D7A" : "#10B981"}
+                        stroke={isLight ? "#F59E0B" : "#FBBF24"}
                         strokeWidth="1.2"
                         className={isLight ? "filter drop-shadow-sm" : ""}
                       />
@@ -190,7 +190,7 @@ export default function WorldMap({
                         x={startPos.x}
                         y={startPos.y - 11}
                         textAnchor="middle"
-                        className={`text-[7.5px] font-black uppercase tracking-wider font-[Manrope] ${isLight ? "fill-[#0B1F3A]" : "fill-[#34D399]"
+                        className={`text-[7.5px] font-black uppercase tracking-wider font-[Manrope] ${isLight ? "fill-[#0B1F3A]" : "fill-[#FBBF24]"
                           }`}
                       >
                         {dot.start.label}
@@ -206,7 +206,7 @@ export default function WorldMap({
                   cx={endPos.x}
                   cy={endPos.y}
                   r="3.5"
-                  fill={isLight ? "#0F9D7A" : "#34D399"}
+                  fill={isLight ? "#F59E0B" : "#FBBF24"}
                 />
                 <circle
                   cx={endPos.x}
@@ -244,7 +244,7 @@ export default function WorldMap({
                         rx="4"
                         fill={isLight ? "#FFFFFF" : "#07162A"}
                         fillOpacity={isLight ? "0.98" : "0.94"}
-                        stroke={isLight ? "#0F9D7A" : "#10B981"}
+                        stroke={isLight ? "#F59E0B" : "#FBBF24"}
                         strokeWidth="1.2"
                         className={isLight ? "filter drop-shadow-sm" : ""}
                       />
@@ -252,7 +252,7 @@ export default function WorldMap({
                         x={endPos.x}
                         y={endPos.y - 11}
                         textAnchor="middle"
-                        className={`text-[7.5px] font-black uppercase tracking-wider font-[Manrope] ${isLight ? "fill-[#0B1F3A]" : "fill-[#34D399]"
+                        className={`text-[7.5px] font-black uppercase tracking-wider font-[Manrope] ${isLight ? "fill-[#0B1F3A]" : "fill-[#FBBF24]"
                           }`}
                       >
                         {dot.end.label}

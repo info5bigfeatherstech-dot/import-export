@@ -73,8 +73,8 @@ export default function ApparelServices() {
             transition={{ duration: 0.4 }}
             className="flex items-center gap-2 mb-3"
           >
-            <span className="text-[#0F9D7A] text-xs">✦</span>
-            <p className="text-xs font-bold tracking-[0.22em] text-[#0F9D7A] uppercase font-[Manrope]">
+            <span className="text-amber-500 text-xs">✦</span>
+            <p className="text-xs font-bold tracking-[0.22em] text-amber-600 uppercase font-[Manrope]">
               04. FEATURED SERVICES
             </p>
           </motion.div>
@@ -138,7 +138,7 @@ export default function ApparelServices() {
 
                   {/* Top Badge: Icon Container on Left, Number on Right */}
                   <div className="relative z-10 flex items-center justify-between w-full">
-                    <div className="w-11 h-11 rounded-lg bg-white flex items-center justify-center shadow-md text-slate-900 group-hover:bg-[#0F9D7A] group-hover:text-white transition-colors duration-300">
+                    <div className="w-11 h-11 rounded-lg bg-white flex items-center justify-center shadow-md text-slate-900 group-hover:bg-gradient-to-r group-hover:from-amber-400 group-hover:to-yellow-400 group-hover:text-slate-950 transition-colors duration-300">
                       <Icon className="w-5 h-5 stroke-[2]" />
                     </div>
                     <span className="text-xs font-bold text-white/80 tracking-widest font-[Manrope]">
@@ -156,7 +156,7 @@ export default function ApparelServices() {
                       {service.description}
                     </p>
 
-                    <div className="inline-flex items-center gap-1.5 text-xs font-bold text-white uppercase tracking-wider group/link hover:text-[#0F9D7A] transition-colors">
+                    <div className="inline-flex items-center gap-1.5 text-xs font-bold text-white uppercase tracking-wider group/link hover:text-amber-400 transition-colors">
                       <span>Read More</span>
                       <TbArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
                     </div>
