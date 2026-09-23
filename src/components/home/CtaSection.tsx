@@ -38,32 +38,32 @@ export default function CtaSection() {
               id="cta-get-quote"
               className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#0F9D7A] hover:bg-[#0C7A60] text-white font-bold text-sm sm:text-base rounded-xl shadow-xl hover:shadow-emerald-900/40 transition-all duration-200 group"
             >
-              <span>Request Free Trade Quote</span>
+              <span>Request Free Trade Call</span>
               <HiArrowRight className="group-hover:translate-x-1 transition-transform duration-200" size={18} />
             </a>
             <a
-              href="tel:+442071234567"
+              href="tel:+917297960397"
               id="cta-contact-team"
               className="inline-flex items-center gap-2.5 px-7 py-4 border border-white/25 hover:border-white/60 text-white font-semibold text-sm sm:text-base rounded-xl transition-colors duration-200 hover:bg-white/10"
             >
               <HiPhone className="text-[#0F9D7A]" size={18} />
-              <span>+44 (0)20 7123 4567</span>
+              <span>+91 72979 60397</span>
             </a>
           </div>
 
-          {/* Three fast facts */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-white/10 max-w-3xl mx-auto">
+          {/* Three fast facts & Career Anchor */}
+          <div id="career" className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-white/10 max-w-3xl mx-auto">
             <div className="flex items-center justify-center gap-2 text-xs font-medium text-slate-300">
               <HiClock className="text-[#0F9D7A]" size={18} />
               <span>24-Hour Turnaround</span>
             </div>
             <div className="flex items-center justify-center gap-2 text-xs font-medium text-slate-300">
               <HiMail className="text-[#0F9D7A]" size={18} />
-              <span>trade@brittradeglobal.co.uk</span>
+              <span>careers@shivasunmoderno.com</span>
             </div>
             <div className="flex items-center justify-center gap-2 text-xs font-medium text-slate-300">
               <span className="w-2 h-2 rounded-full bg-[#0F9D7A]" />
-              <span>Canary Wharf, London HQ</span>
+              <span>Global Careers & Opportunities</span>
             </div>
           </div>
         </div>

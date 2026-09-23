@@ -1,20 +1,21 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiMenuAlt3, HiX, HiPhone } from 'react-icons/hi'
-import { TbChevronDown, TbArrowRight } from 'react-icons/tb'
+import { TbChevronDown } from 'react-icons/tb'
 import { exportCategories } from '../data/categories'
 
 const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'Export Categories', href: '#products', hasDropdown: true },
-  { label: 'Global Markets', href: '#export-markets' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/', isRoute: true },
+  { label: 'About Us', href: '/about', isRoute: true },
+  { label: 'Categories', href: '/#products', hasDropdown: true },
+  { label: 'Gallery', href: '/#gallery' },
+  { label: 'Career', href: '/career', isRoute: true },
+  { label: 'Contact Us', href: '/contact', isRoute: true },
 ]
 
 export default function Navbar() {
+  const location = useLocation()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -56,34 +57,22 @@ export default function Navbar() {
   return (
     <header
       role="banner"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200 py-3'
-          : 'bg-[#0B1F3A]/95 backdrop-blur-sm border-b border-white/10 py-4'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-200/70 ${
+        scrolled ? 'shadow-sm py-2.5' : 'py-3.5'
       }`}
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <Link
           to="/"
-          className="flex items-center gap-3 group"
-          aria-label="BritTrade Global Home"
+          className="flex items-center group py-0.5"
+          aria-label="ShivaSun Moderno Impex Pvt. Ltd. Home"
         >
-          <div className="w-10 h-10 rounded-lg bg-[#0F9D7A] flex items-center justify-center text-white font-extrabold text-base tracking-wider shadow-sm transition-transform duration-200 group-hover:scale-105">
-            SM
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span
-              className={`text-lg font-extrabold tracking-tight transition-colors duration-300 ${
-                scrolled ? 'text-[#0B1F3A]' : 'text-white'
-              }`}
-            >
-              ShivaSun
-            </span>
-            <span className="text-[10px] font-bold tracking-widest uppercase text-[#0F9D7A]">
-              Moderno
-            </span>
-          </div>
+          <img
+            src="/logo.png"
+            alt="ShivaSun Moderno Impex Pvt. Ltd."
+            className="h-9 sm:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-102"
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -93,6 +82,12 @@ export default function Navbar() {
           className="hidden lg:flex items-center gap-1.5"
         >
           {navLinks.map((link) => {
+            const isActive =
+              link.isRoute &&
+              (link.href === '/'
+                ? location.pathname === '/'
+                : location.pathname === link.href)
+
             if (link.hasDropdown) {
               return (
                 <div
@@ -102,23 +97,19 @@ export default function Navbar() {
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
-                  <a
-                    href={link.href}
-                    onClick={() => setDropdownOpen(false)}
-                    className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                      scrolled
-                        ? 'text-slate-600 hover:text-[#0F9D7A] hover:bg-slate-50'
-                        : 'text-slate-200 hover:text-white hover:bg-white/10'
-                    }`}
+                  <Link
+                    to="/#products"
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-[#0F9D7A] hover:bg-slate-50 transition-colors duration-200"
                   >
                     <span>{link.label}</span>
                     <TbChevronDown
                       size={14}
-                      className={`transition-transform duration-200 ${
+                      className={`text-slate-500 transition-transform duration-200 ${
                         dropdownOpen ? 'rotate-180 text-[#0F9D7A]' : ''
                       }`}
                     />
-                  </a>
+                  </Link>
 
                   {/* Dropdown Menu */}
                   <AnimatePresence>
@@ -131,55 +122,23 @@ export default function Navbar() {
                         className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-[500px]"
                       >
                         <div className="bg-white rounded-2xl shadow-2xl border border-slate-200/90 overflow-hidden p-3">
-                          <div className="px-3 py-2 border-b border-slate-100 flex items-center justify-between">
-                            <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#0F9D7A] font-[Manrope]">
-                              Export Categories (10 Sectors)
-                            </span>
-                            <span className="text-[10px] text-slate-400 font-semibold">
-                              Verified Trade Desks
-                            </span>
-                          </div>
-
                           {/* 2-Column Grid of 10 Categories */}
-                          <div className="grid grid-cols-2 gap-1.5 p-1.5">
-                            {exportCategories.map((cat) => {
-                              const Icon = cat.icon
-                              return (
-                                <a
-                                  key={cat.id}
-                                  href={`#cat-${cat.id}`}
-                                  onClick={() => setDropdownOpen(false)}
-                                  className="group/item flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition-colors"
-                                >
-                                  <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#0F9D7A] flex items-center justify-center group-hover/item:bg-[#0F9D7A] group-hover/item:text-white transition-colors shrink-0 shadow-xs">
-                                    <Icon size={16} />
-                                  </div>
-                                  <div className="flex flex-col min-w-0">
-                                    <span className="text-xs font-bold text-[#0B1F3A] group-hover/item:text-[#0F9D7A] transition-colors truncate font-[Manrope]">
-                                      {cat.title}
-                                    </span>
-                                    <span className="text-[10px] text-slate-500 truncate">
-                                      {cat.subtitle}
-                                    </span>
-                                  </div>
-                                </a>
-                              )
-                            })}
-                          </div>
-
-                          {/* Bottom Action Footer */}
-                          <div className="pt-2 px-3 pb-1 border-t border-slate-100 flex items-center justify-between bg-slate-50/70 -mx-3 -mb-3 p-3">
-                            <span className="text-[11px] text-slate-600 font-medium">
-                              Full UK & International certification
-                            </span>
-                            <a
-                              href="#products"
-                              onClick={() => setDropdownOpen(false)}
-                              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F9D7A] hover:text-[#0B7A5E] transition-colors"
-                            >
-                              <span>View All Sectors</span>
-                              <TbArrowRight size={13} />
-                            </a>
+                          <div className="grid grid-cols-2 gap-1 p-1">
+                            {exportCategories.map((cat) => (
+                              <Link
+                                key={cat.id}
+                                to={`/#cat-${cat.id}`}
+                                onClick={() => setDropdownOpen(false)}
+                                className="group/item flex flex-col px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors"
+                              >
+                                <span className="text-xs font-bold text-[#0B1F3A] group-hover/item:text-[#0F9D7A] transition-colors truncate font-[Manrope]">
+                                  {cat.title}
+                                </span>
+                                <span className="text-[10px] text-slate-500 truncate">
+                                  {cat.subtitle}
+                                </span>
+                              </Link>
+                            ))}
                           </div>
                         </div>
                       </motion.div>
@@ -189,15 +148,27 @@ export default function Navbar() {
               )
             }
 
+            if (link.isRoute) {
+              return (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                    isActive
+                      ? 'text-[#0F9D7A] font-bold bg-emerald-50'
+                      : 'text-slate-700 hover:text-[#0F9D7A] hover:bg-slate-50'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            }
+
             return (
               <a
                 key={link.label}
                 href={link.href}
-                className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                  scrolled
-                    ? 'text-slate-600 hover:text-[#0F9D7A] hover:bg-slate-50'
-                    : 'text-slate-200 hover:text-white hover:bg-white/10'
-                }`}
+                className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-[#0F9D7A] hover:bg-slate-50 transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -208,21 +179,19 @@ export default function Navbar() {
         {/* CTA & Phone button */}
         <div className="hidden lg:flex items-center gap-4">
           <a
-            href="tel:+442071234567"
-            className={`flex items-center gap-1.5 text-xs font-semibold tracking-wide transition-colors ${
-              scrolled ? 'text-slate-600 hover:text-[#0B1F3A]' : 'text-slate-300 hover:text-white'
-            }`}
+            href="tel:+917297960397"
+            className="flex items-center gap-1.5 text-xs font-semibold tracking-wide text-slate-700 hover:text-[#0B1F3A] transition-colors"
           >
             <HiPhone className="text-[#0F9D7A]" size={15} />
-            <span>+44 (0)20 7123 4567</span>
+            <span>+91 72979 60397</span>
           </a>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             id="nav-request-quote"
             className="px-5 py-2.5 bg-[#0F9D7A] hover:bg-[#0C7A60] text-white text-sm font-semibold rounded-lg shadow-sm transition-all duration-200 hover:shadow hover:-translate-y-0.5"
           >
             Request Quote
-          </a>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -231,9 +200,7 @@ export default function Navbar() {
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
-          className={`lg:hidden p-2 rounded-lg transition-colors duration-200 ${
-            scrolled ? 'text-[#0B1F3A] hover:bg-slate-100' : 'text-white hover:bg-white/10'
-          }`}
+          className="lg:hidden p-2 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors duration-200"
         >
           {mobileOpen ? <HiX size={26} /> : <HiMenuAlt3 size={26} />}
         </button>
@@ -259,13 +226,13 @@ export default function Navbar() {
                   return (
                     <div key={link.label} className="flex flex-col">
                       <div className="flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">
-                        <a
-                          href={link.href}
+                        <Link
+                          to="/#products"
                           onClick={() => setMobileOpen(false)}
                           className="hover:text-[#0F9D7A]"
                         >
                           {link.label}
-                        </a>
+                        </Link>
                         <button
                           type="button"
                           onClick={() =>
@@ -276,9 +243,8 @@ export default function Navbar() {
                         >
                           <TbChevronDown
                             size={16}
-                            className={`transition-transform duration-200 ${
-                              mobileCategoriesOpen ? 'rotate-180 text-[#0F9D7A]' : ''
-                            }`}
+                            className={`transition-transform duration-200 ${mobileCategoriesOpen ? 'rotate-180 text-[#0F9D7A]' : ''
+                              }`}
                           />
                         </button>
                       </div>
@@ -286,23 +252,41 @@ export default function Navbar() {
                       {/* Mobile categories sub-list */}
                       {mobileCategoriesOpen && (
                         <div className="pl-4 pr-2 py-2 grid grid-cols-1 gap-1 bg-slate-50 rounded-xl mb-2">
-                          {exportCategories.map((cat) => {
-                            const Icon = cat.icon
-                            return (
-                              <a
-                                key={cat.id}
-                                href={`#cat-${cat.id}`}
-                                onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-2.5 px-3 py-2 text-xs font-medium text-slate-700 hover:text-[#0F9D7A] rounded-lg hover:bg-white"
-                              >
-                                <Icon size={15} className="text-[#0F9D7A]" />
-                                <span>{cat.title}</span>
-                              </a>
-                            )
-                          })}
+                          {exportCategories.map((cat) => (
+                            <Link
+                              key={cat.id}
+                              to={`/#cat-${cat.id}`}
+                              onClick={() => setMobileOpen(false)}
+                              className="block px-3 py-2 text-xs font-medium text-slate-700 hover:text-[#0F9D7A] rounded-lg hover:bg-white transition-colors"
+                            >
+                              <span>{cat.title}</span>
+                            </Link>
+                          ))}
                         </div>
                       )}
                     </div>
+                  )
+                }
+
+                const isActive =
+                  link.isRoute &&
+                  (link.href === '/'
+                    ? location.pathname === '/'
+                    : location.pathname === link.href)
+
+                if (link.isRoute) {
+                  return (
+                    <Link
+                      key={link.label}
+                      to={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive
+                          ? 'bg-emerald-50 text-[#0F9D7A] font-bold'
+                          : 'text-slate-700 hover:bg-slate-50 hover:text-[#0F9D7A]'
+                        }`}
+                    >
+                      {link.label}
+                    </Link>
                   )
                 }
 
@@ -320,20 +304,20 @@ export default function Navbar() {
 
               <div className="pt-3 border-t border-slate-100 mt-2 flex flex-col gap-3">
                 <a
-                  href="tel:+442071234567"
+                  href="tel:+917297960397"
                   className="flex items-center justify-center gap-2 text-sm text-slate-600 font-semibold py-2"
                 >
                   <HiPhone className="text-[#0F9D7A]" size={16} />
-                  +44 (0)20 7123 4567
+                  +91 72979 60397
                 </a>
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   id="mobile-request-quote"
                   onClick={() => setMobileOpen(false)}
-                  className="w-full py-3 bg-[#0F9D7A] text-white text-sm font-semibold rounded-lg text-center transition-colors hover:bg-[#0C7A60] shadow-sm"
+                  className="w-full py-3 bg-[#0F9D7A] text-white text-sm font-semibold rounded-lg text-center transition-colors hover:bg-[#0C7A60] shadow-sm block"
                 >
                   Request a Free Quote
-                </a>
+                </Link>
               </div>
             </nav>
           </motion.div>

@@ -10,23 +10,22 @@ import {
 } from 'react-icons/tb'
 
 const quickLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About BritTrade', href: '#about' },
-  { label: 'Export Categories', href: '#products' },
-  { label: 'Trade Execution Process', href: '#process' },
-  { label: 'Global Trade Footprint', href: '#markets' },
-  { label: 'Sectors We Serve', href: '#industries' },
-  { label: 'Client Testimonials', href: '#testimonials' },
-  { label: 'Contact Trade Desk', href: '#contact' },
+  { label: 'Home', href: '/', isRoute: true },
+  { label: 'About Us', href: '/about', isRoute: true },
+  { label: 'Categories', href: '/#products' },
+  { label: 'Inside Factories Gallery', href: '/#gallery' },
+  { label: 'Career Opportunities', href: '/career', isRoute: true },
+  { label: 'Contact Trade Desk', href: '/contact', isRoute: true },
 ]
 
-const exportCategories = [
-  'Agriculture & Grains',
-  'Textiles & British Wools',
-  'Engineering & Machine Spares',
-  'Food & Artisan Provisions',
-  'Industrial & Fine Chemicals',
-  'FMCG & Consumer Goods',
+const exportCategoriesList = [
+  'Garments & Apparel',
+  'Footwears',
+  'Home-Textile',
+  'Bags & Wallets',
+  'Jewellery & Accessories',
+  'Fabrics & Woven Textiles',
+  'Tailoring Accessories & Trims',
 ]
 
 export default function Footer() {
@@ -45,24 +44,20 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Link
               to="/"
-              className="flex items-center gap-3 mb-5 group"
-              aria-label="BritTrade Global Home"
+              className="inline-block mb-6 group"
+              aria-label="ShivaSun Moderno Impex Pvt. Ltd. Home"
             >
-              <div className="w-10 h-10 rounded-lg bg-[#0F9D7A] flex items-center justify-center text-white font-extrabold text-base tracking-wider shadow">
-                BT
-              </div>
-              <div className="flex flex-col leading-tight">
-                <span className="text-xl font-extrabold text-white tracking-tight">
-                  BritTrade
-                </span>
-                <span className="text-[10px] font-bold tracking-widest uppercase text-[#0F9D7A]">
-                  Global UK
-                </span>
+              <div className="bg-white px-3 py-2 rounded-2xl shadow-md inline-flex items-center justify-center transition-transform duration-200 group-hover:scale-102">
+                <img
+                  src="/logo.png"
+                  alt="ShivaSun Moderno Impex Pvt. Ltd."
+                  className="h-10 sm:h-12 w-auto object-contain"
+                />
               </div>
             </Link>
 
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              A premier United Kingdom import & export enterprise connecting accredited British manufacturers and global trade suppliers with international commercial buyers across 35+ destination markets.
+              A dynamic import-export company specializing in comprehensive global trade services with a focus on Garments, Fabrics, Tailoring Accessories, Footwears, and bespoke sourcing per customer requirement.
             </p>
 
             <div className="space-y-1 text-xs text-slate-400 mb-6">
@@ -100,12 +95,21 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {quickLinks.map((item) => (
                 <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className="text-sm text-slate-400 hover:text-[#0F9D7A] transition-colors"
-                  >
-                    {item.label}
-                  </a>
+                  {item.isRoute ? (
+                    <Link
+                      to={item.href}
+                      className="text-sm text-slate-400 hover:text-[#0F9D7A] transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="text-sm text-slate-400 hover:text-[#0F9D7A] transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -117,14 +121,14 @@ export default function Footer() {
               Export Desks
             </h3>
             <ul className="space-y-2.5">
-              {exportCategories.map((cat) => (
+              {exportCategoriesList.map((cat) => (
                 <li key={cat}>
-                  <a
-                    href="#products"
+                  <Link
+                    to="/#products"
                     className="text-sm text-slate-400 hover:text-[#0F9D7A] transition-colors"
                   >
                     {cat}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -133,13 +137,13 @@ export default function Footer() {
           {/* Column 4: Contact & Office (3 cols) */}
           <div className="lg:col-span-3">
             <h3 className="text-sm font-bold font-[Manrope] text-white mb-5 uppercase tracking-wider">
-              UK Headquarters
+              Trade Offices
             </h3>
             <address className="not-italic space-y-3.5 text-sm text-slate-400">
               <div className="flex items-start gap-3">
                 <TbMapPin className="text-[#0F9D7A] flex-shrink-0 mt-1" size={18} />
                 <div>
-                  <p className="text-white font-medium">BritTrade Global Ltd</p>
+                  <p className="text-white font-medium">ShivaSun Moderno Impex Pvt Ltd</p>
                   <p>12 Canary Wharf Business Centre</p>
                   <p>London, E14 5AB, United Kingdom</p>
                 </div>
@@ -148,20 +152,20 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <TbMail className="text-[#0F9D7A] flex-shrink-0" size={18} />
                 <a
-                  href="mailto:trade@brittradeglobal.co.uk"
+                  href="mailto:contact@shivasunmoderno.com"
                   className="hover:text-[#0F9D7A] transition-colors text-white"
                 >
-                  trade@brittradeglobal.co.uk
+                  contact@shivasunmoderno.com
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
                 <TbPhone className="text-[#0F9D7A] flex-shrink-0" size={18} />
                 <a
-                  href="tel:+442071234567"
+                  href="tel:+917297960397"
                   className="hover:text-[#0F9D7A] transition-colors text-white"
                 >
-                  +44 (0)20 7123 4567
+                  +91 72979 60397
                 </a>
               </div>
 
@@ -178,12 +182,12 @@ export default function Footer() {
       <div className="border-t border-white/10 bg-[#051120]">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
-            © {year} BritTrade Global Ltd. All rights reserved. Registered in England & Wales.
+            © {year} ShivaSun Moderno Impex Private Limited. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#contact" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
-            <a href="#contact" className="hover:text-slate-300 transition-colors">Terms of Trade</a>
-            <a href="#contact" className="hover:text-slate-300 transition-colors">EORI Compliance</a>
+            <Link to="/contact" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+            <Link to="/contact" className="hover:text-slate-300 transition-colors">Terms of Trade</Link>
+            <Link to="/contact" className="hover:text-slate-300 transition-colors">Quality Assurance</Link>
           </div>
         </div>
       </div>

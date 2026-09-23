@@ -22,7 +22,7 @@ const industries: Industry[] = [
   {
     id: 'manufacturing',
     title: 'Industrial Manufacturing',
-    headline: 'Continuous Supply of Raw Materials & Machine Parts',
+    headline: 'Continuous Supply of Raw Materials & Accessory Parts',
     description:
       'Keep production lines uninterrupted. We coordinate scheduled deliveries of industrial raw materials, alloys, precision CNC components, and hydraulic assemblies directly to factory floor staging bays.',
     image: '/ind_manufacturing_1790144594818.jpg',
@@ -77,9 +77,8 @@ export default function IndustriesSection() {
           {industries.map((ind, i) => (
             <div
               key={ind.id}
-              className={`grid lg:grid-cols-12 gap-8 lg:gap-14 items-center ${
-                i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''
-              }`}
+              className={`grid lg:grid-cols-12 gap-8 lg:gap-14 items-center ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''
+                }`}
             >
               {/* Image (6 cols) */}
               <div className="lg:col-span-6">

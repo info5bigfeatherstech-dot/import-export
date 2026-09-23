@@ -8,8 +8,8 @@ import FactoryGallery from '../components/home/FactoryGallery'
 import WhyChooseUs from '../components/home/WhyChooseUs'
 import TradeProcess from '../components/home/TradeProcess'
 import IndustriesSection from '../components/home/IndustriesSection'
-import FaqSection from '../components/home/FaqSection'
-import Testimonials from '../components/home/Testimonials'
+// import FaqSection from '../components/home/FaqSection'
+// import Testimonials from '../components/home/Testimonials'
 import CtaSection from '../components/home/CtaSection'
 
 export default function HomePage() {
@@ -25,8 +25,8 @@ export default function HomePage() {
       <WhyChooseUs />
       <TradeProcess />
       <IndustriesSection />
-      <FaqSection />
-      <Testimonials />
+      {/* <FaqSection /> */}
+      {/* <Testimonials /> */}
       <CtaSection />
     </>
   )

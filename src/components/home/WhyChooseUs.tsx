@@ -63,7 +63,7 @@ export default function WhyChooseUs() {
             >
               A Trade Partner Built on Reliability & Precision
             </h2>
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl">
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl capitalize">
               Cross-border commerce demands absolute compliance and supply chain certainty. BritTrade Global bridges UK industry with global commerce through stringent quality controls and frictionless logistics.
             </p>
 

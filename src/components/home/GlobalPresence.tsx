@@ -7,12 +7,12 @@ const metrics = [
 ]
 
 const hubs = [
-  { name: 'United Kingdom (HQ)', port: 'London Gateway & Southampton', cx: '48%', cy: '25%' },
+  { name: 'United Kingdom (Trade Desk)', port: 'London Gateway & Southampton', cx: '48%', cy: '25%' },
+  { name: 'China (Sourcing Hub)', port: 'Shanghai & Guangzhou', cx: '77%', cy: '36%' },
+  { name: 'South Africa (Port Desk)', port: 'Durban & Cape Town', cx: '54%', cy: '68%' },
   { name: 'Europe Hub', port: 'Rotterdam & Antwerp', cx: '52%', cy: '28%' },
   { name: 'Middle East Desk', port: 'Jebel Ali (Dubai)', cx: '61%', cy: '39%' },
-  { name: 'Asia Pacific Hub', port: 'Singapore & Hong Kong', cx: '76%', cy: '48%' },
   { name: 'North America', port: 'New York & Houston', cx: '24%', cy: '32%' },
-  { name: 'Africa Trade Lane', port: 'Mombasa & Lagos', cx: '54%', cy: '52%' },
 ]
 
 export default function GlobalPresence() {
@@ -134,7 +134,7 @@ export default function GlobalPresence() {
                 <div className="relative flex items-center justify-center">
                   <div className="absolute w-6 h-6 rounded-full bg-[#0F9D7A]/40 animate-ping" />
                   <div className="w-3.5 h-3.5 rounded-full bg-[#0F9D7A] border-2 border-white shadow-lg relative z-10" />
-                  
+
                   {/* Tooltip on hover/display */}
                   <div className="absolute top-5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#07162A]/95 border border-white/20 px-2.5 py-1 rounded-md shadow-xl z-20 pointer-events-none">
                     <p className="text-[11px] font-bold text-white leading-none">{hub.name}</p>

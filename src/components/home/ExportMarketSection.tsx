@@ -9,32 +9,32 @@ interface MarketBadge {
 }
 
 const targetMarkets: MarketBadge[] = [
-  { flag: '🇬🇧', label: 'UNITED KINGDOM', sublabel: 'NƯỚC ANH' },
-  { flag: '🇦🇺', label: 'AUSTRALIA', sublabel: 'NƯỚC ÚC' },
-  { flag: '🇺🇸', label: 'UNITED STATES', sublabel: 'NƯỚC MỸ' },
-  { flag: '🇪🇺', label: 'EUROPEAN UNION', sublabel: 'CHÂU ÂU' },
+  { flag: '🇬🇧', label: 'UNITED KINGDOM', sublabel: 'Primary Trade Hub' },
+  { flag: '🇨🇳', label: 'CHINA', sublabel: 'Manufacturing & Sourcing' },
+  { flag: '🇿🇦', label: 'SOUTH AFRICA', sublabel: 'African Trade Corridor' },
+  { flag: '🇺🇸', label: 'UNITED STATES', sublabel: 'North America' },
 ]
 
 const tradeRoutes = [
   {
-    start: { lat: 21.0285, lng: 105.8542, label: 'Factory Hub' }, // SE Asia
+    start: { lat: 31.2304, lng: 121.4737, label: 'China' }, // Shanghai / China
     end: { lat: 51.5074, lng: -0.1278, label: 'UK' }, // London, UK
   },
   {
-    start: { lat: 51.5074, lng: -0.1278 }, // London
-    end: { lat: 40.7128, lng: -74.006, label: 'USA' }, // New York, USA
+    start: { lat: 51.5074, lng: -0.1278 }, // London, UK
+    end: { lat: -29.8587, lng: 31.0218, label: 'South Africa' }, // South Africa
   },
   {
-    start: { lat: 51.5074, lng: -0.1278 }, // London
-    end: { lat: 48.2082, lng: 16.3738, label: 'EU' }, // Central Europe
+    start: { lat: 31.2304, lng: 121.4737 }, // China
+    end: { lat: -29.8587, lng: 31.0218 }, // South Africa
   },
   {
-    start: { lat: 21.0285, lng: 105.8542 }, // SE Asia
-    end: { lat: -33.8688, lng: 151.2093, label: 'Australia' }, // Sydney
+    start: { lat: 51.5074, lng: -0.1278 }, // UK
+    end: { lat: 40.7128, lng: -74.006, label: 'USA' }, // USA
   },
   {
-    start: { lat: 51.5074, lng: -0.1278 }, // London
-    end: { lat: 25.2048, lng: 55.2708, label: 'Middle East' }, // Dubai
+    start: { lat: 31.2304, lng: 121.4737 }, // China
+    end: { lat: 25.2048, lng: 55.2708, label: 'Middle East' }, // Middle East
   },
 ]
 
@@ -71,11 +71,11 @@ export default function ExportMarketSection() {
 
             {/* Description Copy */}
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8 font-[Inter] max-w-xl">
-              BritTrade Global not only provides services and products to domestic
-              businesses and brands but also expands to international markets. With
-              considerable dedication, the company&apos;s export products consistently
-              meet international standards with high quality, accompanied by
-              competitive pricing compared to the general market.
+              ShivaSun Moderno Impex Private Limited provides comprehensive
+              import-export services across major international markets. With
+              rigorous quality standards, competitive pricing, and certified
+              multimodal supply chains, our consignments consistently meet
+              global commercial benchmarks.
             </p>
 
             {/* Pill Outline Button in Theme Green */}
@@ -99,14 +99,14 @@ export default function ExportMarketSection() {
             transition={{ duration: 0.55, ease: 'easeOut', delay: 0.1 }}
             className="lg:col-span-7 flex flex-col justify-center"
           >
-            {/* Flag Badges Header Row */}
-            <div className="flex flex-wrap items-center justify-start lg:justify-end gap-3 sm:gap-5 mb-5">
+            {/* Header Row: Flags */}
+            <div className="flex flex-wrap items-center justify-start lg:justify-end gap-2.5 sm:gap-3 mb-5">
               {targetMarkets.map((market) => (
                 <div
                   key={market.label}
-                  className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-slate-200/80 shadow-xs hover:border-[#0F9D7A]/40 transition-colors"
+                  className="flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-full border border-slate-200/80 shadow-xs hover:border-[#0F9D7A]/40 transition-colors"
                 >
-                  <span className="text-lg sm:text-xl drop-shadow-xs" role="img" aria-label={market.label}>
+                  <span className="text-base sm:text-lg drop-shadow-xs" role="img" aria-label={market.label}>
                     {market.flag}
                   </span>
                   <div className="flex flex-col">
@@ -121,13 +121,12 @@ export default function ExportMarketSection() {
               ))}
             </div>
 
-            {/* Aceternity Interactive Dotted World Map in High-Tech Dark Terminal */}
-            <div className="relative w-full rounded-3xl overflow-hidden bg-[#030712] p-2 sm:p-3 border border-slate-800/90 shadow-2xl shadow-emerald-950/30 group">
-              <WorldMap
-                dots={tradeRoutes}
-                lineColor="#10B981"
-              />
-            </div>
+            {/* Aceternity Interactive Dotted World Map in Light Modern Theme */}
+            <WorldMap
+              dots={tradeRoutes}
+              theme="light"
+              lineColor="#0F9D7A"
+            />
           </motion.div>
         </div>
       </div>

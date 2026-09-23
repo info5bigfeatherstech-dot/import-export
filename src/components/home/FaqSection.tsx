@@ -107,11 +107,10 @@ export default function FaqSection() {
                   <motion.div
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
-                      isOpen
+                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${isOpen
                         ? 'bg-[#0F9D7A] text-white shadow-sm'
                         : 'bg-slate-100 text-[#0B1F3A] group-hover:bg-emerald-50 group-hover:text-[#0F9D7A]'
-                    }`}
+                      }`}
                   >
                     <TbPlus size={18} strokeWidth={2.5} />
                   </motion.div>
