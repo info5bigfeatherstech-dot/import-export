@@ -1,0 +1,137 @@
+import { HiArrowRight, HiCheckCircle } from 'react-icons/hi'
+
+interface Industry {
+  id: string
+  title: string
+  headline: string
+  description: string
+  image: string
+  highlights: string[]
+}
+
+const industries: Industry[] = [
+  {
+    id: 'retail',
+    title: 'Retail & Multi-Store Brands',
+    headline: 'Private Label & Consumer Goods at Scale',
+    description:
+      'We partner with regional and national retailers to source private-label product lines, seasonal stock, and household merchandise from verified manufacturers with guaranteed lead times and flexible MOQs.',
+    image: '/ind_retail_1790144526101.jpg',
+    highlights: ['Custom Barcode & Packaging Compliance', 'Flexible Container Splitting', 'FMCG & Non-Food Retail'],
+  },
+  {
+    id: 'manufacturing',
+    title: 'Industrial Manufacturing',
+    headline: 'Continuous Supply of Raw Materials & Machine Parts',
+    description:
+      'Keep production lines uninterrupted. We coordinate scheduled deliveries of industrial raw materials, alloys, precision CNC components, and hydraulic assemblies directly to factory floor staging bays.',
+    image: '/ind_manufacturing_1790144594818.jpg',
+    highlights: ['Mill Test Certificates (MTC)', 'Just-In-Time (JIT) Consignment Scheduling', 'Strict Defect Tolerances'],
+  },
+  {
+    id: 'wholesale',
+    title: 'Wholesale & Trade Distributors',
+    headline: 'Bulk Volume Sourcing & Palletised Distribution',
+    description:
+      'Wholesale operators benefit from our institutional purchasing power, consolidated maritime freight rates, and bonded UK warehousing partnerships across key logistics corridors.',
+    image: '/ind_wholesale_1790144633907.jpg',
+    highlights: ['Tiered Volume Price Rebates', 'Bonded Warehouse Facilities', 'Full Container Load (FCL) Specialists'],
+  },
+  {
+    id: 'hospitality',
+    title: 'Hospitality & Commercial Groups',
+    headline: 'Commercial Provisions & Hotel Operating Supplies',
+    description:
+      'Supplying international luxury hotel chains, restaurant groups, and caterers with British specialty foods, linen textiles, table equipment, and eco-certified consumables.',
+    image: '/ind_hospitality_1790144778784.jpg',
+    highlights: ['Cold-Chain Temperature Logging', 'Certified Commercial Grade Linens', 'Consistent Batch Replenishment'],
+  },
+]
+
+export default function IndustriesSection() {
+  return (
+    <section
+      id="industries"
+      aria-labelledby="industries-heading"
+      className="w-full py-20 lg:py-28 bg-slate-50 border-b border-slate-200"
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <p className="text-xs font-bold tracking-widest text-[#0F9D7A] uppercase mb-3">
+            Industry Focus
+          </p>
+          <h2
+            id="industries-heading"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B1F3A] tracking-tight mb-4"
+          >
+            Sectors We Empower
+          </h2>
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+            Tailored supply chain workflows engineered to address the specific regulatory, logistical, and inventory requirements of your enterprise sector.
+          </p>
+        </div>
+
+        {/* 4 Alternating Industry Blocks */}
+        <div className="space-y-16 lg:space-y-20">
+          {industries.map((ind, i) => (
+            <div
+              key={ind.id}
+              className={`grid lg:grid-cols-12 gap-8 lg:gap-14 items-center ${
+                i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''
+              }`}
+            >
+              {/* Image (6 cols) */}
+              <div className="lg:col-span-6">
+                <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 aspect-[16/10] bg-slate-100 group">
+                  <img
+                    src={ind.image}
+                    alt={`${ind.title} industry sector`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/60 via-transparent to-transparent" />
+                  <span className="absolute bottom-4 left-4 px-3.5 py-1.5 rounded-full bg-[#0F9D7A] text-white text-xs font-bold shadow">
+                    {ind.title}
+                  </span>
+                </div>
+              </div>
+
+              {/* Text content (6 cols) */}
+              <div className="lg:col-span-6 flex flex-col items-start">
+                <span className="text-xs font-bold tracking-wider uppercase text-[#0F9D7A] mb-2">
+                  Industry Solution
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] font-[Manrope] mb-3 leading-tight">
+                  {ind.headline}
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {ind.description}
+                </p>
+
+                {/* Highlight badges */}
+                <div className="space-y-2.5 mb-8 w-full">
+                  {ind.highlights.map((h) => (
+                    <div key={h} className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-700">
+                      <HiCheckCircle className="text-[#0F9D7A] flex-shrink-0" size={18} />
+                      <span>{h}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href="#contact"
+                  id={`industry-inquire-${ind.id}`}
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#0B1F3A] hover:bg-[#142849] text-white text-sm font-semibold transition-all duration-200 shadow-sm hover:shadow group"
+                >
+                  <span>Inquire for {ind.title}</span>
+                  <HiArrowRight className="group-hover:translate-x-1 transition-transform duration-200" size={16} />
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
