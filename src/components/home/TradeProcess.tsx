@@ -55,11 +55,11 @@ export default function TradeProcess() {
           </p>
           <h2
             id="process-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B1F3A] tracking-tight mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] tracking-tight mb-4"
           >
             Our 4-Stage Trade Process
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed capitalize">
             From initial procurement brief to final dockside container discharge, every milestone is managed by dedicated UK trade officers with zero guesswork.
           </p>
         </div>

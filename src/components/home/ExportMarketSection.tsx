@@ -64,13 +64,13 @@ export default function ExportMarketSection() {
             </div>
 
             {/* Main Headline in Theme Gold/Navy */}
-            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-[#0B1F3A] uppercase tracking-tight leading-[1.18] mb-5 font-[Manrope]">
+            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-[#0B1F3A] uppercase tracking-tight leading-[1.18] mb-5 font-[Manrope]">
               PROVIDING INTERNATIONAL <br className="hidden sm:inline" />
               <span className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 bg-clip-text text-transparent">STANDARD GARMENT PRODUCTS</span>
             </h2>
 
             {/* Description Copy */}
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8 font-[Inter] max-w-xl">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8 font-[Inter] max-w-xl capitalize">
               ShivaSun Moderno Impex Private Limited provides comprehensive
               import-export services across major international markets. With
               rigorous quality standards, competitive pricing, and certified

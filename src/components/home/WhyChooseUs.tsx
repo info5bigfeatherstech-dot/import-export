@@ -51,7 +51,7 @@ export default function WhyChooseUs() {
           </p>
           <h2
             id="why-choose-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B1F3A] tracking-tight mb-5 leading-tight font-[Manrope]"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] tracking-tight mb-5 leading-tight font-[Manrope]"
           >
             A Trade Partner Built on Reliability & Precision
           </h2>
@@ -74,7 +74,7 @@ export default function WhyChooseUs() {
                 <h3 className="text-base font-bold text-[#0B1F3A] font-[Manrope] mb-2">
                   {feat.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed capitalize">
                   {feat.description}
                 </p>
               </div>

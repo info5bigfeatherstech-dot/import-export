@@ -119,12 +119,12 @@ export default function FactoryGallery() {
           </div>
 
           {/* Headline */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B1F3A] font-[Manrope] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] font-[Manrope] tracking-tight">
             Gallery
           </h2>
 
           {/* Subtitle */}
-          <p className="text-slate-500 text-sm sm:text-base font-[Inter] mt-2 max-w-2xl">
+          <p className="text-slate-500 text-sm sm:text-base font-[Inter] mt-2 max-w-2xl capitalize">
             A look inside our production floors and finished products.
           </p>
         </div>

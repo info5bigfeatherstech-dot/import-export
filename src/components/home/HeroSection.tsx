@@ -135,7 +135,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-base sm:text-lg text-slate-200 max-w-2xl leading-relaxed mb-8 sm:mb-10 font-[Inter]"
+            className="text-base sm:text-lg text-slate-200 max-w-2xl leading-relaxed mb-8 sm:mb-10 font-[Inter] capitalize"
           >
             Discover fashion that speaks your vibe! At ShivaSun Moderno, we bring you
             the latest trends in men’s, women’s, and unisex fashion—from everyday

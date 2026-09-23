@@ -45,7 +45,7 @@ export default function ExportCategories() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-slate-600 text-sm sm:text-base leading-relaxed font-[Inter]"
+            className="text-slate-600 text-sm sm:text-base leading-relaxed font-[Inter] capitalize"
           >
             We operate dedicated commodity desks across our key global trade sectors, ensuring verified supplier origin, laboratory certification, and multimodal shipping.
           </motion.p>
@@ -76,7 +76,7 @@ export default function ExportCategories() {
 
                   {/* Bottom Arch Subtitle Tag */}
                   <div className="absolute bottom-3 left-4 right-4 text-center">
-                    <span className="text-[11px] font-bold text-white tracking-widest uppercase drop-shadow-md">
+                    <span className="text-[11px] font-bold text-white tracking-widest uppercase drop-shadow-md ">
                       {cat.subtitle}
                     </span>
                   </div>
@@ -90,7 +90,7 @@ export default function ExportCategories() {
                   <h3 className="text-xl font-bold text-[#0B1F3A] font-[Manrope] mb-2 group-hover:text-amber-600 transition-colors">
                     {cat.title}
                   </h3>
-                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-4 line-clamp-3 font-[Inter]">
+                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-4 line-clamp-3 font-[Inter] capitalize">
                     {cat.description}
                   </p>
 

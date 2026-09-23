@@ -63,11 +63,11 @@ export default function IndustriesSection() {
           </p>
           <h2
             id="industries-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B1F3A] tracking-tight mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] tracking-tight mb-4"
           >
             Sectors We Empower
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed capitalize">
             Tailored supply chain workflows engineered to address the specific regulatory, logistical, and inventory requirements of your enterprise sector.
           </p>
         </div>
@@ -104,7 +104,7 @@ export default function IndustriesSection() {
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] font-[Manrope] mb-3 leading-tight">
                   {ind.headline}
                 </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 capitalize">
                   {ind.description}
                 </p>
 

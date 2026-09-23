@@ -210,16 +210,16 @@ export default function ServiceDetailPage() {
             {currentService.processSteps.map((stepItem, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-lg hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-lg hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between capitalize"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 text-[#0B1F3A] font-extrabold text-sm flex items-center justify-center mb-4 font-[Manrope]">
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 text-[#0B1F3A] font-extrabold text-sm flex items-center justify-center mb-4 font-[Manrope] capitalize">
                     {stepItem.step}
                   </div>
-                  <h3 className="text-base font-bold text-[#0B1F3A] font-[Manrope] mb-2 leading-tight">
+                  <h3 className="text-base font-bold text-[#0B1F3A] font-[Manrope] mb-2 leading-tight capitalize">
                     {stepItem.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed capitalize">
                     {stepItem.description}
                   </p>
                 </div>
