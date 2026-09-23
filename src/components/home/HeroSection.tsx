@@ -96,7 +96,7 @@ export default function HeroSection() {
             transition={{ duration: 0.4 }}
             className="flex items-center gap-2.5 mb-4"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 shadow-sm shadow-amber-400/50 animate-pulse" />
+            {/* <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 shadow-sm shadow-amber-400/50 animate-pulse" /> */}
             <p className="text-xs font-extrabold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 uppercase font-[Manrope]">
               SHIVASUN MODERNO APPAREL
             </p>

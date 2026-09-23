@@ -57,9 +57,8 @@ export default function Navbar() {
   return (
     <header
       role="banner"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-200/70 ${
-        scrolled ? 'shadow-sm py-2.5' : 'py-3.5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-200/70 ${scrolled ? 'shadow-sm py-2.5' : 'py-3.5'
+        }`}
     >
       {/* Top golden-yellow sun gradient accent bar */}
       <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500" />
@@ -108,9 +107,8 @@ export default function Navbar() {
                     <span>{link.label}</span>
                     <TbChevronDown
                       size={14}
-                      className={`text-slate-500 transition-transform duration-200 ${
-                        dropdownOpen ? 'rotate-180 text-amber-500' : ''
-                      }`}
+                      className={`text-slate-500 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-amber-500' : ''
+                        }`}
                     />
                   </Link>
 
@@ -156,11 +154,10 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                    isActive
+                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${isActive
                       ? 'text-amber-700 font-bold bg-amber-50/90 ring-1 ring-amber-200/60'
                       : 'text-slate-700 hover:text-amber-600 hover:bg-amber-50/60'
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -246,9 +243,8 @@ export default function Navbar() {
                         >
                           <TbChevronDown
                             size={16}
-                            className={`transition-transform duration-200 ${
-                              mobileCategoriesOpen ? 'rotate-180 text-amber-500' : ''
-                            }`}
+                            className={`transition-transform duration-200 ${mobileCategoriesOpen ? 'rotate-180 text-amber-500' : ''
+                              }`}
                           />
                         </button>
                       </div>
@@ -284,11 +280,10 @@ export default function Navbar() {
                       key={link.label}
                       to={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                        isActive
+                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive
                           ? 'bg-amber-50 text-amber-700 font-bold border-l-2 border-amber-500'
                           : 'text-slate-700 hover:bg-slate-50 hover:text-amber-600'
-                      }`}
+                        }`}
                     >
                       {link.label}
                     </Link>
