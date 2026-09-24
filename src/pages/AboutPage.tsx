@@ -137,7 +137,7 @@ export default function AboutPage() {
               <span className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">Garments, Fabrics & Accessories</span>
             </h1>
 
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 capitalize">
               At <strong className="text-white">ShivaSun Moderno Impex Private Limited</strong>, we are a dynamic import-export company specializing in providing comprehensive import-export services with a focus on Garments, Fabrics, Tailoring Accessories, Footwears, and any product as per customer requirement.
             </p>
 
@@ -193,10 +193,10 @@ export default function AboutPage() {
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0B1F3A] font-[Manrope] tracking-tight leading-snug">
                 Committed to Helping Businesses Worldwide Access High-Quality Products
               </h2>
-              <p className="text-slate-600 text-base leading-relaxed">
+              <p className="text-slate-600 text-base leading-relaxed capitalize">
                 At <strong className="text-[#0B1F3A]">ShivaSun Moderno Impex Private Limited</strong>, we are committed to helping businesses worldwide access high-quality products and materials efficiently and cost-effectively. We bridge the gap between accredited industrial mills, expert textile artisans, and commercial buyers across the globe.
               </p>
-              <p className="text-slate-600 text-base leading-relaxed">
+              <p className="text-slate-600 text-base leading-relaxed capitalize">
                 Whether you need specialized denim wash developments, bulk export-grade cotton fabrics, high-durability tailoring notions, or customized footwear lines, our experienced merchandising and logistics team handles the end-to-end process with total transparency.
               </p>
 
@@ -274,7 +274,7 @@ export default function AboutPage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1F3A] font-[Manrope] tracking-tight mt-2 mb-4">
               Comprehensive Focus Across Garments, Textiles & Beyond
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base">
+            <p className="text-slate-600 text-sm sm:text-base capitalize">
               With a deep focus on Garments, Fabrics, Tailoring Accessories, Footwears, and bespoke products crafted to customer specifications.
             </p>
           </div>

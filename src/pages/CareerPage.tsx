@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  TbMapPin,
-  TbClock,
   TbCurrencyDollar,
   TbWorld,
   TbSparkles,
@@ -29,108 +27,192 @@ interface JobPosition {
 
 const positions: JobPosition[] = [
   {
-    id: 'merchandiser-sr',
-    title: 'Senior Garment Merchandiser',
+    id: 'merchandising',
+    title: 'Merchandising',
     department: 'Merchandising',
-    location: 'Mumbai / Surat, India (Hybrid)',
+    location: 'Surat / Mumbai, India (Hybrid)',
     type: 'Full-Time',
-    experience: '4 - 7 Years',
+    experience: '3 - 6 Years',
     description:
-      'Lead end-to-end sample development, costing, fabric approvals, and factory execution for international apparel buyers in Europe and North America.',
+      'Lead end-to-end sample development, costing sheets, T&A calendars, fabric approvals, and factory execution for international apparel buyers.',
     responsibilities: [
+      'Oversee Time & Action (T&A) calendars from initial tech pack receipt to final shipment packing.',
+      'Liaise with mills for fabric procurement, lab dip color matching, and trim approvals.',
       'Coordinate sample prototyping from CAD specs to pre-production sealed samples.',
-      'Liaise with mills for fabric procurement, lab dips, and trim matching.',
-      'Monitor production T&A (Time & Action) calendars to ensure 100% on-time vessel delivery.',
-      'Communicate directly with international client procurement desks regarding order milestones.',
+      'Communicate directly with international buyer procurement desks regarding production milestones.',
     ],
     requirements: [
-      'Degree in Textile/Fashion Technology or Garment Manufacturing.',
+      'Degree in Textile/Fashion Technology or Garment Merchandising.',
       'Deep knowledge of woven and knit apparel costing and fabric consumption.',
-      'Proficiency in ERP and international trade documentation.',
+      'Proficiency in ERP systems and international trade documentation.',
     ],
   },
   {
-    id: 'qa-specialist',
-    title: 'Textile & Garment Quality Inspector',
-    department: 'Quality Assurance',
-    location: 'Surat, India (On-site Factory Visits)',
+    id: 'design-product-development',
+    title: 'Design & Product Development',
+    department: 'Design & Product Development',
+    location: 'Surat / Mumbai, India (Design Studio)',
     type: 'Full-Time',
     experience: '3 - 5 Years',
     description:
-      'Perform rigorous in-line and final pre-shipment inspections (AQL 2.5) across partner garment factories and textile processing mills.',
+      'Create seasonal trend forecast boards, CAD sketches, technical tech packs, and innovative garment silhouettes for global private label programs.',
     responsibilities: [
-      'Conduct 4-point fabric inspection and dimensional stability verification.',
-      'Perform inline stitch reviews, colorfastness checks, and trim audit reports.',
-      'Issue digital CAP (Corrective Action Plan) reports prior to carton sealing.',
-      'Ensure zero compliance deviations before final export clearance.',
+      'Develop seasonal fashion collections across menswear, womenswear, and performance lines.',
+      'Produce production-ready CAD sketches, specification sheets, and grading charts.',
+      'Collaborate with master tailors and sample rooms for fit perfection and fabric drape testing.',
+      'Research international color trends, sustainable textile finishes, and trim innovations.',
     ],
     requirements: [
-      'Proven field experience in AQL inspection standards within export houses.',
-      'Strong eye for sewing workmanship, shade variation, and garment measurements.',
-      'Willingness to travel to manufacturing partner facilities.',
+      'Degree in Fashion Design from a recognized institute (NIFT/Pearl/equivalent).',
+      'Proficiency in Adobe Illustrator, Photoshop, and 3D fashion tools (CLO 3D / Browzwear).',
+      'Strong eye for garment ergonomics, construction details, and material aesthetics.',
     ],
   },
   {
-    id: 'export-logistics',
-    title: 'International Logistics & Customs Coordinator',
-    department: 'Logistics',
-    location: 'London, UK / Remote',
+    id: 'quality-control',
+    title: 'Quality Control',
+    department: 'Quality Control',
+    location: 'Surat / Ahmedabad, India (Factory Floor)',
     type: 'Full-Time',
     experience: '3 - 6 Years',
     description:
-      'Manage multimodal shipping logistics, freight forwarding contracts, customs filings (EORI, HS Code classifications), and container bookings worldwide.',
+      'Enforce zero-defect export quality standards through 4-point fabric inspection, in-line stitching audits, and final AQL 2.5 pre-shipment certifications.',
+    responsibilities: [
+      'Conduct 4-point fabric inspection and dimensional stability verification on raw textile rolls.',
+      'Perform inline stitch reviews, colorfastness checks, pull-tests, and trim audit reports.',
+      'Issue digital CAP (Corrective Action Plan) reports prior to master carton packing.',
+      'Ensure 100% compliance with international buyer AQL standards and safety protocols.',
+    ],
+    requirements: [
+      'Proven field experience in AQL 1.5 / 2.5 standards within leading apparel export houses.',
+      'Sharp eye for sewing workmanship, shade variation, and garment measurements.',
+      'Thorough knowledge of international physical and chemical apparel testing norms.',
+    ],
+  },
+  {
+    id: 'production-management',
+    title: 'Production Management',
+    department: 'Production Management',
+    location: 'Surat, India (Manufacturing Facility)',
+    type: 'Full-Time',
+    experience: '5 - 8 Years',
+    description:
+      'Direct factory floor operations, sewing line balancing, daily capacity scheduling, and machine throughput to achieve 100% on-time vessel deliveries.',
+    responsibilities: [
+      'Plan and schedule production across cutting, sewing, washing, finishing, and packing divisions.',
+      'Optimize assembly line balancing, SAM (Standard Allowed Minutes), and factory efficiency.',
+      'Coordinate with procurement and store teams for timely fabric and trim availability.',
+      'Enforce strict industrial safety, clean floor policies, and WRAP/BSCI factory compliance.',
+    ],
+    requirements: [
+      'Degree in Industrial/Production Engineering or Garment Manufacturing Technology.',
+      '5+ years managing high-volume garment or footwear manufacturing facilities.',
+      'Strong leadership, lean manufacturing knowledge, and real-time problem-solving skills.',
+    ],
+  },
+  {
+    id: 'sales-marketing',
+    title: 'Sales & Marketing',
+    department: 'Sales & Marketing',
+    location: 'London, UK / Remote / Hybrid',
+    type: 'Full-Time',
+    experience: '3 - 6 Years',
+    description:
+      'Drive international B2B buyer acquisitions, retail brand partnerships, trade show exhibitions, and wholesale export expansion across global markets.',
+    responsibilities: [
+      'Identify and build relationships with fashion retailers, workwear brands, and textile wholesalers.',
+      'Present ShivaSun Moderno Impex manufacturing capabilities and seasonal product catalogs.',
+      'Negotiate commercial contracts, container MOQs, and FOB/CIF payment terms.',
+      'Represent the enterprise at international trade fairs (Premiere Vision, Texworld, MAGIC).',
+    ],
+    requirements: [
+      'Proven track record in international fashion wholesale or B2B export sales.',
+      'Existing network with fashion brand procurement managers and buying houses.',
+      'Exceptional verbal presentation and consultative deal-closing abilities.',
+    ],
+  },
+  {
+    id: 'logistics-supply-chain',
+    title: 'Logistics & Supply Chain',
+    department: 'Logistics & Supply Chain',
+    location: 'Mumbai / London (Hybrid)',
+    type: 'Full-Time',
+    experience: '3 - 5 Years',
+    description:
+      'Manage international multimodal shipping logistics, freight forwarding contracts, customs filings, and container tracking worldwide.',
     responsibilities: [
       'Coordinate ocean freight (FCL/LCL) and air cargo bookings with major shipping lines.',
       'Draft and verify Bill of Lading (B/L), Certificates of Origin, Packing Lists, and Commercial Invoices.',
-      'Monitor port clearance, demurrage management, and real-time transit tracking.',
-      'Ensure compliance with UK HMRC and destination import regulations.',
+      'Monitor customs port filings, port clearance milestones, and demurrage avoidance.',
+      'Ensure strict compliance with UK HMRC, US CBP, and destination import regulations.',
     ],
     requirements: [
       'Comprehensive background in international maritime shipping and incoterms (FOB, CIF, DDP).',
-      'Hands-on experience with freight forwarding platforms and customs portals.',
-      'Exceptional coordination and crisis-resolution skills.',
+      'Hands-on experience with freight forwarding systems and customs documentation.',
+      'Exceptional crisis-resolution and cross-border logistical tracking skills.',
     ],
   },
   {
-    id: 'b2b-sales-lead',
-    title: 'International B2B Fashion Sales Executive',
-    department: 'Sales & Growth',
-    location: 'London, UK (Hybrid)',
+    id: 'graphic-designer-photographer',
+    title: 'Graphic Designer / Photographer',
+    department: 'Graphic Designer / Photographer',
+    location: 'Surat, India (In-House Studio)',
     type: 'Full-Time',
-    experience: '3 - 6 Years',
+    experience: '2 - 4 Years',
     description:
-      'Drive new client acquisitions among fashion brands, workwear retailers, and textile wholesalers across the UK, EU, and Middle East.',
+      'Shoot studio lookbooks, ghost mannequin photography, digital catalog visuals, and design client marketing collaterals and export packaging.',
     responsibilities: [
-      'Identify and consult with apparel retailers seeking offshore manufacturing and fabric sourcing.',
-      'Present ShivaSun Moderno Impex capabilities, catalogs, and customized trade solutions.',
-      'Negotiate commercial contracts, MOQs, and seasonal delivery schedules.',
-      'Represent the company at leading international textile trade expos.',
+      'Capture studio product photos, ghost mannequin shots, and on-model apparel campaigns.',
+      'Retouch, color-correct, and format high-resolution assets for digital catalogs and B2B lookbooks.',
+      'Design promotional line sheets, seasonal collection brochures, and client presentations.',
+      'Develop export packaging designs, hang tags, woven labels, and brand identity materials.',
     ],
     requirements: [
-      'Proven track record in B2B fashion wholesale or textile sourcing sales.',
-      'Strong network with retail procurement managers and brand merchandisers.',
-      'Excellent verbal presentation and relationship-building abilities.',
+      'Portfolio demonstrating commercial fashion photography, product styling, and graphic design.',
+      'Mastery of Adobe Creative Suite (Photoshop, Lightroom, InDesign, Illustrator).',
+      'Experience with studio strobe lighting, camera systems, and digital asset workflows.',
     ],
   },
   {
-    id: 'fabric-sourcing-specialist',
-    title: 'Fabric Sourcing & Trims Specialist',
-    department: 'Merchandising',
-    location: 'Mumbai, India',
+    id: 'product-modeling',
+    title: 'Product Modeling',
+    department: 'Product Modeling',
+    location: 'Surat / Mumbai, India (Studio Sessions)',
+    type: 'Contract / Full-Time',
+    experience: '1 - 3 Years',
+    description:
+      'Model seasonal apparel, footwear, and accessory lines for B2B buyer catalogs, digital lookbooks, and global campaign photoshoots.',
+    responsibilities: [
+      'Pose for studio catalog photography, editorial lookbooks, and fit test sessions.',
+      'Showcase garment drape, movement, fit, and styling across casual, formal, and outerwear collections.',
+      'Collaborate with stylists and photographers to achieve clean, high-fashion brand visuals.',
+      'Provide ergonomic fit feedback to technical designers and pattern makers.',
+    ],
+    requirements: [
+      'Experience in commercial fashion, catalog, or digital brand modeling.',
+      'Strong camera presence, versatile posing capability, and professional work ethic.',
+      'Comfortable working with diverse garment styles and studio lighting setups.',
+    ],
+  },
+  {
+    id: 'logistics-supply-chain-ops',
+    title: 'Logistics & Supply Chain',
+    department: 'Logistics & Supply Chain',
+    location: 'Surat / Hazira Port, India (Warehouse & Dispatch)',
     type: 'Full-Time',
     experience: '2 - 5 Years',
     description:
-      'Source trendy, high-quality, and cost-effective textiles, tailoring accessories, and trims to meet fast-paced buyer specifications.',
+      'Oversee finished goods warehouse operations, barcoded palletization, export container stuffing, and domestic port transit coordination.',
     responsibilities: [
-      'Build relationships with certified weaving, knitting, and accessory mills.',
-      'Source innovative sustainable fabrics, zippers, buttons, and custom branded trims.',
-      'Maintain an active library of seasonal textile swatches and technical data sheets.',
-      'Negotiate raw material pricing to preserve healthy commercial margins.',
+      'Supervise finished goods storage, barcoded carton segregation, and palletizing.',
+      'Direct container stuffing, weight distribution, and high-security seal verification.',
+      'Coordinate domestic transport from manufacturing lines to container freight stations (CFS).',
+      'Maintain real-time WMS inventory logs and pre-shipment staging records.',
     ],
     requirements: [
-      'Deep technical understanding of fabric construction, finishes, and trim quality.',
-      'Strong supplier network across South Asian textile manufacturing hubs.',
-      'Analytical mindset with sharp negotiation capabilities.',
+      'Proven experience in export warehouse operations or containerized freight handling.',
+      'Hands-on knowledge of cargo loading safety protocols, carton drop-testing, and dispatch logistics.',
+      'Detail-oriented approach with strong computer and dispatch logging abilities.',
     ],
   },
 ]
@@ -148,7 +230,7 @@ export default function CareerPage() {
     message: '',
   })
 
-  const departments = ['All', 'Merchandising', 'Quality Assurance', 'Logistics', 'Sales & Growth']
+  const departments = ['All', ...Array.from(new Set(positions.map((p) => p.department)))]
 
   const filteredPositions =
     selectedDept === 'All'
@@ -297,53 +379,46 @@ export default function CareerPage() {
             </div>
           </div>
 
-          {/* Positions List */}
-          <div className="space-y-4">
+          {/* Positions Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPositions.map((job) => (
               <div
                 key={job.id}
-                className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow duration-200"
+                className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-amber-400/60 transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                  <div className="space-y-2 flex-1">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-700 font-bold text-[11px] uppercase tracking-wider">
-                        {job.department}
-                      </span>
-                      <span className="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-600 font-semibold text-[11px]">
-                        {job.type}
-                      </span>
-                    </div>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-700 font-bold text-[11px] uppercase tracking-wider border border-amber-200/70">
+                      {job.department}
+                    </span>
+                    <span className="text-[11px] text-slate-500 font-semibold bg-slate-100 px-2.5 py-0.5 rounded-full">
+                      {job.type}
+                    </span>
+                  </div>
 
-                    <h3 className="text-xl font-bold text-[#0B1F3A] font-[Manrope]">
+                  <div>
+                    <h3 className="text-xl font-extrabold text-[#0B1F3A] font-[Manrope] group-hover:text-amber-600 transition-colors">
                       {job.title}
                     </h3>
-
-                    <p className="text-slate-600 text-sm leading-relaxed max-w-3xl">
-                      {job.description}
+                    <p className="text-xs text-amber-600/90 font-bold uppercase tracking-wider mt-0.5">
+                      {job.department}
                     </p>
-
-                    <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-2">
-                      <div className="flex items-center gap-1.5">
-                        <TbMapPin size={15} className="text-amber-500" />
-                        <span>{job.location}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <TbClock size={15} className="text-amber-500" />
-                        <span>Exp: {job.experience}</span>
-                      </div>
-                    </div>
                   </div>
 
-                  <div className="shrink-0 flex items-center">
-                    <button
-                      type="button"
-                      onClick={() => setActiveModalJob(job)}
-                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 text-xs font-bold transition-all shadow-sm hover:shadow"
-                    >
-                      View Details & Apply
-                    </button>
-                  </div>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                    {job.description}
+                  </p>
+                </div>
+
+                <div className="pt-5 mt-4 border-t border-slate-100">
+                  <button
+                    type="button"
+                    onClick={() => setActiveModalJob(job)}
+                    className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 text-xs font-extrabold uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow-md flex items-center justify-center gap-2 group-hover:scale-[1.01] cursor-pointer"
+                  >
+                    <span>Click to Apply</span>
+                    <TbArrowRight size={15} />
+                  </button>
                 </div>
               </div>
             ))}

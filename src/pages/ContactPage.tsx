@@ -138,8 +138,8 @@ export default function ContactPage() {
                     <TbBuildingFactory size={16} />
                   </div>
                   <div className="text-xs">
-                    <div className="font-bold text-[#0B1F3A]">India Sourcing & Manufacturing Hub</div>
-                    <div className="text-slate-500">Textile Park & Export Corridor, Surat & Mumbai, India</div>
+                    <div className="font-bold text-[#0B1F3A]">Corporate & Registered Office (India)</div>
+                    <div className="text-slate-500">Office No. 4, 2nd Floor, Building No. 8577, New Rohtak Road, Near Jain Indian Oil Petrol Pump, Karol Bagh, New Delhi 110005, INDIA</div>
                   </div>
                 </div>
               </div>

@@ -57,7 +57,7 @@ export default function ServiceDetailPage() {
               {currentService.title}
             </h1>
 
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 font-[Inter]">
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 font-[Inter] capitalize">
               {currentService.heroDescription}
             </p>
 
