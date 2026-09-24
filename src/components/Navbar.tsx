@@ -128,11 +128,11 @@ export default function Navbar() {
                             {exportCategories.map((cat) => (
                               <Link
                                 key={cat.id}
-                                to={`/#cat-${cat.id}`}
+                                to={`/industry/${cat.id}`}
                                 onClick={() => setDropdownOpen(false)}
                                 className="group/item flex items-center px-3.5 py-2.5 rounded-xl hover:bg-amber-50/70 transition-colors"
                               >
-                                <span className="text-xs sm:text-[13px] font-semibold text-[#0B1F3A] group-hover/item:text-amber-600 transition-colors truncate font-[Manrope]">
+                                <span className="text-xs sm:text-[13px] font-medium text-slate-800 group-hover/item:text-amber-600 transition-colors truncate font-[Inter]">
                                   {cat.title}
                                 </span>
                               </Link>
@@ -252,7 +252,7 @@ export default function Navbar() {
                           {exportCategories.map((cat) => (
                             <Link
                               key={cat.id}
-                              to={`/#cat-${cat.id}`}
+                              to={`/industry/${cat.id}`}
                               onClick={() => setMobileOpen(false)}
                               className="block px-3 py-2 text-xs font-medium text-slate-700 hover:text-amber-600 rounded-lg hover:bg-white transition-colors"
                             >

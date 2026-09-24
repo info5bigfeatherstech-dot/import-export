@@ -4,8 +4,6 @@ import {
   TbPhone,
   TbCheck,
   TbSend,
-  TbMessageCircle,
-  TbShieldCheck,
   TbBuildingSkyscraper,
   TbBuildingFactory,
 } from 'react-icons/tb'

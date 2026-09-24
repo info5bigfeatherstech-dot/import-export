@@ -5,6 +5,7 @@ import AboutPage from './pages/AboutPage'
 import CareerPage from './pages/CareerPage'
 import ContactPage from './pages/ContactPage'
 import ServiceDetailPage from './pages/ServiceDetailPage'
+import CategoryDetailPage from './pages/CategoryDetailPage'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 
@@ -21,6 +22,10 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
           <Route path="/services" element={<ServiceDetailPage />} />
+          <Route path="/industry/:categoryId" element={<CategoryDetailPage />} />
+          <Route path="/industry" element={<CategoryDetailPage />} />
+          <Route path="/categories/:categoryId" element={<CategoryDetailPage />} />
+          <Route path="/categories" element={<CategoryDetailPage />} />
           {/* Fallback route to home */}
           <Route path="*" element={<HomePage />} />
         </Routes>

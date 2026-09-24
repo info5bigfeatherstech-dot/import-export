@@ -128,7 +128,7 @@ export default function AboutPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-400 text-xs font-bold uppercase tracking-widest mb-6">
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+              {/* <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" /> */}
               About ShivaSun Moderno Impex Private Limited
             </div>
 

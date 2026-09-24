@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { HiArrowRight } from 'react-icons/hi'
 import { exportCategories } from '../../data/categories'
 
@@ -65,7 +66,11 @@ export default function ExportCategories() {
             >
               <div>
                 {/* Arched Architectural Window */}
-                <div className="relative w-full aspect-[4/3] rounded-t-[88px] rounded-b-2xl overflow-hidden bg-slate-100 shadow-sm mb-5 border border-slate-200/50">
+                <Link
+                  to={`/industry/${cat.id}`}
+                  className="block relative w-full aspect-[4/3] rounded-t-[88px] rounded-b-2xl overflow-hidden bg-slate-100 shadow-sm mb-5 border border-slate-200/50 cursor-pointer"
+                  aria-label={`Explore ${cat.title} industry line`}
+                >
                   <img
                     src={cat.image}
                     alt={cat.title}
@@ -80,16 +85,18 @@ export default function ExportCategories() {
                       {cat.subtitle}
                     </span>
                   </div>
-                </div>
+                </Link>
 
                 {/* Content */}
                 <div className="text-center px-3 sm:px-4">
                   <span className="text-[11px] font-extrabold tracking-widest text-amber-600 uppercase font-[Manrope] block mb-1">
                     ARCH {cat.number}
                   </span>
-                  <h3 className="text-xl font-bold text-[#0B1F3A] font-[Manrope] mb-2 group-hover:text-amber-600 transition-colors">
-                    {cat.title}
-                  </h3>
+                  <Link to={`/industry/${cat.id}`}>
+                    <h3 className="text-xl font-bold text-[#0B1F3A] font-[Manrope] mb-2 group-hover:text-amber-600 transition-colors">
+                      {cat.title}
+                    </h3>
+                  </Link>
                   <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-4 line-clamp-3 font-[Inter] capitalize">
                     {cat.description}
                   </p>
@@ -108,14 +115,14 @@ export default function ExportCategories() {
               </div>
 
               <div className="pt-3.5 pb-2 mx-3 border-t border-slate-100 text-center">
-                <a
-                  href="#contact"
+                <Link
+                  to={`/industry/${cat.id}`}
                   id={`category-arch-${cat.id}`}
                   className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 hover:text-amber-700 transition-colors group/link"
                 >
                   <span>Explore Industry Line</span>
                   <HiArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform duration-200" />
-                </a>
+                </Link>
               </div>
             </motion.article>
           ))}
