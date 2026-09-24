@@ -127,17 +127,17 @@ export default function AboutPage() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-400 text-xs font-bold uppercase tracking-widest mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-400 text-[10px] sm:text- font-bold uppercase tracking-wider sm:tracking-widest mb-6">
               {/* <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" /> */}
               About ShivaSun Moderno Impex Private Limited
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-[Manrope] tracking-tight leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-[Manrope] tracking-tight leading-tight mb-6">
               Your One-Stop Solution for Global Trade in{' '}
               <span className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">Garments, Fabrics & Accessories</span>
             </h1>
 
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 capitalize">
+            <p className="text-slate-300 text-base sm:text-base leading-relaxed mb-8 capitalize">
               At <strong className="text-white">ShivaSun Moderno Impex Private Limited</strong>, we are a dynamic import-export company specializing in providing comprehensive import-export services with a focus on Garments, Fabrics, Tailoring Accessories, Footwears, and any product as per customer requirement.
             </p>
 
@@ -164,19 +164,19 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
               <div className="text-2xl sm:text-3xl font-extrabold text-white font-[Manrope]">35+</div>
-              <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Export Destination Countries</div>
+              <div className="text-[10px] text-slate-400 mt-1 uppercase tracking-wider">Export Destination Countries</div>
             </div>
             <div>
               <div className="text-2xl sm:text-3xl font-extrabold text-amber-400 font-[Manrope]">100%</div>
-              <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Strict Quality Audits</div>
+              <div className="text-[10px] text-slate-400 mt-1 uppercase tracking-wider">Strict Quality Audits</div>
             </div>
             <div>
               <div className="text-2xl sm:text-3xl font-extrabold text-white font-[Manrope]">500+</div>
-              <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Commercial Shipments</div>
+              <div className="text-[10px] text-slate-400 mt-1 uppercase tracking-wider">Commercial Shipments</div>
             </div>
             <div>
               <div className="text-2xl sm:text-3xl font-extrabold text-amber-400 font-[Manrope]">AQL 2.5</div>
-              <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Standard Inspection Protocol</div>
+              <div className="text-[10px] text-slate-400 mt-1 uppercase tracking-wider">Standard Inspection Protocol</div>
             </div>
           </div>
         </div>

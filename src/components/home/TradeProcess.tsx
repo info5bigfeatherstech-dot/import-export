@@ -84,7 +84,7 @@ export default function TradeProcess() {
               <h3 className="text-lg font-bold text-[#0B1F3A] font-[Manrope] mb-2.5">
                 {item.title}
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1">
+              <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1 capitalize">
                 {item.description}
               </p>
 

@@ -97,7 +97,7 @@ export default function HeroSection() {
             className="flex items-center gap-2.5 mb-4"
           >
             {/* <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 shadow-sm shadow-amber-400/50 animate-pulse" /> */}
-            <p className="text-xs font-extrabold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 uppercase font-[Manrope]">
+            <p className="text-[10px] font-extrabold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 uppercase font-[Manrope]">
               SHIVASUN MODERNO APPAREL
             </p>
           </motion.div>
@@ -107,7 +107,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="text-3xl min-[360px]:text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-black uppercase tracking-tight leading-[1.08] text-white mb-6 font-[Manrope]"
+            className="text-3xl min-[360px]:text-4xl sm:text-5xl md:text-6xl lg:text-[50px] font-black uppercase tracking-tight leading-[1.08] text-white mb-6 font-[Manrope]"
           >
             <span className="block text-slate-200 text-lg sm:text-2xl md:text-3xl font-bold tracking-normal normal-case mb-1 font-[Manrope]">
               Welcome to
@@ -118,7 +118,7 @@ export default function HeroSection() {
                 MODERNO
               </span>
             </span>
-            <span className="block mt-2 sm:mt-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide text-slate-100 normal-case font-[Manrope]">
+            <span className="block mt-2 sm:mt-3 text-xl sm:text-2xl md:text-2xl lg:text-2xl font-light tracking-wide text-slate-100 normal-case font-[Manrope]">
               Where Style Meets{' '}
               <span className="inline-block">
                 <WordRotate
@@ -131,16 +131,13 @@ export default function HeroSection() {
           </motion.h1>
 
           {/* Description Paragraph matching user request */}
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-base sm:text-lg text-slate-200 max-w-2xl leading-relaxed mb-8 sm:mb-10 font-[Inter] capitalize"
+          <p
+            className="text-sm sm:text-lg text-slate-200 max-w-2xl leading-relaxed mb-8 sm:mb-10 font-[Inter] capitalize"
           >
             Discover fashion that speaks your vibe! At ShivaSun Moderno, we bring you
             the latest trends in men’s, women’s, and unisex fashion—from everyday
             essentials to bold statement pieces.
-          </motion.p>
+          </p>
 
           {/* Action Row */}
           <motion.div
