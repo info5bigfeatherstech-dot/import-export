@@ -11,6 +11,7 @@ import {
   TbArrowRight,
   TbHeart,
   TbCertificate,
+  TbEye,
 } from 'react-icons/tb'
 
 interface JobPosition {
@@ -220,6 +221,7 @@ const positions: JobPosition[] = [
 export default function CareerPage() {
   const [selectedDept, setSelectedDept] = useState<string>('All')
   const [activeModalJob, setActiveModalJob] = useState<JobPosition | null>(null)
+  const [activeDetailsJob, setActiveDetailsJob] = useState<JobPosition | null>(null)
   const [submitted, setSubmitted] = useState<boolean>(false)
   const [formData, setFormData] = useState({
     name: '',
@@ -410,14 +412,23 @@ export default function CareerPage() {
                   </p>
                 </div>
 
-                <div className="pt-5 mt-4 border-t border-slate-100">
+                <div className="pt-5 mt-4 border-t border-slate-100 grid grid-cols-2 gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => setActiveDetailsJob(job)}
+                    className="py-2.5 px-3 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-white text-slate-800 text-xs font-bold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer group/btn"
+                  >
+                    <TbEye size={15} className="text-amber-600 group-hover/btn:scale-110 transition-transform" />
+                    <span>View Details</span>
+                  </button>
+
                   <button
                     type="button"
                     onClick={() => setActiveModalJob(job)}
-                    className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 text-xs font-extrabold uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow-md flex items-center justify-center gap-2 group-hover:scale-[1.01] cursor-pointer"
+                    className="py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 text-xs font-extrabold uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow-md flex items-center justify-center gap-1.5 group-hover:scale-[1.01] cursor-pointer"
                   >
                     <span>Click to Apply</span>
-                    <TbArrowRight size={15} />
+                    <TbArrowRight size={14} />
                   </button>
                 </div>
               </div>
@@ -446,7 +457,126 @@ export default function CareerPage() {
         </div>
       </section>
 
-      {/* 4. APPLICATION MODAL */}
+      {/* 4. JOB DETAILS SPECIFICATION MODAL */}
+      <AnimatePresence>
+        {activeDetailsJob && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+            >
+              {/* Modal Header */}
+              <div className="px-6 py-5 bg-[#0B1F3A] text-white flex items-center justify-between shrink-0">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] font-extrabold text-amber-400 uppercase tracking-widest bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">
+                      {activeDetailsJob.department}
+                    </span>
+                    <span className="text-[10px] font-semibold text-slate-300 bg-white/10 px-2 py-0.5 rounded">
+                      {activeDetailsJob.type}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold font-[Manrope] text-white">
+                    {activeDetailsJob.title}
+                  </h3>
+                </div>
+                <button
+                  onClick={() => setActiveDetailsJob(null)}
+                  className="p-2 rounded-xl bg-white/10 text-white hover:bg-white/20 transition-colors cursor-pointer"
+                  aria-label="Close modal"
+                >
+                  <TbX size={20} />
+                </button>
+              </div>
+
+              {/* Modal Body */}
+              <div className="p-6 overflow-y-auto flex-1 space-y-6">
+                {/* Role Overview */}
+                <div>
+                  <h4 className="text-xs font-extrabold uppercase tracking-wider text-amber-600 mb-2">
+                    Role Overview
+                  </h4>
+                  <p className="text-slate-700 text-sm leading-relaxed bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+                    {activeDetailsJob.description}
+                  </p>
+                </div>
+
+                {/* Key Responsibilities */}
+                <div>
+                  <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#0B1F3A] mb-3 flex items-center gap-2">
+                    <TbCheck className="text-amber-500" size={16} />
+                    <span>Key Responsibilities</span>
+                  </h4>
+                  <ul className="space-y-2.5">
+                    {activeDetailsJob.responsibilities.map((r, i) => (
+                      <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-slate-600">
+                        <span className="w-5 h-5 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold border border-amber-200/60">
+                          {i + 1}
+                        </span>
+                        <span className="leading-relaxed">{r}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Requirements & Qualifications */}
+                <div>
+                  <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#0B1F3A] mb-3 flex items-center gap-2">
+                    <TbCertificate className="text-amber-500" size={16} />
+                    <span>Requirements & Qualifications</span>
+                  </h4>
+                  <ul className="space-y-2.5">
+                    {activeDetailsJob.requirements.map((req, i) => (
+                      <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-slate-600">
+                        <span className="w-5 h-5 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold border border-slate-200">
+                          ✓
+                        </span>
+                        <span className="leading-relaxed">{req}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Company Perks & Culture highlight */}
+                <div className="bg-gradient-to-r from-amber-50 to-yellow-50 p-4 rounded-2xl border border-amber-200/60 text-xs text-slate-700 flex items-start gap-3">
+                  <TbSparkles className="text-amber-600 shrink-0 mt-0.5" size={18} />
+                  <div>
+                    <span className="font-bold text-[#0B1F3A] block mb-0.5">ShivaSun Moderno Advantage</span>
+                    <span>Direct involvement in global trade operations, competitive industry remuneration, and international brand partnerships across 35+ countries.</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Footer */}
+              <div className="px-6 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between gap-3 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setActiveDetailsJob(null)}
+                  className="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 text-xs font-bold transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const job = activeDetailsJob
+                    setActiveDetailsJob(null)
+                    setActiveModalJob(job)
+                  }}
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 text-xs font-extrabold uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-2 cursor-pointer"
+                >
+                  <span>Apply For This Position</span>
+                  <TbArrowRight size={14} />
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* 5. APPLICATION MODAL */}
       <AnimatePresence>
         {activeModalJob && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">

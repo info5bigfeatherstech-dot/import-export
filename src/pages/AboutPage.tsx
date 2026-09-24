@@ -309,7 +309,7 @@ export default function AboutPage() {
                       <h3 className="text-lg font-bold text-[#0B1F3A] font-[Manrope] mb-2 group-hover:text-amber-600 transition-colors">
                         {sector.title}
                       </h3>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 capitalize">
                         {sector.description}
                       </p>
                     </div>
@@ -346,7 +346,7 @@ export default function AboutPage() {
                 Quality Is Our Top Priority
               </h2>
 
-              <p className="text-slate-600 text-base leading-relaxed">
+              <p className="text-slate-600 text-base leading-relaxed capitalize">
                 Quality is our top priority. We ensure that all products meet stringent quality standards, guaranteeing excellence in every shipment. From laboratory fiber verification to post-packing carton audits, our rigorous protocols guarantee zero compromise on build, finish, and safety.
               </p>
 
@@ -383,7 +383,7 @@ export default function AboutPage() {
                     <h3 className="text-sm font-bold text-[#0B1F3A] font-[Manrope] mb-1.5">
                       {pillar.title}
                     </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed capitalize">
                       {pillar.desc}
                     </p>
                   </div>
@@ -404,7 +404,7 @@ export default function AboutPage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1F3A] font-[Manrope] tracking-tight mt-2 mb-4">
               Navigating the Global Marketplace Together
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base">
+            <p className="text-slate-600 text-sm sm:text-base capitalize">
               Whether you’re a fashion retailer, garment manufacturer, or textile distributor, <strong className="text-[#0B1F3A]">ShivaSun Moderno Impex Private Limited</strong> is your trusted ally in navigating the global marketplace.
             </p>
           </div>
@@ -424,7 +424,7 @@ export default function AboutPage() {
                     <h3 className="text-xl font-bold text-[#0B1F3A] font-[Manrope] mb-3">
                       {client.role}
                     </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                    <p className="text-slate-600 text-sm leading-relaxed mb-6 capitalize">
                       {client.desc}
                     </p>
                   </div>

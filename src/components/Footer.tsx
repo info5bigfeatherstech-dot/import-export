@@ -35,7 +35,7 @@ export default function Footer() {
     <footer
       role="contentinfo"
       aria-label="Site footer"
-      className="w-full bg-[#f7f8f9] text-slate-800 border-t border-slate-200"
+      className="w-full bg-[#eaedf1] text-slate-800 border-t border-slate-300"
     >
       {/* Main footer grid */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
@@ -47,13 +47,11 @@ export default function Footer() {
               className="inline-block mb-6 group"
               aria-label="ShivaSun Moderno Impex Pvt. Ltd. Home"
             >
-              <div className="bg-white px-3.5 py-2.5 rounded-2xl shadow-sm border border-slate-200/90 inline-flex items-center justify-center transition-transform duration-200 group-hover:scale-102">
-                <img
-                  src="/logo.png"
-                  alt="ShivaSun Moderno Impex Pvt. Ltd."
-                  className="h-11 sm:h-14 w-auto object-contain"
-                />
-              </div>
+              <img
+                src="/logo.png"
+                alt="ShivaSun Moderno Impex Pvt. Ltd."
+                className="h-11 sm:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-102"
+              />
             </Link>
 
             <p className="text-slate-600 text-sm leading-relaxed mb-6 font-[Inter]">
@@ -180,8 +178,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-slate-200 bg-[#e9ebef]">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div className="border-t border-slate-300/80 bg-[#dfe3e8]">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
           <p>
             © {year} ShivaSun Moderno Impex Private Limited. All rights reserved.
           </p>
