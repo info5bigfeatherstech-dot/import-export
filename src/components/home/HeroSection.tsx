@@ -163,7 +163,7 @@ export default function HeroSection() {
             </a>
 
             {/* Underlined Secondary Navigation Links */}
-            <div className="flex flex-wrap items-center gap-6 text-sm sm:text-base font-semibold text-white">
+            {/* <div className="flex flex-wrap items-center gap-6 text-sm sm:text-base font-semibold text-white">
               <a
                 href="#products"
                 id="hero-categories-link"
@@ -179,7 +179,7 @@ export default function HeroSection() {
               >
                 Inside Factories
               </a>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>

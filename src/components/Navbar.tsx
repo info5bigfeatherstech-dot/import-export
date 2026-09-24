@@ -73,7 +73,7 @@ export default function Navbar() {
           <img
             src="/logo.png"
             alt="ShivaSun Moderno Impex Pvt. Ltd."
-            className="h-9 sm:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-102"
+            className="h-11 sm:h-13 md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-102"
           />
         </Link>
 
@@ -120,23 +120,20 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.98 }}
                         transition={{ duration: 0.2, ease: 'easeOut' }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-[500px]"
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-[440px]"
                       >
-                        <div className="bg-white rounded-2xl shadow-2xl border border-slate-200/90 overflow-hidden p-3">
+                        <div className="bg-white rounded-2xl shadow-2xl border border-slate-200/90 overflow-hidden p-2.5">
                           {/* 2-Column Grid of 10 Categories */}
-                          <div className="grid grid-cols-2 gap-1 p-1">
+                          <div className="grid grid-cols-2 gap-1">
                             {exportCategories.map((cat) => (
                               <Link
                                 key={cat.id}
                                 to={`/#cat-${cat.id}`}
                                 onClick={() => setDropdownOpen(false)}
-                                className="group/item flex flex-col px-3 py-2 rounded-xl hover:bg-amber-50/50 transition-colors"
+                                className="group/item flex items-center px-3.5 py-2.5 rounded-xl hover:bg-amber-50/70 transition-colors"
                               >
-                                <span className="text-xs font-bold text-[#0B1F3A] group-hover/item:text-amber-600 transition-colors truncate font-[Manrope]">
+                                <span className="text-xs sm:text-[13px] font-semibold text-[#0B1F3A] group-hover/item:text-amber-600 transition-colors truncate font-[Manrope]">
                                   {cat.title}
-                                </span>
-                                <span className="text-[10px] text-slate-500 truncate">
-                                  {cat.subtitle}
                                 </span>
                               </Link>
                             ))}

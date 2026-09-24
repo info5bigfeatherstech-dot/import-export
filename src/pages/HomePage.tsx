@@ -1,7 +1,7 @@
 import HeroSection from '../components/home/HeroSection'
 // import TrustBar from '../components/home/TrustBar'
 import ExportCategories from '../components/home/ExportCategories'
-import FactoryShowcase from '../components/home/FactoryShowcase'
+// import FactoryShowcase from '../components/home/FactoryShowcase'
 import ApparelServices from '../components/home/ApparelServices'
 import ExportMarketSection from '../components/home/ExportMarketSection'
 import FactoryGallery from '../components/home/FactoryGallery'

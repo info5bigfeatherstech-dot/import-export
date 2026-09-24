@@ -8,7 +8,6 @@ import {
   TbShieldCheck,
   TbBuildingSkyscraper,
   TbBuildingFactory,
-  TbHelpCircle,
 } from 'react-icons/tb'
 
 export default function ContactPage() {
@@ -29,25 +28,6 @@ export default function ContactPage() {
     e.preventDefault()
     setSubmitted(true)
   }
-
-  const tradeFaqs = [
-    {
-      q: 'What is your typical lead time for garments and fabrics?',
-      a: 'Sampling and proto-development take 7–14 days. Production lead times range from 30 to 60 days depending on fabric weaving, dyeing, and volume requirements.',
-    },
-    {
-      q: 'What are your Minimum Order Quantities (MOQs)?',
-      a: 'We offer flexible MOQs tailored to your business model. For custom apparel, our typical pilot batches begin at 300–500 pieces per style/colorway, while stock fabric programs allow smaller test runs.',
-    },
-    {
-      q: 'Can you source custom products outside the listed categories?',
-      a: 'Yes! As stated in our core charter: "With a focus on Garments, Fabrics, Tailoring Accessories, Footwears and Any product as per customer requirement." Our bespoke sourcing desk handles any specialized specification.',
-    },
-    {
-      q: 'Which incoterms and payment terms do you support?',
-      a: 'We operate primarily on FOB and CIF, with DDP available for select markets. Payment terms include confirmed Letter of Credit (L/C) at sight and standard TT wire arrangements.',
-    },
-  ]
 
   return (
     <div className="w-full bg-slate-50 min-h-screen pb-20">
@@ -122,7 +102,7 @@ export default function ContactPage() {
                   </div>
                 </a>
 
-                <a
+                {/* <a
                   href="https://wa.me/917297960397"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -140,7 +120,7 @@ export default function ContactPage() {
                     </div>
                     <div className="text-[11px] text-slate-600">Immediate swatch & catalog exchange</div>
                   </div>
-                </a>
+                </a> */}
               </div>
 
               {/* Office Locations */}
@@ -168,7 +148,7 @@ export default function ContactPage() {
             </div>
 
             {/* Quality & Trust Banner */}
-            <div className="bg-[#0B1F3A] text-white rounded-3xl p-6 border border-white/10 space-y-3">
+            {/* <div className="bg-[#0B1F3A] text-white rounded-3xl p-6 border border-white/10 space-y-3">
               <div className="flex items-center gap-2 text-xs font-bold text-amber-600 uppercase tracking-wider">
                 <TbShieldCheck size={18} />
                 <span>Our Quality Commitment</span>
@@ -176,7 +156,7 @@ export default function ContactPage() {
               <p className="text-xs text-slate-300 leading-relaxed">
                 "Quality is our top priority. We ensure that all products meet stringent quality standards, guaranteeing excellence in every shipment."
               </p>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Column: Interactive Commercial Inquiry Form (7 cols) */}
@@ -381,32 +361,6 @@ export default function ContactPage() {
               </form>
             )}
           </div>
-        </div>
-      </section>
-
-      {/* 3. TRADE FAQ SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
-            Quick Answers
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] font-[Manrope] tracking-tight mt-1">
-            Frequently Asked Sourcing Questions
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {tradeFaqs.map((faq, i) => (
-            <div key={i} className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-xs">
-              <h3 className="text-sm font-bold text-[#0B1F3A] font-[Manrope] mb-2 flex items-start gap-2">
-                <TbHelpCircle size={18} className="text-amber-500 shrink-0 mt-0.5" />
-                <span>{faq.q}</span>
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed pl-6">
-                {faq.a}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
     </div>

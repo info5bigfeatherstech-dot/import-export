@@ -51,7 +51,7 @@ export default function Footer() {
                 <img
                   src="/logo.png"
                   alt="ShivaSun Moderno Impex Pvt. Ltd."
-                  className="h-10 sm:h-12 w-auto object-contain"
+                  className="h-11 sm:h-14 w-auto object-contain"
                 />
               </div>
             </Link>
