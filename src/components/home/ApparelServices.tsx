@@ -84,7 +84,7 @@ export default function ApparelServices() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#0B1F3A] leading-[1.12] tracking-tight mb-4 font-[Manrope]"
+            className="text-3xl sm:text-4xl lg:text-[36px] font-bold text-[#0B1F3A] leading-[1.12] tracking-tight mb-4 font-[Manrope]"
           >
             Product Development And <br className="hidden sm:inline" />
             Manufacturing Services
@@ -95,7 +95,7 @@ export default function ApparelServices() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-slate-500 text-sm sm:text-base leading-relaxed font-[Inter] capitalize"
+            className="text-slate-500 text-sm sm:text-sm leading-relaxed font-[Inter] capitalize"
           >
             From design and sample development to manufacturing, washing, quality
             control, packing and finished-goods delivery.

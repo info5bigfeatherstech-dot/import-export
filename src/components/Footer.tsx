@@ -54,7 +54,7 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="text-slate-600 text-sm leading-relaxed mb-6 font-[Inter]">
+            <p className="text-slate-600 text-sm leading-relaxed mb-6 font-[Inter] capitalize">
               A dynamic import-export company specializing in comprehensive global trade services with a focus on Garments, Fabrics, Tailoring Accessories, Footwears, and bespoke sourcing per customer requirement.
             </p>
 

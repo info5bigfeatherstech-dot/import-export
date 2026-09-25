@@ -22,12 +22,12 @@ export default function CtaSection() {
 
           <h2
             id="cta-heading"
-            className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6 leading-tight"
+            className="text-3xl sm:text-3xl lg:text-5xl font-bold text-white tracking-tight mb-6 leading-tight"
           >
             Ready to Expand Your Import & Export Trade?
           </h2>
 
-          <p className="text-slate-300 text-base sm:text-xl leading-relaxed mb-10 max-w-2xl mx-auto capitalize">
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl mx-auto capitalize">
             Connect directly with an accredited UK trade director. We assess product availability, customs classifications, multimodal freight schedules, and provide a verified CIF quote within 24 hours.
           </p>
 

@@ -286,16 +286,16 @@ export default function CareerPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-400 text-xs font-bold uppercase tracking-widest mb-6">
-            <TbSparkles size={14} />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-400 text-[10px] font-bold uppercase tracking-widest mb-6">
+            {/* <TbSparkles size={14} /> */}
             Careers at ShivaSun Moderno Impex Private Limited
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-[Manrope] tracking-tight leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-[Manrope] tracking-tight leading-tight mb-6">
             Shape the Future of <span className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">Global Trade & Fashion</span>
           </h1>
 
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
+          <p className="text-slate-300 text-base sm:text-base leading-relaxed mb-8">
             Join our dynamic team of trade specialists, garment merchandisers, and logistics innovators connecting world-class manufacturers with global fashion retailers.
           </p>
 

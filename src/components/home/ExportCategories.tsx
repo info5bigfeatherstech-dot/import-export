@@ -36,7 +36,7 @@ export default function ExportCategories() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] tracking-tight mb-4 font-[Manrope]"
+            className="text-3xl sm:text-3xl lg:text-4xl font-bold text-[#0B1F3A] tracking-tight mb-4 font-[Manrope]"
           >
             Our Export Categories
           </motion.h2>
@@ -46,7 +46,7 @@ export default function ExportCategories() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-slate-600 text-sm sm:text-base leading-relaxed font-[Inter] capitalize"
+            className="text-slate-600 text-sm sm:text-sm leading-relaxed font-[Inter] capitalize"
           >
             We operate dedicated commodity desks across our key global trade sectors, ensuring verified supplier origin, laboratory certification, and multimodal shipping.
           </motion.p>
