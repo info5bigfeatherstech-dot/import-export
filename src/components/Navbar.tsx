@@ -314,7 +314,14 @@ export default function Navbar() {
         </nav>
 
         {/* CTA & Phone button */}
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-3">
+          <Link
+            to="/admin"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-200 transition-colors"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+            <span>Admin ERP</span>
+          </Link>
           <a
             href="tel:+917297960397"
             className="flex items-center gap-1.5 text-xs font-semibold tracking-wide text-slate-700 hover:text-amber-600 transition-colors"
@@ -325,7 +332,7 @@ export default function Navbar() {
           <Link
             to="/contact"
             id="nav-request-quote"
-            className="px-5 py-2.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 text-sm font-bold rounded-lg shadow-sm shadow-amber-400/30 transition-all duration-200 hover:shadow hover:-translate-y-0.5"
+            className="px-4 py-2 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 text-xs font-bold rounded-lg shadow-sm shadow-amber-400/30 transition-all duration-200 hover:shadow hover:-translate-y-0.5"
           >
             Request Quote
           </Link>
@@ -526,6 +533,14 @@ export default function Navbar() {
                   className="w-full py-3 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-slate-950 text-sm font-bold rounded-lg text-center transition-colors shadow-sm shadow-amber-400/30 block"
                 >
                   Request a Free Quote
+                </Link>
+                <Link
+                  to="/admin"
+                  onClick={() => setMobileOpen(false)}
+                  className="w-full py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-semibold rounded-lg text-center border border-blue-200 transition-colors flex items-center justify-center gap-1.5"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                  <span>Open Product Admin Panel (ERP)</span>
                 </Link>
               </div>
             </nav>

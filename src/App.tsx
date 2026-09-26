@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
@@ -7,10 +7,23 @@ import ContactPage from './pages/ContactPage'
 import ServiceDetailPage from './pages/ServiceDetailPage'
 import CategoryDetailPage from './pages/CategoryDetailPage'
 import ProductCategoryPage from './pages/ProductCategoryPage'
+import AdminPage from './pages/AdminPage'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 
 export default function App() {
+  const location = useLocation()
+  const isAdmin = location.pathname.startsWith('/admin')
+
+  if (isAdmin) {
+    return (
+      <Routes>
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin/*" element={<AdminPage />} />
+      </Routes>
+    )
+  }
+
   return (
     <div className="w-full min-h-screen flex flex-col bg-white text-[#1F2937] antialiased selection:bg-amber-400 selection:text-slate-950">
       <ScrollToTop />
