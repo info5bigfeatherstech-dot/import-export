@@ -22,6 +22,26 @@
   --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* Global theme button utilities */
+.btn-theme-primary {
+  background-color: var(--color-navy);
+  color: #FFFFFF;
+  transition: all 0.15s ease-in-out;
+}
+.btn-theme-primary:hover {
+  background-color: var(--color-navy-light);
+}
+
+.btn-theme-accent {
+  background-color: var(--color-amber-primary);
+  color: #07162A;
+  font-weight: 700;
+  transition: all 0.15s ease-in-out;
+}
+.btn-theme-accent:hover {
+  background-color: var(--color-amber-dark);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

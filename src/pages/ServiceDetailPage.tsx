@@ -30,7 +30,7 @@ export default function ServiceDetailPage() {
         {/* Ambient Glow */}
         <div className="absolute inset-0 opacity-15 pointer-events-none">
           <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-amber-500/20 blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-blue-600 blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-navy-light/60 blur-3xl" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

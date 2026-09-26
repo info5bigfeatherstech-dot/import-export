@@ -37,19 +37,19 @@ export default function AdminSidebar({
       {/* Brand Header */}
       <div className="h-16 border-b border-slate-200 px-5 flex items-center justify-between">
         <Link to="/admin" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm shadow-xs shadow-blue-500/20">
+          <div className="w-8 h-8 rounded-lg bg-navy text-white flex items-center justify-center font-bold text-sm shadow-xs shadow-navy/20">
             S
           </div>
           <div>
             <div className="font-semibold text-slate-900 text-sm tracking-tight leading-none">
               ShivaSun ERP
             </div>
-            <div className="text-[11px] text-blue-600 font-medium mt-0.5">
+            <div className="text-[11px] text-amber-600 font-medium mt-0.5">
               Product Admin Panel
             </div>
           </div>
         </Link>
-        <span className="text-[10px] font-semibold uppercase tracking-wider px-1.5 py-0.5 bg-blue-50 text-blue-700 border border-blue-200/60 rounded">
+        <span className="text-[10px] font-semibold uppercase tracking-wider px-1.5 py-0.5 bg-amber-50 text-amber-800 border border-amber-200/60 rounded">
           v2.6
         </span>
       </div>
@@ -58,7 +58,7 @@ export default function AdminSidebar({
       <div className="p-4">
         <button
           onClick={onAddNew}
-          className="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg shadow-sm shadow-blue-500/15 transition-all duration-150 cursor-pointer"
+          className="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 bg-navy hover:bg-navy-light text-white text-xs font-semibold rounded-lg shadow-sm shadow-navy/20 transition-all duration-150 cursor-pointer"
         >
           <FiPlus className="stroke-[2.5]" size={15} />
           <span>New Product Entry</span>
@@ -80,14 +80,14 @@ export default function AdminSidebar({
               onClick={() => setCurrentTab(item.id)}
               className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
                 isActive
-                  ? 'bg-blue-50 text-blue-700 font-semibold border border-blue-200/70 shadow-2xs'
+                  ? 'bg-navy/5 text-navy font-semibold border border-navy/20 shadow-2xs'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-transparent'
               }`}
             >
               <div className="flex items-center gap-2.5">
                 <Icon
                   size={15}
-                  className={isActive ? 'text-blue-600' : 'text-slate-400'}
+                  className={isActive ? 'text-navy' : 'text-slate-400'}
                 />
                 <span>{item.label}</span>
               </div>
@@ -95,7 +95,7 @@ export default function AdminSidebar({
                 <span
                   className={`text-[10px] px-1.5 py-0.5 rounded-full ${
                     isActive
-                      ? 'bg-blue-100 text-blue-700 font-bold'
+                      ? 'bg-navy text-white font-bold'
                       : 'bg-slate-100 text-slate-600'
                   }`}
                 >
@@ -124,7 +124,7 @@ export default function AdminSidebar({
 
         <Link
           to="/"
-          className="flex items-center justify-center gap-1.5 w-full py-2 px-3 text-xs font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50/60 rounded-lg border border-slate-200 bg-white transition-colors"
+          className="flex items-center justify-center gap-1.5 w-full py-2 px-3 text-xs font-medium text-slate-600 hover:text-navy hover:bg-slate-100 rounded-lg border border-slate-200 bg-white transition-colors"
         >
           <FiExternalLink size={13} />
           <span>Exit to Main Website</span>

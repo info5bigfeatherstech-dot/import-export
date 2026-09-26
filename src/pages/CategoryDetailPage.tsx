@@ -113,7 +113,7 @@ export default function CategoryDetailPage() {
       <section className="relative w-full bg-[#0B1F3A] text-white pt-28 sm:pt-36 lg:pt-40 pb-20 overflow-hidden border-b border-slate-800">
         {/* Ambient Warm Golden & Navy Ambient Lighting */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/15 rounded-full blur-3xl pointer-events-none -mr-40 -mt-20" />
-        <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-blue-600/15 rounded-full blur-3xl pointer-events-none -ml-32 -mb-20" />
+        <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-navy-light/30 rounded-full blur-3xl pointer-events-none -ml-32 -mb-20" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb Navigation */}

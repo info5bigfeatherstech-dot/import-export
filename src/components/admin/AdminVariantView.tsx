@@ -15,9 +15,9 @@ export default function AdminVariantView({
   return (
     <div className="space-y-6">
       {/* Explainer Banner for User */}
-      <div className="p-5 rounded-2xl bg-white border border-blue-200 shadow-2xs space-y-3">
+      <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-3">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold">
+          <div className="w-8 h-8 rounded-lg bg-navy/5 text-navy flex items-center justify-center font-bold">
             <FiLayers size={18} />
           </div>
           <div>
@@ -45,8 +45,8 @@ export default function AdminVariantView({
               <strong>Sizes</strong> (S, M, L, XL).
             </p>
           </div>
-          <div className="p-3 bg-blue-50/70 rounded-xl border border-blue-200">
-            <span className="font-bold text-blue-950 block mb-1">3. Generated Sub-SKU</span>
+          <div className="p-3 bg-amber-50/70 rounded-xl border border-amber-200">
+            <span className="font-bold text-amber-950 block mb-1">3. Generated Sub-SKU</span>
             <p className="text-slate-700 leading-relaxed text-[11px]">
               Each combination gets a unique barcode & SKU (e.g.{' '}
               <code>DRS-001-BLU-S</code>) for carton packing and barcode scanning!
@@ -94,21 +94,21 @@ export default function AdminVariantView({
                         <span className="text-xs font-semibold text-slate-800">
                           {p.productName}
                         </span>
-                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 font-medium border border-blue-200">
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-navy/5 text-navy font-medium border border-navy/20">
                           Base SKU: {p.sku}
                         </span>
                       </div>
                       <div className="text-xs text-slate-500 mt-0.5">
                         Colors: <strong className="text-slate-700">{p.availableColors?.join(', ')}</strong> • Sizes:{' '}
                         <strong className="text-slate-700">{p.sizeRange?.join(', ')}</strong> • Total Variant Units:{' '}
-                        <strong className="text-blue-700 font-mono">{totalStock.toLocaleString()}</strong>
+                        <strong className="text-navy font-mono">{totalStock.toLocaleString()}</strong>
                       </div>
                     </div>
                   </div>
 
                   <button
                     onClick={() => onSelectProduct(p)}
-                    className="px-3 py-1.5 bg-white hover:bg-slate-50 text-blue-600 border border-blue-200 hover:border-blue-400 rounded-lg text-xs font-semibold transition-all cursor-pointer"
+                    className="px-3 py-1.5 bg-white hover:bg-slate-50 text-navy border border-slate-200 hover:border-navy rounded-lg text-xs font-semibold transition-all cursor-pointer"
                   >
                     View / Edit Matrix
                   </button>
@@ -129,8 +129,8 @@ export default function AdminVariantView({
                       </thead>
                       <tbody className="divide-y divide-slate-100 bg-white">
                         {p.variantsList.map((v) => (
-                          <tr key={v.id} className="hover:bg-blue-50/20">
-                            <td className="py-2 px-3 font-mono font-semibold text-blue-700">
+                          <tr key={v.id} className="hover:bg-slate-50">
+                            <td className="py-2 px-3 font-mono font-semibold text-navy">
                               {v.sku}
                             </td>
                             <td className="py-2 px-3 text-slate-700">{v.color}</td>

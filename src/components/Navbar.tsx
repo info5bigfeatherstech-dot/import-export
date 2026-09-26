@@ -315,13 +315,13 @@ export default function Navbar() {
 
         {/* CTA & Phone button */}
         <div className="hidden lg:flex items-center gap-3">
-          <Link
+          {/* <Link
             to="/admin"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-200 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-navy bg-navy/5 hover:bg-navy/10 border border-navy/20 transition-colors"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
             <span>Admin ERP</span>
-          </Link>
+          </Link> */}
           <a
             href="tel:+917297960397"
             className="flex items-center gap-1.5 text-xs font-semibold tracking-wide text-slate-700 hover:text-amber-600 transition-colors"
@@ -537,9 +537,9 @@ export default function Navbar() {
                 <Link
                   to="/admin"
                   onClick={() => setMobileOpen(false)}
-                  className="w-full py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-semibold rounded-lg text-center border border-blue-200 transition-colors flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 bg-navy/5 hover:bg-navy/10 text-navy text-xs font-semibold rounded-lg text-center border border-navy/20 transition-colors flex items-center justify-center gap-1.5"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
                   <span>Open Product Admin Panel (ERP)</span>
                 </Link>
               </div>

@@ -57,7 +57,7 @@ export default function AdminAnalyticsView({ products }: AdminAnalyticsViewProps
                   <td className="py-3 px-4 font-mono text-slate-700">
                     ${Number(p.fobPrice).toFixed(2)}
                   </td>
-                  <td className="py-3 px-4 font-mono font-bold text-blue-600">
+                  <td className="py-3 px-4 font-mono font-bold text-navy">
                     ${Number(p.salePrice).toFixed(2)}
                   </td>
                   <td className="py-3 px-4 font-mono font-semibold text-emerald-600">

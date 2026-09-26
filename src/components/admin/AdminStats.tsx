@@ -75,13 +75,13 @@ export default function AdminStats({ products }: AdminStatsProps) {
         return (
           <div
             key={idx}
-            className="bg-white rounded-xl border border-slate-200 p-4.5 hover:border-blue-300 transition-all shadow-2xs group flex flex-col justify-between"
+            className="bg-white rounded-xl border border-slate-200 p-4.5 hover:border-navy/30 transition-all shadow-2xs group flex flex-col justify-between"
           >
             <div className="flex items-center justify-between mb-3">
               <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
                 {stat.title}
               </span>
-              <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 group-hover:scale-105 transition-transform">
+              <div className="w-8 h-8 rounded-lg bg-navy/5 border border-navy/10 flex items-center justify-center text-navy group-hover:scale-105 transition-transform">
                 <Icon size={16} />
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function AdminStats({ products }: AdminStatsProps) {
               </div>
               <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 text-xs">
                 <span className="text-slate-500 truncate max-w-[170px]">{stat.sub}</span>
-                <span className="text-[10px] font-medium text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-100">
+                <span className="text-[10px] font-medium text-navy bg-navy/5 px-1.5 py-0.5 rounded border border-navy/10">
                   {stat.badge}
                 </span>
               </div>

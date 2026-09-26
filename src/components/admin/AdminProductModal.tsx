@@ -430,7 +430,7 @@ export default function AdminProductModal({
         {/* Sticky Header */}
         <div className="px-6 py-4 border-b border-slate-200 flex items-center justify-between bg-white shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center font-bold text-sm">
+            <div className="w-9 h-9 rounded-lg bg-navy/5 border border-navy/20 text-navy flex items-center justify-center font-bold text-sm">
               ST
             </div>
             <div>
@@ -457,7 +457,7 @@ export default function AdminProductModal({
           {/* SECTION 1: PRIMARY IDENTIFIERS */}
           <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-4">
             <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
-              <span className="w-6 h-6 rounded-full bg-blue-50 text-blue-700 text-xs font-bold flex items-center justify-center border border-blue-200">
+              <span className="w-6 h-6 rounded-full bg-navy/5 text-navy text-xs font-bold flex items-center justify-center border border-navy/20">
                 1
               </span>
               <div>
@@ -474,7 +474,7 @@ export default function AdminProductModal({
               {/* Product Code */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Product Code <span className="text-blue-600">*</span>
+                  Product Code <span className="text-amber-600">*</span>
                 </label>
                 <input
                   type="text"
@@ -482,7 +482,7 @@ export default function AdminProductModal({
                   value={productCode}
                   onChange={(e) => setProductCode(e.target.value)}
                   placeholder="e.g. ST-1001"
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none font-mono"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy focus:ring-2 focus:ring-navy/15 outline-none font-mono"
                 />
                 <span className="text-[10px] text-slate-400 mt-0.5 block">
                   Style Tracking Code (e.g. ST-1001)
@@ -492,7 +492,7 @@ export default function AdminProductModal({
               {/* SKU */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  SKU <span className="text-blue-600">*</span>
+                  SKU <span className="text-amber-600">*</span>
                 </label>
                 <input
                   type="text"
@@ -500,7 +500,7 @@ export default function AdminProductModal({
                   value={sku}
                   onChange={(e) => setSku(e.target.value)}
                   placeholder="e.g. DRS-001"
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none font-mono"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy focus:ring-2 focus:ring-navy/15 outline-none font-mono"
                 />
                 <span className="text-[10px] text-slate-400 mt-0.5 block">
                   Stock Keeping Unit (e.g. DRS-001)
@@ -510,7 +510,7 @@ export default function AdminProductModal({
               {/* Purchase Code */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Purchase Code <span className="text-blue-600">*</span>
+                  Purchase Code <span className="text-amber-600">*</span>
                 </label>
                 <input
                   type="text"
@@ -518,7 +518,7 @@ export default function AdminProductModal({
                   value={purchaseCode}
                   onChange={(e) => setPurchaseCode(e.target.value)}
                   placeholder="e.g. PUR-001"
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none font-mono"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy focus:ring-2 focus:ring-navy/15 outline-none font-mono"
                 />
                 <span className="text-[10px] text-slate-400 mt-0.5 block">
                   PO Reference (e.g. PUR-001)
@@ -528,12 +528,12 @@ export default function AdminProductModal({
               {/* Product Status */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Product Status <span className="text-blue-600">*</span>
+                  Product Status <span className="text-amber-600">*</span>
                 </label>
                 <select
                   value={productStatus}
                   onChange={(e) => setProductStatus(e.target.value as any)}
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy focus:ring-2 focus:ring-navy/15 outline-none"
                 >
                   <option value="Active">Active (Publish)</option>
                   <option value="Inactive">Inactive (Archived)</option>
@@ -545,7 +545,7 @@ export default function AdminProductModal({
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="sm:col-span-2">
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Product Name <span className="text-blue-600">*</span>
+                  Product Name <span className="text-amber-600">*</span>
                 </label>
                 <input
                   type="text"
@@ -553,18 +553,18 @@ export default function AdminProductModal({
                   value={productName}
                   onChange={(e) => setProductName(e.target.value)}
                   placeholder="e.g. Floral Maxi Dress"
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none font-medium"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy focus:ring-2 focus:ring-navy/15 outline-none font-medium"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Product Type <span className="text-blue-600">*</span>
+                  Product Type <span className="text-amber-600">*</span>
                 </label>
                 <select
                   value={productType}
                   onChange={(e) => setProductType(e.target.value)}
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy focus:ring-2 focus:ring-navy/15 outline-none"
                 >
                   {PRODUCT_TYPES.map((t) => (
                     <option key={t} value={t}>
@@ -580,7 +580,7 @@ export default function AdminProductModal({
                     value={customProductType}
                     onChange={(e) => setCustomProductType(e.target.value)}
                     placeholder="Type custom product type..."
-                    className="mt-2 w-full px-3 py-1.5 text-xs bg-blue-50/50 border border-blue-300 rounded-lg focus:border-blue-500 outline-none"
+                    className="mt-2 w-full px-3 py-1.5 text-xs bg-navy/5 border border-navy/30 rounded-lg focus:border-navy outline-none"
                   />
                 )}
               </div>
@@ -594,7 +594,7 @@ export default function AdminProductModal({
                 <select
                   value={featuredProduct}
                   onChange={(e) => setFeaturedProduct(e.target.value as any)}
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 >
                   <option value="Yes">Yes (Highlighted in showroom)</option>
                   <option value="No">No (Standard catalog)</option>
@@ -608,7 +608,7 @@ export default function AdminProductModal({
                 <select
                   value={variant}
                   onChange={(e) => setVariant(e.target.value as any)}
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 >
                   <option value="Yes">Yes (Has multi-color/size variations)</option>
                   <option value="No">No (Single SKU stand-alone)</option>
@@ -620,7 +620,7 @@ export default function AdminProductModal({
           {/* SECTION 2: CATEGORIZATION & DEMOGRAPHICS */}
           <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-4">
             <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
-              <span className="w-6 h-6 rounded-full bg-blue-50 text-blue-700 text-xs font-bold flex items-center justify-center border border-blue-200">
+              <span className="w-6 h-6 rounded-full bg-navy/5 text-navy text-xs font-bold flex items-center justify-center border border-navy/20">
                 2
               </span>
               <div>
@@ -637,12 +637,12 @@ export default function AdminProductModal({
               {/* Gender */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Gender <span className="text-blue-600">*</span>
+                  Gender <span className="text-amber-600">*</span>
                 </label>
                 <select
                   value={gender}
                   onChange={(e) => setGender(e.target.value as any)}
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 >
                   {GENDER_OPTIONS.map((g) => (
                     <option key={g} value={g}>
@@ -655,12 +655,12 @@ export default function AdminProductModal({
               {/* Age Group */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Age Group <span className="text-blue-600">*</span>
+                  Age Group <span className="text-amber-600">*</span>
                 </label>
                 <select
                   value={ageGroup}
                   onChange={(e) => setAgeGroup(e.target.value as any)}
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 >
                   {AGE_GROUP_OPTIONS.map((a) => (
                     <option key={a} value={a}>
@@ -673,7 +673,7 @@ export default function AdminProductModal({
               {/* Category */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Category (with custom option) <span className="text-blue-600">*</span>
+                  Category (with custom option) <span className="text-amber-600">*</span>
                 </label>
                 <select
                   value={category}
@@ -683,7 +683,7 @@ export default function AdminProductModal({
                       setSubcategory(SUBCATEGORY_MAP[e.target.value][0])
                     }
                   }}
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 >
                   {CATEGORY_OPTIONS.map((c) => (
                     <option key={c} value={c}>
@@ -698,7 +698,7 @@ export default function AdminProductModal({
                     value={customCategory}
                     onChange={(e) => setCustomCategory(e.target.value)}
                     placeholder="Enter custom category name..."
-                    className="mt-2 w-full px-3 py-1.5 text-xs bg-blue-50/50 border border-blue-300 rounded-lg outline-none"
+                    className="mt-2 w-full px-3 py-1.5 text-xs bg-navy/5 border border-navy/30 rounded-lg outline-none"
                   />
                 )}
               </div>
@@ -706,12 +706,12 @@ export default function AdminProductModal({
               {/* Subcategory */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Subcategory (with custom option) <span className="text-blue-600">*</span>
+                  Subcategory (with custom option) <span className="text-amber-600">*</span>
                 </label>
                 <select
                   value={subcategory}
                   onChange={(e) => setSubcategory(e.target.value)}
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 >
                   {SUBCATEGORY_MAP[category]?.map((s) => (
                     <option key={s} value={s}>
@@ -726,7 +726,7 @@ export default function AdminProductModal({
                     value={customSubcategory}
                     onChange={(e) => setCustomSubcategory(e.target.value)}
                     placeholder="Enter custom subcategory..."
-                    className="mt-2 w-full px-3 py-1.5 text-xs bg-blue-50/50 border border-blue-300 rounded-lg outline-none"
+                    className="mt-2 w-full px-3 py-1.5 text-xs bg-navy/5 border border-navy/30 rounded-lg outline-none"
                   />
                 )}
               </div>
@@ -739,7 +739,7 @@ export default function AdminProductModal({
                 <select
                   value={collection}
                   onChange={(e) => setCollection(e.target.value)}
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 >
                   {COLLECTION_OPTIONS.map((c) => (
                     <option key={c} value={c}>
@@ -754,7 +754,7 @@ export default function AdminProductModal({
                     value={customCollection}
                     onChange={(e) => setCustomCollection(e.target.value)}
                     placeholder="e.g. Summer Collection 2026..."
-                    className="mt-2 w-full px-3 py-1.5 text-xs bg-blue-50/50 border border-blue-300 rounded-lg outline-none"
+                    className="mt-2 w-full px-3 py-1.5 text-xs bg-navy/5 border border-navy/30 rounded-lg outline-none"
                   />
                 )}
               </div>
@@ -762,12 +762,12 @@ export default function AdminProductModal({
               {/* Season */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Season (with custom option) <span className="text-blue-600">*</span>
+                  Season (with custom option) <span className="text-amber-600">*</span>
                 </label>
                 <select
                   value={season}
                   onChange={(e) => setSeason(e.target.value)}
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 >
                   {SEASON_OPTIONS.map((s) => (
                     <option key={s} value={s}>
@@ -782,7 +782,7 @@ export default function AdminProductModal({
                     value={customSeason}
                     onChange={(e) => setCustomSeason(e.target.value)}
                     placeholder="e.g. SS26 / AW26 / Resort..."
-                    className="mt-2 w-full px-3 py-1.5 text-xs bg-blue-50/50 border border-blue-300 rounded-lg outline-none"
+                    className="mt-2 w-full px-3 py-1.5 text-xs bg-navy/5 border border-navy/30 rounded-lg outline-none"
                   />
                 )}
               </div>
@@ -792,7 +792,7 @@ export default function AdminProductModal({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60">
                 <label className="block text-xs font-semibold text-slate-700 mb-2">
-                  Development Date (Month & Year) <span className="text-blue-600">*</span>
+                  Development Date (Month & Year) <span className="text-amber-600">*</span>
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   <select
@@ -822,7 +822,7 @@ export default function AdminProductModal({
 
               <div className="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60">
                 <label className="block text-xs font-semibold text-slate-700 mb-2">
-                  Shipment Date (Month & Year) <span className="text-blue-600">*</span>
+                  Shipment Date (Month & Year) <span className="text-amber-600">*</span>
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   <select
@@ -872,7 +872,7 @@ export default function AdminProductModal({
                       }}
                       className={`px-2.5 py-1 rounded-lg text-xs font-medium border cursor-pointer transition-colors ${
                         isChecked
-                          ? 'bg-blue-50 text-blue-700 border-blue-300 font-semibold'
+                          ? 'bg-navy/10 text-navy border-navy/30 font-semibold'
                           : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
                       }`}
                     >
@@ -909,7 +909,7 @@ export default function AdminProductModal({
           {/* SECTION 3: FABRIC & PHYSICAL SPECS */}
           <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-4">
             <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
-              <span className="w-6 h-6 rounded-full bg-blue-50 text-blue-700 text-xs font-bold flex items-center justify-center border border-blue-200">
+              <span className="w-6 h-6 rounded-full bg-navy/5 text-navy text-xs font-bold flex items-center justify-center border border-navy/20">
                 3
               </span>
               <div>
@@ -926,7 +926,7 @@ export default function AdminProductModal({
               {/* Fabric */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Fabric Type <span className="text-blue-600">*</span>
+                  Fabric Type <span className="text-amber-600">*</span>
                 </label>
                 <input
                   type="text"
@@ -934,7 +934,7 @@ export default function AdminProductModal({
                   value={fabric}
                   onChange={(e) => setFabric(e.target.value)}
                   placeholder="e.g. Cotton / Viscose / Linen"
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 />
                 <div className="flex flex-wrap gap-1 mt-1.5">
                   {FABRIC_OPTIONS.slice(0, 4).map((f) => (
@@ -942,7 +942,7 @@ export default function AdminProductModal({
                       type="button"
                       key={f}
                       onClick={() => setFabric(f)}
-                      className="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 hover:bg-blue-50 hover:text-blue-600"
+                      className="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 hover:bg-navy/5 hover:text-navy"
                     >
                       +{f}
                     </button>
@@ -953,7 +953,7 @@ export default function AdminProductModal({
               {/* Fabric Composition */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Fabric Composition <span className="text-blue-600">*</span>
+                  Fabric Composition <span className="text-amber-600">*</span>
                 </label>
                 <input
                   type="text"
@@ -961,14 +961,14 @@ export default function AdminProductModal({
                   value={fabricComposition}
                   onChange={(e) => setFabricComposition(e.target.value)}
                   placeholder="e.g. 100% Cotton"
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 />
               </div>
 
               {/* GSM */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Fabric Weight (GSM) <span className="text-blue-600">*</span>
+                  Fabric Weight (GSM) <span className="text-amber-600">*</span>
                 </label>
                 <input
                   type="number"
@@ -976,7 +976,7 @@ export default function AdminProductModal({
                   value={gsm}
                   onChange={(e) => setGsm(e.target.value)}
                   placeholder="e.g. 120"
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none font-mono"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none font-mono"
                 />
               </div>
             </div>
@@ -985,7 +985,7 @@ export default function AdminProductModal({
               {/* Pattern */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Pattern <span className="text-blue-600">*</span>
+                  Pattern <span className="text-amber-600">*</span>
                 </label>
                 <input
                   type="text"
@@ -993,7 +993,7 @@ export default function AdminProductModal({
                   value={pattern}
                   onChange={(e) => setPattern(e.target.value)}
                   placeholder="e.g. Floral / Solid / Printed"
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 />
                 <div className="flex flex-wrap gap-1 mt-1.5">
                   {PATTERN_OPTIONS.slice(0, 4).map((p) => (
@@ -1001,7 +1001,7 @@ export default function AdminProductModal({
                       type="button"
                       key={p}
                       onClick={() => setPattern(p)}
-                      className="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 hover:bg-blue-50 hover:text-blue-600"
+                      className="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 hover:bg-navy/5 hover:text-navy"
                     >
                       +{p}
                     </button>
@@ -1012,7 +1012,7 @@ export default function AdminProductModal({
               {/* Base Color */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Base Color <span className="text-blue-600">*</span>
+                  Base Color <span className="text-amber-600">*</span>
                 </label>
                 <input
                   type="text"
@@ -1020,14 +1020,14 @@ export default function AdminProductModal({
                   value={color}
                   onChange={(e) => setColor(e.target.value)}
                   placeholder="e.g. Blue"
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 />
               </div>
 
               {/* Available Colors */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Available Colors <span className="text-blue-600">*</span>
+                  Available Colors <span className="text-amber-600">*</span>
                 </label>
                 <input
                   type="text"
@@ -1035,7 +1035,7 @@ export default function AdminProductModal({
                   value={availableColorsText}
                   onChange={(e) => setAvailableColorsText(e.target.value)}
                   placeholder="e.g. Blue, Pink, Green"
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 />
               </div>
             </div>
@@ -1062,7 +1062,7 @@ export default function AdminProductModal({
                         }}
                         className={`px-2.5 py-1 rounded-lg text-xs font-medium border cursor-pointer transition-colors ${
                           isChecked
-                            ? 'bg-blue-50 text-blue-700 border-blue-300 font-semibold'
+                            ? 'bg-navy/10 text-navy border-navy/30 font-semibold'
                             : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
                         }`}
                       >
@@ -1098,7 +1098,7 @@ export default function AdminProductModal({
               <div className="grid grid-cols-2 gap-2">
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    MOQ <span className="text-blue-600">*</span>
+                    MOQ <span className="text-amber-600">*</span>
                   </label>
                   <input
                     type="number"
@@ -1106,17 +1106,17 @@ export default function AdminProductModal({
                     value={moq}
                     onChange={(e) => setMoq(e.target.value)}
                     placeholder="500"
-                    className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none font-mono"
+                    className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none font-mono"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Unit <span className="text-blue-600">*</span>
+                    Unit <span className="text-amber-600">*</span>
                   </label>
                   <select
                     value={quantityUnit}
                     onChange={(e) => setQuantityUnit(e.target.value)}
-                    className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                    className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                   >
                     {QUANTITY_UNITS.map((u) => (
                       <option key={u} value={u}>
@@ -1133,7 +1133,7 @@ export default function AdminProductModal({
           <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-3 pb-2.5 border-b border-slate-100">
               <div className="flex items-center gap-2.5">
-                <span className="w-6 h-6 rounded-full bg-blue-50 text-blue-700 text-xs font-bold flex items-center justify-center border border-blue-200">
+                <span className="w-6 h-6 rounded-full bg-navy/5 text-navy text-xs font-bold flex items-center justify-center border border-navy/20">
                   4
                 </span>
                 <div>
@@ -1149,7 +1149,7 @@ export default function AdminProductModal({
               <button
                 type="button"
                 onClick={handleGenerateVariantMatrix}
-                className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg shadow-2xs flex items-center gap-1.5 cursor-pointer"
+                className="px-3 py-1.5 bg-navy hover:bg-navy-light text-white text-xs font-semibold rounded-lg shadow-2xs flex items-center gap-1.5 cursor-pointer"
               >
                 <FiRefreshCw size={12} />
                 <span>Generate Matrix from Colors & Sizes</span>
@@ -1188,7 +1188,7 @@ export default function AdminProductModal({
                   <tbody className="divide-y divide-slate-100">
                     {variantsList.map((v) => (
                       <tr key={v.id} className="hover:bg-slate-50/50">
-                        <td className="py-1.5 px-3 font-mono font-semibold text-blue-700">
+                        <td className="py-1.5 px-3 font-mono font-semibold text-navy">
                           {v.sku}
                         </td>
                         <td className="py-1.5 px-3">{v.color}</td>
@@ -1220,7 +1220,7 @@ export default function AdminProductModal({
           {/* SECTION 5: SOURCING & PRICING */}
           <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-4">
             <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
-              <span className="w-6 h-6 rounded-full bg-blue-50 text-blue-700 text-xs font-bold flex items-center justify-center border border-blue-200">
+              <span className="w-6 h-6 rounded-full bg-navy/5 text-navy text-xs font-bold flex items-center justify-center border border-navy/20">
                 5
               </span>
               <div>
@@ -1237,12 +1237,12 @@ export default function AdminProductModal({
               <div>
                 <div className="flex items-center justify-between mb-1">
                   <label className="text-xs font-semibold text-slate-700">
-                    Factory Name (Database) <span className="text-blue-600">*</span>
+                    Factory Name (Database) <span className="text-amber-600">*</span>
                   </label>
                   <button
                     type="button"
                     onClick={() => setShowAddFactoryInput(!showAddFactoryInput)}
-                    className="text-[11px] text-blue-600 hover:underline"
+                    className="text-[11px] text-navy hover:underline"
                   >
                     {showAddFactoryInput ? 'Cancel' : '+ New Factory'}
                   </button>
@@ -1252,7 +1252,7 @@ export default function AdminProductModal({
                   <select
                     value={factoryName}
                     onChange={(e) => setFactoryName(e.target.value)}
-                    className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                    className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                   >
                     {factories.map((f) => (
                       <option key={f} value={f}>
@@ -1267,12 +1267,12 @@ export default function AdminProductModal({
                       value={newFactoryInput}
                       onChange={(e) => setNewFactoryInput(e.target.value)}
                       placeholder="New factory name..."
-                      className="flex-1 px-3 py-2 text-xs bg-white border border-blue-400 rounded-lg outline-none"
+                      className="flex-1 px-3 py-2 text-xs bg-white border border-navy/40 rounded-lg outline-none"
                     />
                     <button
                       type="button"
                       onClick={handleSaveNewFactory}
-                      className="px-3 py-2 text-xs bg-blue-600 text-white rounded-lg font-medium"
+                      className="px-3 py-2 text-xs bg-navy text-white rounded-lg font-medium"
                     >
                       Save
                     </button>
@@ -1283,12 +1283,12 @@ export default function AdminProductModal({
               <div>
                 <div className="flex items-center justify-between mb-1">
                   <label className="text-xs font-semibold text-slate-700">
-                    Factory Code (Auto Generated) <span className="text-blue-600">*</span>
+                    Factory Code (Auto Generated) <span className="text-amber-600">*</span>
                   </label>
                   <button
                     type="button"
                     onClick={handleRegenerateFactoryCode}
-                    className="text-[11px] text-blue-600 flex items-center gap-1 hover:underline cursor-pointer"
+                    className="text-[11px] text-navy flex items-center gap-1 hover:underline cursor-pointer"
                   >
                     <FiRefreshCw size={10} />
                     <span>Re-generate</span>
@@ -1300,7 +1300,7 @@ export default function AdminProductModal({
                   value={factoryCode}
                   onChange={(e) => setFactoryCode(e.target.value)}
                   placeholder="e.g. F26-001"
-                  className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:border-blue-500 outline-none font-mono font-semibold text-blue-700"
+                  className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:border-navy outline-none font-mono font-semibold text-navy"
                 />
               </div>
             </div>
@@ -1309,7 +1309,7 @@ export default function AdminProductModal({
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-3 rounded-xl border border-slate-200 bg-white">
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Factory Price (EXW) <span className="text-blue-600">*</span>
+                  Factory Price (EXW) <span className="text-amber-600">*</span>
                 </label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-xs">
@@ -1322,14 +1322,14 @@ export default function AdminProductModal({
                     value={factoryPriceExw}
                     onChange={(e) => setFactoryPriceExw(e.target.value)}
                     placeholder="7.20"
-                    className="w-full pl-7 pr-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none font-mono font-semibold"
+                    className="w-full pl-7 pr-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none font-mono font-semibold"
                   />
                 </div>
               </div>
 
               <div className="p-3 rounded-xl border border-slate-200 bg-white">
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  FOB Price <span className="text-blue-600">*</span>
+                  FOB Price <span className="text-amber-600">*</span>
                 </label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-xs">
@@ -1342,14 +1342,14 @@ export default function AdminProductModal({
                     value={fobPrice}
                     onChange={(e) => setFobPrice(e.target.value)}
                     placeholder="8.00"
-                    className="w-full pl-7 pr-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none font-mono font-semibold"
+                    className="w-full pl-7 pr-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none font-mono font-semibold"
                   />
                 </div>
               </div>
 
               <div className="p-3 rounded-xl border border-slate-200 bg-white">
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Sale Price <span className="text-blue-600">*</span>
+                  Sale Price <span className="text-amber-600">*</span>
                 </label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-xs">
@@ -1362,7 +1362,7 @@ export default function AdminProductModal({
                     value={salePrice}
                     onChange={(e) => setSalePrice(e.target.value)}
                     placeholder="8.50"
-                    className="w-full pl-7 pr-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none font-mono font-semibold text-slate-900"
+                    className="w-full pl-7 pr-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none font-mono font-semibold text-slate-900"
                   />
                 </div>
               </div>
@@ -1387,12 +1387,12 @@ export default function AdminProductModal({
             {/* FOB Port */}
             <div className="max-w-md">
               <label className="block text-xs font-semibold text-slate-700 mb-1">
-                FOB Port <span className="text-blue-600">*</span>
+                FOB Port <span className="text-amber-600">*</span>
               </label>
               <select
                 value={fobPort}
                 onChange={(e) => setFobPort(e.target.value)}
-                className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
               >
                 {FOB_PORTS.map((p) => (
                   <option key={p} value={p}>
@@ -1406,7 +1406,7 @@ export default function AdminProductModal({
           {/* SECTION 6: READY STOCK & INVENTORY */}
           <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-4">
             <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
-              <span className="w-6 h-6 rounded-full bg-blue-50 text-blue-700 text-xs font-bold flex items-center justify-center border border-blue-200">
+              <span className="w-6 h-6 rounded-full bg-navy/5 text-navy text-xs font-bold flex items-center justify-center border border-navy/20">
                 6
               </span>
               <div>
@@ -1422,12 +1422,12 @@ export default function AdminProductModal({
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Ready Stock Availability <span className="text-blue-600">*</span>
+                  Ready Stock Availability <span className="text-amber-600">*</span>
                 </label>
                 <select
                   value={readyStockAvailability}
                   onChange={(e) => setReadyStockAvailability(e.target.value as any)}
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 >
                   <option value="Yes">Yes (In warehouse stock)</option>
                   <option value="No">No (Made to order)</option>
@@ -1444,19 +1444,19 @@ export default function AdminProductModal({
                   value={readyStockQuantity}
                   onChange={(e) => setReadyStockQuantity(e.target.value)}
                   placeholder="2500"
-                  className="w-full px-3 py-2 text-xs bg-white disabled:bg-slate-100 border border-slate-300 rounded-lg focus:border-blue-500 outline-none font-mono"
+                  className="w-full px-3 py-2 text-xs bg-white disabled:bg-slate-100 border border-slate-300 rounded-lg focus:border-navy outline-none font-mono"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Quantity Unit <span className="text-blue-600">*</span>
+                  Quantity Unit <span className="text-amber-600">*</span>
                 </label>
                 <select
                   disabled={readyStockAvailability === 'No'}
                   value={readyStockQuantityUnit}
                   onChange={(e) => setReadyStockQuantityUnit(e.target.value)}
-                  className="w-full px-3 py-2 text-xs bg-white disabled:bg-slate-100 border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white disabled:bg-slate-100 border border-slate-300 rounded-lg focus:border-navy outline-none"
                 >
                   {READY_STOCK_UNITS.map((u) => (
                     <option key={u} value={u}>
@@ -1471,7 +1471,7 @@ export default function AdminProductModal({
           {/* SECTION 7: CUSTOMER & ORDER TRACKING */}
           <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-4">
             <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
-              <span className="w-6 h-6 rounded-full bg-blue-50 text-blue-700 text-xs font-bold flex items-center justify-center border border-blue-200">
+              <span className="w-6 h-6 rounded-full bg-navy/5 text-navy text-xs font-bold flex items-center justify-center border border-navy/20">
                 7
               </span>
               <div>
@@ -1488,12 +1488,12 @@ export default function AdminProductModal({
               <div>
                 <div className="flex items-center justify-between mb-1">
                   <label className="text-xs font-semibold text-slate-700">
-                    Customer Name (Database) <span className="text-blue-600">*</span>
+                    Customer Name (Database) <span className="text-amber-600">*</span>
                   </label>
                   <button
                     type="button"
                     onClick={() => setShowAddCustomerInput(!showAddCustomerInput)}
-                    className="text-[11px] text-blue-600 hover:underline cursor-pointer"
+                    className="text-[11px] text-navy hover:underline cursor-pointer"
                   >
                     {showAddCustomerInput ? 'Cancel' : '+ New Customer'}
                   </button>
@@ -1503,7 +1503,7 @@ export default function AdminProductModal({
                   <select
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
-                    className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                    className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                   >
                     {customers.map((c) => (
                       <option key={c} value={c}>
@@ -1518,12 +1518,12 @@ export default function AdminProductModal({
                       value={newCustomerInput}
                       onChange={(e) => setNewCustomerInput(e.target.value)}
                       placeholder="New client account..."
-                      className="flex-1 px-3 py-2 text-xs bg-white border border-blue-400 rounded-lg outline-none"
+                      className="flex-1 px-3 py-2 text-xs bg-white border border-navy/40 rounded-lg outline-none"
                     />
                     <button
                       type="button"
                       onClick={handleSaveNewCustomer}
-                      className="px-3 py-2 text-xs bg-blue-600 text-white rounded-lg font-medium"
+                      className="px-3 py-2 text-xs bg-navy text-white rounded-lg font-medium"
                     >
                       Save
                     </button>
@@ -1534,12 +1534,12 @@ export default function AdminProductModal({
               <div>
                 <div className="flex items-center justify-between mb-1">
                   <label className="text-xs font-semibold text-slate-700">
-                    Customer Style Code (Auto Generated) <span className="text-blue-600">*</span>
+                    Customer Style Code (Auto Generated) <span className="text-amber-600">*</span>
                   </label>
                   <button
                     type="button"
                     onClick={handleRegenerateCustomerCode}
-                    className="text-[11px] text-blue-600 flex items-center gap-1 hover:underline cursor-pointer"
+                    className="text-[11px] text-navy flex items-center gap-1 hover:underline cursor-pointer"
                   >
                     <FiRefreshCw size={10} />
                     <span>Re-generate</span>
@@ -1551,7 +1551,7 @@ export default function AdminProductModal({
                   value={customerStyleCode}
                   onChange={(e) => setCustomerStyleCode(e.target.value)}
                   placeholder="e.g. C26-001 or XYZ-1001"
-                  className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:border-blue-500 outline-none font-mono font-semibold text-blue-700"
+                  className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:border-navy outline-none font-mono font-semibold text-navy"
                 />
               </div>
             </div>
@@ -1559,12 +1559,12 @@ export default function AdminProductModal({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Repeat Order? <span className="text-blue-600">*</span>
+                  Repeat Order? <span className="text-amber-600">*</span>
                 </label>
                 <select
                   value={repeatOrder}
                   onChange={(e) => setRepeatOrder(e.target.value as any)}
-                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                  className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                 >
                   <option value="Yes">Yes (Replenishment program)</option>
                   <option value="No">No (First time run)</option>
@@ -1574,12 +1574,12 @@ export default function AdminProductModal({
               {repeatOrder === 'Yes' && (
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Repeat Order Number <span className="text-blue-600">*</span>
+                    Repeat Order Number <span className="text-amber-600">*</span>
                   </label>
                   <select
                     value={repeatOrderNumber}
                     onChange={(e) => setRepeatOrderNumber(e.target.value as any)}
-                    className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                    className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                   >
                     <option value="1st">1st Repeat Order</option>
                     <option value="2nd">2nd Repeat Order</option>
@@ -1594,7 +1594,7 @@ export default function AdminProductModal({
           {/* SECTION 8: MEDIA & DESCRIPTION */}
           <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-4">
             <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
-              <span className="w-6 h-6 rounded-full bg-blue-50 text-blue-700 text-xs font-bold flex items-center justify-center border border-blue-200">
+              <span className="w-6 h-6 rounded-full bg-navy/5 text-navy text-xs font-bold flex items-center justify-center border border-navy/20">
                 8
               </span>
               <div>
@@ -1609,7 +1609,7 @@ export default function AdminProductModal({
 
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Product Image (URL or File Upload) <span className="text-blue-600">*</span>
+                Product Image (URL or File Upload) <span className="text-amber-600">*</span>
               </label>
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <div className="w-28 h-36 rounded-xl bg-slate-100 border border-slate-200 overflow-hidden shrink-0 relative flex items-center justify-center">
@@ -1641,7 +1641,7 @@ export default function AdminProductModal({
                       value={productImage}
                       onChange={(e) => setProductImage(e.target.value)}
                       placeholder="https://images.unsplash.com/..."
-                      className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none"
+                      className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none"
                     />
                   </div>
 
@@ -1653,7 +1653,7 @@ export default function AdminProductModal({
                       type="file"
                       accept="image/*"
                       onChange={handleFileUpload}
-                      className="text-xs text-slate-600 file:mr-2.5 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer"
+                      className="text-xs text-slate-600 file:mr-2.5 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-navy/5 file:text-navy hover:file:bg-navy/10 cursor-pointer"
                     />
                   </div>
                 </div>
@@ -1662,7 +1662,7 @@ export default function AdminProductModal({
 
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Product Description (Tech Pack Summary) <span className="text-blue-600">*</span>
+                Product Description (Tech Pack Summary) <span className="text-amber-600">*</span>
               </label>
               <textarea
                 rows={3}
@@ -1670,14 +1670,14 @@ export default function AdminProductModal({
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Short product description for buyer spec sheet..."
-                className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-blue-500 outline-none leading-relaxed"
+                className="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:border-navy outline-none leading-relaxed"
               />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-3 rounded-xl border border-slate-200 bg-slate-50/60">
                 <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                  Created At Date (Month & Year) <span className="text-blue-600">*</span>
+                  Created At Date (Month & Year) <span className="text-amber-600">*</span>
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   <select
@@ -1736,7 +1736,7 @@ export default function AdminProductModal({
               </button>
               <button
                 type="submit"
-                className="px-5 py-2 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-sm shadow-blue-500/20 transition-all flex items-center gap-1.5 cursor-pointer"
+                className="px-5 py-2 text-xs font-semibold text-white bg-navy hover:bg-navy-light rounded-lg shadow-sm shadow-navy/20 transition-all flex items-center gap-1.5 cursor-pointer"
               >
                 <FiCheck size={14} className="stroke-[2.5]" />
                 <span>{isEditing ? 'Save Product Changes' : 'Create Product Entry'}</span>

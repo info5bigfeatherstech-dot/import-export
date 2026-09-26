@@ -133,7 +133,7 @@ export default function AdminProductTable({
             }}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-colors ${
               filterType === 'ALL' && filterStatus === 'ALL' && filterReadyStock === 'ALL'
-                ? 'bg-blue-600 text-white shadow-xs'
+                ? 'bg-navy text-white shadow-xs'
                 : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200'
             }`}
           >
@@ -144,7 +144,7 @@ export default function AdminProductTable({
             onClick={() => setFilterReadyStock(filterReadyStock === 'Yes' ? 'ALL' : 'Yes')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-colors border ${
               filterReadyStock === 'Yes'
-                ? 'bg-blue-50 text-blue-700 border-blue-300'
+                ? 'bg-navy/10 text-navy border-navy/30'
                 : 'bg-white text-slate-700 hover:bg-slate-50 border-slate-200'
             }`}
           >
@@ -155,7 +155,7 @@ export default function AdminProductTable({
             onClick={() => setFilterType(filterType === 'New Developed' ? 'ALL' : 'New Developed')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-colors border ${
               filterType === 'New Developed'
-                ? 'bg-blue-50 text-blue-700 border-blue-300'
+                ? 'bg-navy/10 text-navy border-navy/30'
                 : 'bg-white text-slate-700 hover:bg-slate-50 border-slate-200'
             }`}
           >
@@ -166,7 +166,7 @@ export default function AdminProductTable({
             onClick={() => setFilterStatus(filterStatus === 'Active' ? 'ALL' : 'Active')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-colors border ${
               filterStatus === 'Active'
-                ? 'bg-blue-50 text-blue-700 border-blue-300'
+                ? 'bg-navy/10 text-navy border-navy/30'
                 : 'bg-white text-slate-700 hover:bg-slate-50 border-slate-200'
             }`}
           >
@@ -182,7 +182,7 @@ export default function AdminProductTable({
             <select
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
-              className="text-xs bg-slate-50 border border-slate-200 text-slate-700 rounded-lg px-2.5 py-1.5 outline-none focus:border-blue-500 focus:bg-white"
+              className="text-xs bg-slate-50 border border-slate-200 text-slate-700 rounded-lg px-2.5 py-1.5 outline-none focus:border-navy focus:bg-white"
             >
               <option value="ALL">All Categories</option>
               {uniqueCategories.map((c) => (
@@ -199,7 +199,7 @@ export default function AdminProductTable({
               onClick={() => setDensity('comfortable')}
               className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${
                 density === 'comfortable'
-                  ? 'bg-white text-blue-700 font-bold shadow-xs'
+                  ? 'bg-white text-navy font-bold shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -209,7 +209,7 @@ export default function AdminProductTable({
               onClick={() => setDensity('compact')}
               className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${
                 density === 'compact'
-                  ? 'bg-white text-blue-700 font-bold shadow-xs'
+                  ? 'bg-white text-navy font-bold shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -221,9 +221,9 @@ export default function AdminProductTable({
           <div className="relative">
             <button
               onClick={() => setShowColumnMenu(!showColumnMenu)}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 hover:border-blue-300 text-slate-700 text-xs font-semibold rounded-lg transition-colors shadow-xs cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 hover:border-navy/40 text-slate-700 text-xs font-semibold rounded-lg transition-colors shadow-xs cursor-pointer"
             >
-              <FiSliders size={13} className="text-blue-600" />
+              <FiSliders size={13} className="text-navy" />
               <span>Adjust Columns</span>
               <FiChevronDown size={12} className="text-slate-400" />
             </button>
@@ -239,7 +239,7 @@ export default function AdminProductTable({
                     type="checkbox"
                     checked={showSpecs}
                     onChange={(e) => setShowSpecs(e.target.checked)}
-                    className="rounded text-blue-600 focus:ring-blue-500"
+                    className="rounded accent-navy text-navy focus:ring-navy"
                   />
                 </label>
                 <label className="flex items-center justify-between hover:bg-slate-50 p-1 rounded cursor-pointer">
@@ -248,7 +248,7 @@ export default function AdminProductTable({
                     type="checkbox"
                     checked={showSourcing}
                     onChange={(e) => setShowSourcing(e.target.checked)}
-                    className="rounded text-blue-600 focus:ring-blue-500"
+                    className="rounded accent-navy text-navy focus:ring-navy"
                   />
                 </label>
                 <label className="flex items-center justify-between hover:bg-slate-50 p-1 rounded cursor-pointer">
@@ -257,7 +257,7 @@ export default function AdminProductTable({
                     type="checkbox"
                     checked={showPricing}
                     onChange={(e) => setShowPricing(e.target.checked)}
-                    className="rounded text-blue-600 focus:ring-blue-500"
+                    className="rounded accent-navy text-navy focus:ring-navy"
                   />
                 </label>
                 <label className="flex items-center justify-between hover:bg-slate-50 p-1 rounded cursor-pointer">
@@ -266,7 +266,7 @@ export default function AdminProductTable({
                     type="checkbox"
                     checked={showStock}
                     onChange={(e) => setShowStock(e.target.checked)}
-                    className="rounded text-blue-600 focus:ring-blue-500"
+                    className="rounded accent-navy text-navy focus:ring-navy"
                   />
                 </label>
               </div>
@@ -288,14 +288,14 @@ export default function AdminProductTable({
                   selectedIds.length === filteredProducts.length
                 }
                 onChange={handleSelectAll}
-                className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
+                className="rounded border-slate-300 accent-navy text-navy focus:ring-navy cursor-pointer"
               />
             </th>
 
             {/* 2. Product Name, Codes & Identity */}
             <th
               onClick={() => handleSort('productName')}
-              className="py-3 px-4 cursor-pointer hover:text-blue-600 min-w-[260px]"
+              className="py-3 px-4 cursor-pointer hover:text-navy min-w-[260px]"
             >
               <div className="flex items-center gap-1.5">
                 <span>Product & Identification</span>
@@ -322,7 +322,7 @@ export default function AdminProductTable({
             {showPricing && (
               <th
                 onClick={() => handleSort('salePrice')}
-                className="py-3 px-4 cursor-pointer hover:text-blue-600 min-w-[170px]"
+                className="py-3 px-4 cursor-pointer hover:text-navy min-w-[170px]"
               >
                 <div className="flex items-center gap-1.5">
                   <span>Pricing (EXW / FOB / Sale)</span>
@@ -371,8 +371,8 @@ export default function AdminProductTable({
               return (
                 <Fragment key={p.id}>
                   <tr
-                    className={`hover:bg-blue-50/20 transition-colors ${
-                      isSelected ? 'bg-blue-50/40' : 'bg-white'
+                    className={`hover:bg-slate-50 transition-colors ${
+                      isSelected ? 'bg-navy/5' : 'bg-white'
                     }`}
                   >
                     {/* Checkbox & Expand Arrow */}
@@ -382,12 +382,12 @@ export default function AdminProductTable({
                           type="button"
                           onClick={() => toggleRowExpand(p.id)}
                           title={isExpanded ? 'Collapse' : 'Expand details'}
-                          className="text-slate-400 hover:text-blue-600 transition-colors cursor-pointer"
+                          className="text-slate-400 hover:text-navy transition-colors cursor-pointer"
                         >
                           <FiChevronRight
                             size={14}
                             className={`transition-transform duration-150 ${
-                              isExpanded ? 'rotate-90 text-blue-600' : ''
+                              isExpanded ? 'rotate-90 text-navy' : ''
                             }`}
                           />
                         </button>
@@ -395,7 +395,7 @@ export default function AdminProductTable({
                           type="checkbox"
                           checked={isSelected}
                           onChange={() => handleSelectRow(p.id)}
-                          className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
+                          className="rounded border-slate-300 accent-navy text-navy focus:ring-navy cursor-pointer"
                         />
                       </div>
                     </td>
@@ -434,7 +434,7 @@ export default function AdminProductTable({
                         <div className="flex-1 min-w-0">
                           <div
                             onClick={() => onView(p)}
-                            className="font-bold text-slate-900 text-sm hover:text-blue-600 cursor-pointer"
+                            className="font-bold text-slate-900 text-sm hover:text-navy cursor-pointer"
                           >
                             {p.productName}
                           </div>
@@ -452,7 +452,7 @@ export default function AdminProductTable({
                           </div>
 
                           <div className="flex items-center gap-1.5 mt-2">
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-medium">
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 font-medium">
                               {p.productType}
                             </span>
                             {p.variant === 'Yes' && (
@@ -463,7 +463,7 @@ export default function AdminProductTable({
                             <span
                               className={`text-[10px] px-2 py-0.5 rounded-full font-semibold ${
                                 p.productStatus === 'Active'
-                                  ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                                  ? 'bg-navy/5 text-navy border border-navy/20'
                                   : 'bg-slate-100 text-slate-500 border border-slate-200'
                               }`}
                             >
@@ -500,7 +500,7 @@ export default function AdminProductTable({
                         </div>
                         <div className="text-[11px] text-slate-500 font-mono mt-0.5">
                           Factory Code:{' '}
-                          <span className="text-blue-700 font-bold">{p.factoryCode}</span>
+                          <span className="text-navy font-bold">{p.factoryCode}</span>
                         </div>
                         <div className="text-xs text-slate-800 mt-1.5">
                           Client: <span className="font-medium">{p.customerName}</span>
@@ -509,7 +509,7 @@ export default function AdminProductTable({
                           Style Code: {p.customerStyleCode}
                         </div>
                         {p.repeatOrder === 'Yes' && (
-                          <span className="text-[10px] text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.2 rounded inline-block mt-1 font-medium">
+                          <span className="text-[10px] text-navy bg-navy/5 border border-navy/20 px-1.5 py-0.2 rounded inline-block mt-1 font-medium">
                             Repeat: {p.repeatOrderNumber || 'Yes'}
                           </span>
                         )}
@@ -523,7 +523,7 @@ export default function AdminProductTable({
                           <span className="text-slate-900 font-bold text-sm">
                             ${Number(p.salePrice).toFixed(2)}
                           </span>
-                          <span className="text-[10px] font-semibold text-blue-600 uppercase">
+                          <span className="text-[10px] font-semibold text-navy uppercase">
                             Sale
                           </span>
                         </div>
@@ -546,8 +546,8 @@ export default function AdminProductTable({
                       <td className={`${cellPadding} px-4 align-top`}>
                         {p.readyStockAvailability === 'Yes' ? (
                           <div>
-                            <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-full">
-                              <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                            <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-navy bg-navy/5 border border-navy/20 px-2.5 py-0.5 rounded-full">
+                              <span className="w-1.5 h-1.5 rounded-full bg-navy"></span>
                               {Number(p.readyStockQuantity).toLocaleString()}{' '}
                               {p.readyStockQuantityUnit}
                             </span>
@@ -574,14 +574,14 @@ export default function AdminProductTable({
                         <button
                           onClick={() => onView(p)}
                           title="View Spec Sheet"
-                          className="p-1.5 rounded-lg text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
+                          className="p-1.5 rounded-lg text-slate-500 hover:text-navy hover:bg-slate-100 transition-colors cursor-pointer"
                         >
                           <FiEye size={15} />
                         </button>
                         <button
                           onClick={() => onEdit(p)}
                           title="Edit Product"
-                          className="p-1.5 rounded-lg text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
+                          className="p-1.5 rounded-lg text-slate-500 hover:text-navy hover:bg-slate-100 transition-colors cursor-pointer"
                         >
                           <FiEdit2 size={15} />
                         </button>
@@ -641,7 +641,7 @@ export default function AdminProductTable({
                                 {p.sizeRange?.map((s) => (
                                   <span
                                     key={s}
-                                    className="px-2 py-0.5 rounded bg-blue-50 text-blue-700 text-[11px] font-mono border border-blue-200"
+                                    className="px-2 py-0.5 rounded bg-navy/5 text-navy text-[11px] font-mono border border-navy/20"
                                   >
                                     {s}
                                   </span>
@@ -691,7 +691,7 @@ export default function AdminProductTable({
                                   <button
                                     type="button"
                                     onClick={() => onView(p)}
-                                    className="text-xs font-semibold text-blue-600 hover:underline"
+                                    className="text-xs font-semibold text-navy hover:text-amber-600 hover:underline"
                                   >
                                     View Full Specification Sheet &gt;
                                   </button>
@@ -702,7 +702,7 @@ export default function AdminProductTable({
                                       key={v.id}
                                       className="text-[11px] font-mono px-2 py-1 rounded bg-slate-50 border border-slate-200 text-slate-700"
                                     >
-                                      <strong className="text-blue-700">{v.sku}</strong> ({v.color} / {v.size}):{' '}
+                                      <strong className="text-navy">{v.sku}</strong> ({v.color} / {v.size}):{' '}
                                       {v.stockQuantity} pcs
                                     </span>
                                   ))}
@@ -726,7 +726,7 @@ export default function AdminProductTable({
           Showing <span className="font-semibold text-slate-800">{sortedProducts.length}</span> of{' '}
           <span className="font-semibold text-slate-800">{products.length}</span> styles
           {selectedIds.length > 0 && (
-            <span className="ml-2 font-medium text-blue-600">
+            <span className="ml-2 font-medium text-navy">
               ({selectedIds.length} selected)
             </span>
           )}

@@ -25,7 +25,7 @@ export default function AdminHeader({
             <span>/</span>
             <span className="text-slate-800 font-medium">Garments & Apparel</span>
             <span>/</span>
-            <span className="text-blue-600 font-semibold">Product Master ({totalCount})</span>
+            <span className="text-navy font-semibold">Product Master ({totalCount})</span>
           </div>
           <h1 className="text-base font-bold text-slate-900 tracking-tight leading-none mt-1">
             Product Database Management
@@ -45,7 +45,7 @@ export default function AdminHeader({
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search by Code (ST-1001), SKU, Fabric, Factory, Customer..."
-            className="w-full pl-9 pr-4 py-1.5 bg-slate-50 hover:bg-slate-100/70 focus:bg-white text-xs text-slate-800 placeholder-slate-400 rounded-lg border border-slate-200 focus:border-blue-500 focus:ring-3 focus:ring-blue-500/15 transition-all outline-none"
+            className="w-full pl-9 pr-4 py-1.5 bg-slate-50 hover:bg-slate-100/70 focus:bg-white text-xs text-slate-800 placeholder-slate-400 rounded-lg border border-slate-200 focus:border-navy focus:ring-3 focus:ring-navy/15 transition-all outline-none"
           />
           {searchTerm && (
             <button
@@ -71,7 +71,7 @@ export default function AdminHeader({
 
         <button
           onClick={onAddNew}
-          className="flex items-center gap-1.5 px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg shadow-xs shadow-blue-500/20 transition-all cursor-pointer"
+          className="flex items-center gap-1.5 px-3.5 py-1.5 bg-navy hover:bg-navy-light text-white text-xs font-semibold rounded-lg shadow-xs shadow-navy/20 transition-all cursor-pointer"
         >
           <FiPlus className="stroke-[2.5]" size={14} />
           <span>Add Product</span>
@@ -80,7 +80,7 @@ export default function AdminHeader({
         <div className="h-6 w-px bg-slate-200 mx-1"></div>
 
         <div className="flex items-center gap-2.5 pl-1">
-          <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-200 text-blue-700 font-bold text-xs flex items-center justify-center">
+          <div className="w-8 h-8 rounded-full bg-navy/5 border border-navy/20 text-navy font-bold text-xs flex items-center justify-center">
             AD
           </div>
           <div className="hidden sm:block text-left">

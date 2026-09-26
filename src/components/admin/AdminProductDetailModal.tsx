@@ -35,7 +35,7 @@ export default function AdminProductDetailModal({
         {/* Header */}
         <div className="px-6 py-4 border-b border-slate-200 flex items-center justify-between bg-white shrink-0">
           <div className="flex items-center gap-3">
-            <span className="px-2.5 py-1 rounded-md bg-blue-50 border border-blue-200 text-blue-700 font-mono font-bold text-xs">
+            <span className="px-2.5 py-1 rounded-md bg-navy/5 border border-navy/20 text-navy font-mono font-bold text-xs">
               {product.productCode}
             </span>
             <div>
@@ -62,7 +62,7 @@ export default function AdminProductDetailModal({
                 onClose()
                 onEdit(product)
               }}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg shadow-2xs cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-navy hover:bg-navy-light text-white text-xs font-semibold rounded-lg shadow-2xs cursor-pointer"
             >
               <FiEdit2 size={13} />
               <span>Edit Details</span>
@@ -116,7 +116,7 @@ export default function AdminProductDetailModal({
               {/* Product Header Info */}
               <div className="border-b border-slate-200 pb-4">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-navy/5 text-navy border border-navy/20">
                     {product.productType}
                   </span>
                   <span className="text-xs text-slate-500">
@@ -132,7 +132,7 @@ export default function AdminProductDetailModal({
               {/* Sourcing & Pricing Card */}
               <div className="bg-slate-50/70 border border-slate-200 rounded-xl p-4 space-y-3">
                 <div className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
-                  <FiDollarSign className="text-blue-600" />
+                  <FiDollarSign className="text-navy" />
                   <span>Costing & Pricing Summary</span>
                 </div>
                 <div className="grid grid-cols-3 gap-3">
@@ -156,7 +156,7 @@ export default function AdminProductDetailModal({
                     <span className="text-[10px] text-slate-400 uppercase font-semibold block">
                       Sale Invoiced
                     </span>
-                    <span className="text-sm font-bold text-blue-600 font-mono">
+                    <span className="text-sm font-bold text-navy font-mono">
                       ${Number(product.salePrice).toFixed(2)}
                     </span>
                   </div>
@@ -180,8 +180,8 @@ export default function AdminProductDetailModal({
                   </span>
                   {product.readyStockAvailability === 'Yes' ? (
                     <div className="text-xs">
-                      <span className="inline-flex items-center gap-1 font-semibold text-blue-700">
-                        <FiCheckCircle size={13} className="text-blue-600" />
+                      <span className="inline-flex items-center gap-1 font-semibold text-navy">
+                        <FiCheckCircle size={13} className="text-navy" />
                         Available Immediately
                       </span>
                       <div className="text-base font-bold text-slate-900 font-mono mt-0.5">
@@ -228,7 +228,7 @@ export default function AdminProductDetailModal({
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-100 p-4 gap-4 text-xs">
               {/* Column 1: Fabric & Physical */}
               <div className="space-y-2">
-                <div className="font-semibold text-blue-700 pb-1 border-b border-slate-100 uppercase text-[11px]">
+                <div className="font-semibold text-navy pb-1 border-b border-slate-100 uppercase text-[11px]">
                   Fabric & Construction
                 </div>
                 <div className="flex justify-between py-1">
@@ -267,7 +267,7 @@ export default function AdminProductDetailModal({
 
               {/* Column 2: Classification & Schedule */}
               <div className="space-y-2 sm:pl-4">
-                <div className="font-semibold text-blue-700 pb-1 border-b border-slate-100 uppercase text-[11px]">
+                <div className="font-semibold text-navy pb-1 border-b border-slate-100 uppercase text-[11px]">
                   Classification & Dates
                 </div>
                 <div className="flex justify-between py-1">
@@ -302,7 +302,7 @@ export default function AdminProductDetailModal({
 
               {/* Column 3: Sourcing & Accounts */}
               <div className="space-y-2 sm:pl-4">
-                <div className="font-semibold text-blue-700 pb-1 border-b border-slate-100 uppercase text-[11px]">
+                <div className="font-semibold text-navy pb-1 border-b border-slate-100 uppercase text-[11px]">
                   Supply Chain & Client
                 </div>
                 <div className="flex justify-between py-1">
@@ -311,7 +311,7 @@ export default function AdminProductDetailModal({
                 </div>
                 <div className="flex justify-between py-1">
                   <span className="text-slate-500">Factory Code:</span>
-                  <span className="font-mono font-semibold text-blue-600">
+                  <span className="font-mono font-semibold text-navy">
                     {product.factoryCode}
                   </span>
                 </div>
@@ -345,7 +345,7 @@ export default function AdminProductDetailModal({
             <div className="border border-slate-200 rounded-xl overflow-hidden bg-white">
               <div className="px-4 py-2.5 bg-slate-50 border-b border-slate-200 font-bold text-xs text-slate-800 uppercase tracking-wider flex items-center justify-between">
                 <span>SKU Variant Combinations Matrix ({product.variantsList.length} Variations)</span>
-                <span className="text-[11px] text-blue-600 font-normal">
+                <span className="text-[11px] text-navy font-normal">
                   Individual barcode & stock allocation
                 </span>
               </div>
@@ -362,7 +362,7 @@ export default function AdminProductDetailModal({
                 <tbody className="divide-y divide-slate-100">
                   {product.variantsList.map((v) => (
                     <tr key={v.id} className="hover:bg-slate-50/50">
-                      <td className="py-2 px-3 font-mono font-semibold text-blue-700">{v.sku}</td>
+                      <td className="py-2 px-3 font-mono font-semibold text-navy">{v.sku}</td>
                       <td className="py-2 px-3 text-slate-700">{v.color}</td>
                       <td className="py-2 px-3 text-slate-700">{v.size}</td>
                       <td className="py-2 px-3 font-mono text-slate-800">

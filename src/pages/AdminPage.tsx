@@ -311,9 +311,9 @@ export default function AdminPage() {
 
           {/* Bulk Selection Bar if any checked */}
           {selectedIds.length > 0 && (
-            <div className="p-3 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-between text-xs animate-in fade-in duration-150">
-              <div className="flex items-center gap-2 text-blue-900 font-medium">
-                <FiInfo className="text-blue-600" size={15} />
+            <div className="p-3 bg-navy/5 border border-navy/20 rounded-xl flex items-center justify-between text-xs animate-in fade-in duration-150">
+              <div className="flex items-center gap-2 text-navy font-medium">
+                <FiInfo className="text-navy" size={15} />
                 <span>
                   <strong>{selectedIds.length}</strong> products selected across the table
                 </span>
@@ -409,7 +409,7 @@ export default function AdminPage() {
                   </p>
                   <button
                     onClick={handleExportCsv}
-                    className="mt-2 px-3.5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
+                    className="mt-2 px-3.5 py-2 bg-navy hover:bg-navy-light text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
                   >
                     <FiDownload size={14} />
                     <span>Download Full CSV Export</span>
