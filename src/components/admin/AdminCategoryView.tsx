@@ -101,7 +101,7 @@ export default function AdminCategoryView({
     setIsRefreshing(true)
     try {
       await onRefreshCategories()
-      showToast('Category hierarchy refreshed from server')
+      showToast('Categories refreshed successfully')
     } catch {
       showToast('Failed to refresh categories', 'error')
     } finally {
@@ -250,7 +250,7 @@ export default function AdminCategoryView({
             </h2>
           </div>
           <p className="text-xs text-slate-500 mt-1">
-            Browse, manage, and explore all {allCategories.length} categories synchronized with your backend API.
+            Browse, manage, and explore all {allCategories.length} categories in the catalog.
           </p>
         </div>
 
@@ -259,10 +259,10 @@ export default function AdminCategoryView({
             onClick={handleRefresh}
             disabled={isRefreshing}
             className="flex items-center gap-1.5 px-3 py-2 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold rounded-lg shadow-2xs transition-colors cursor-pointer"
-            title="Reload from API"
+            title="Refresh categories"
           >
             <FiRefreshCw size={13} className={isRefreshing ? 'animate-spin text-navy' : ''} />
-            <span>{isRefreshing ? 'Refreshing...' : 'Refresh API'}</span>
+            <span>{isRefreshing ? 'Refreshing...' : 'Refresh'}</span>
           </button>
 
           <button
@@ -283,7 +283,7 @@ export default function AdminCategoryView({
             <FiFolder className="text-navy" size={16} />
           </div>
           <div className="text-2xl font-bold text-slate-900">{allCategories.length}</div>
-          <div className="text-xs text-slate-500 mt-1">Active in MongoDB</div>
+          <div className="text-xs text-slate-500 mt-1">Active in Catalog</div>
         </div>
 
         <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-2xs">

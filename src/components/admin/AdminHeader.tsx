@@ -1,10 +1,11 @@
-import { FiDownload, FiPlus, FiLogOut } from 'react-icons/fi'
+import { FiDownload, FiPlus, FiLogOut, FiUploadCloud } from 'react-icons/fi'
 import { useAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 
 interface AdminHeaderProps {
   onAddNew: () => void
   onExportCsv: () => void
+  onBulkListing?: () => void
   totalCount?: number
   currentTab?: string
 }
@@ -12,6 +13,7 @@ interface AdminHeaderProps {
 export default function AdminHeader({
   onAddNew,
   onExportCsv,
+  onBulkListing,
   totalCount = 0,
   currentTab = 'products',
 }: AdminHeaderProps) {
@@ -42,30 +44,45 @@ export default function AdminHeader({
             ? 'Factory Sourcing'
             : currentTab === 'customers'
             ? 'Client Accounts'
-            : `Product Database Management (${totalCount})`}
+            : `Product Catalog (${totalCount})`}
         </h1>
       </div>
 
       {/* Right: Actions & User */}
       <div className="flex items-center gap-2">
-        <button
-          onClick={onExportCsv}
-          title="Export CSV / JSON"
-          className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-slate-50 text-slate-700 text-xs font-medium rounded-lg border border-slate-200 transition-colors shadow-2xs cursor-pointer"
-        >
-          <FiDownload size={13} className="text-slate-500" />
-          <span>Export CSV</span>
-        </button>
+        {currentTab === 'products' && (
+          <>
+            <button
+              onClick={onExportCsv}
+              title="Export CSV / JSON"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-slate-50 text-slate-700 text-xs font-medium rounded-lg border border-slate-200 transition-colors shadow-2xs cursor-pointer"
+            >
+              <FiDownload size={13} className="text-slate-500" />
+              <span>Export CSV</span>
+            </button>
 
-        <button
-          onClick={onAddNew}
-          className="flex items-center gap-1.5 px-3.5 py-1.5 bg-navy hover:bg-navy-light text-white text-xs font-semibold rounded-lg shadow-xs shadow-navy/20 transition-all cursor-pointer"
-        >
-          <FiPlus className="stroke-[2.5]" size={14} />
-          <span>Add Product</span>
-        </button>
+            {onBulkListing && (
+              <button
+                onClick={onBulkListing}
+                title="Bulk Import / Listing via CSV or Excel"
+                className="flex items-center gap-1.5 px-3.5 py-1.5 bg-white border border-navy/30 hover:bg-navy/5 text-navy text-xs font-semibold rounded-lg shadow-2xs transition-colors cursor-pointer"
+              >
+                <FiUploadCloud size={14} className="text-navy" />
+                <span>Bulk Listing</span>
+              </button>
+            )}
 
-        <div className="h-6 w-px bg-slate-200 mx-1"></div>
+            <button
+              onClick={onAddNew}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 bg-navy hover:bg-navy-light text-white text-xs font-semibold rounded-lg shadow-xs shadow-navy/20 transition-all cursor-pointer"
+            >
+              <FiPlus className="stroke-[2.5]" size={14} />
+              <span>Add Product</span>
+            </button>
+
+            <div className="h-6 w-px bg-slate-200 mx-1"></div>
+          </>
+        )}
 
         {/* User Profile & Sign Out */}
         <div className="flex items-center gap-2 pl-1">

@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import type { FormEvent } from 'react'
-import type { AdminProduct } from '../../types/adminProduct'
-import { FiUsers, FiPlus } from 'react-icons/fi'
+import { useState } from "react";
+import type { FormEvent } from "react";
+import type { AdminProduct } from "../../types/adminProduct";
+import { FiUsers, FiPlus } from "react-icons/fi";
 
 interface AdminCustomerViewProps {
-  products: AdminProduct[]
-  customers: string[]
-  onAddNewCustomer: (name: string) => void
+  products: AdminProduct[];
+  customers: string[];
+  onAddNewCustomer: (name: string) => void;
 }
 
 export default function AdminCustomerView({
@@ -14,27 +14,28 @@ export default function AdminCustomerView({
   customers,
   onAddNewCustomer,
 }: AdminCustomerViewProps) {
-  const [newCustomer, setNewCustomer] = useState('')
-  const [showAdd, setShowAdd] = useState(false)
+  const [newCustomer, setNewCustomer] = useState("");
+  const [showAdd, setShowAdd] = useState(false);
 
   const handleAdd = (e: FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (newCustomer.trim()) {
-      onAddNewCustomer(newCustomer.trim())
-      setNewCustomer('')
-      setShowAdd(false)
+      onAddNewCustomer(newCustomer.trim());
+      setNewCustomer("");
+      setShowAdd(false);
     }
-  }
+  };
 
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h2 className="text-sm font-bold text-slate-900">
-            Client Accounts & Buyer Databases
+            Client Accounts & Wholesale Buyers
           </h2>
           <p className="text-xs text-slate-500">
-            Registered wholesale buyers, auto-generated customer style codes, and repeat orders.
+            Registered wholesale buyers, auto-generated customer style codes,
+            and repeat orders.
           </p>
         </div>
 
@@ -76,51 +77,74 @@ export default function AdminCustomerView({
         </form>
       )}
 
-      {/* Grid of customers */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {customers.map((cust) => {
-          const clientProducts = products.filter((p) => p.customerName === cust)
-          const repeatOrders = clientProducts.filter((p) => p.repeatOrder === 'Yes')
+      {/* Grid of customers or clean empty state */}
+      {customers.length === 0 ? (
+        <div className="bg-white rounded-xl border border-slate-200 p-12 text-center space-y-3">
+          <div className="w-12 h-12 rounded-xl bg-slate-100 text-slate-400 mx-auto flex items-center justify-center">
+            <FiUsers size={24} />
+          </div>
+          <h3 className="text-sm font-semibold text-slate-800">
+            No Client Accounts Found
+          </h3>
+          <p className="text-xs text-slate-500 max-w-sm mx-auto">
+            No clients have been registered yet. Click &quot;Add Client
+            Account&quot; above to add your first client.
+          </p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {customers.map((cust) => {
+            const clientProducts = products.filter(
+              (p) => p.customerName === cust,
+            );
+            const repeatOrders = clientProducts.filter(
+              (p) => p.repeatOrder === "Yes",
+            );
 
-          return (
-            <div
-              key={cust}
-              className="bg-white rounded-xl border border-slate-200 p-4.5 hover:border-navy/30 transition-all shadow-2xs space-y-3"
-            >
-              <div className="flex items-center justify-between">
-                <div className="w-8 h-8 rounded-lg bg-navy/5 text-navy flex items-center justify-center font-bold text-xs">
-                  <FiUsers size={16} />
-                </div>
-                <span className="text-[10px] font-semibold text-navy bg-navy/5 px-2 py-0.5 rounded border border-navy/20">
-                  Global Client
-                </span>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-slate-900 text-sm">{cust}</h3>
-                <span className="text-[11px] text-slate-500">
-                  Total Styles Ordered: <strong>{clientProducts.length}</strong>
-                </span>
-              </div>
-
-              <div className="pt-2 border-t border-slate-100 space-y-1.5 text-xs">
-                <div className="flex items-center justify-between text-slate-600">
-                  <span>Customer Style Codes:</span>
-                  <span className="font-mono font-semibold text-slate-800">
-                    {clientProducts.map((p) => p.customerStyleCode).join(', ') || 'C26-00X'}
+            return (
+              <div
+                key={cust}
+                className="bg-white rounded-xl border border-slate-200 p-4.5 hover:border-navy/30 transition-all shadow-2xs space-y-3"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="w-8 h-8 rounded-lg bg-navy/5 text-navy flex items-center justify-center font-bold text-xs">
+                    <FiUsers size={16} />
+                  </div>
+                  <span className="text-[10px] font-semibold text-navy bg-navy/5 px-2 py-0.5 rounded border border-navy/20">
+                    Global Client
                   </span>
                 </div>
-                <div className="flex items-center justify-between text-slate-600">
-                  <span>Repeat Order Program:</span>
-                  <span className="font-medium text-emerald-600">
-                    {repeatOrders.length} active re-runs
+
+                <div>
+                  <h3 className="font-bold text-slate-900 text-sm">{cust}</h3>
+                  <span className="text-[11px] text-slate-500">
+                    Total Styles Ordered:{" "}
+                    <strong>{clientProducts.length}</strong>
                   </span>
                 </div>
+
+                <div className="pt-2 border-t border-slate-100 space-y-1.5 text-xs">
+                  <div className="flex items-center justify-between text-slate-600">
+                    <span>Customer Style Codes:</span>
+                    <span className="font-mono font-semibold text-slate-800">
+                      {clientProducts
+                        .map((p) => p.customerStyleCode)
+                        .filter(Boolean)
+                        .join(", ") || "N/A"}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-slate-600">
+                    <span>Repeat Order Program:</span>
+                    <span className="font-medium text-emerald-600">
+                      {repeatOrders.length} active re-runs
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
-          )
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
     </div>
-  )
+  );
 }

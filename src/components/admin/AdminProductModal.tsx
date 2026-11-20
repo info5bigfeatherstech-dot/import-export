@@ -1243,7 +1243,7 @@ export default function AdminProductModal({
               <div>
                 <div className="flex items-center justify-between mb-1">
                   <label className="text-xs font-semibold text-slate-700">
-                    Factory Name (Database) <span className="text-amber-600">*</span>
+                    Factory Name <span className="text-amber-600">*</span>
                   </label>
                   <button
                     type="button"
@@ -1494,7 +1494,7 @@ export default function AdminProductModal({
               <div>
                 <div className="flex items-center justify-between mb-1">
                   <label className="text-xs font-semibold text-slate-700">
-                    Customer Name (Database) <span className="text-amber-600">*</span>
+                    Customer Name <span className="text-amber-600">*</span>
                   </label>
                   <button
                     type="button"

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate, useLocation, Link } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import {
   FiLock,
   FiMail,
@@ -11,59 +11,63 @@ import {
   FiAlertCircle,
   FiGlobe,
   FiKey,
-} from 'react-icons/fi'
+} from "react-icons/fi";
 
 export default function LoginPage() {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const { login, isAuthenticated, isLoading, apiStatus, apiUrl } = useAuth()
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { login, isAuthenticated, isLoading, apiStatus, apiUrl } = useAuth();
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [showPassword, setShowPassword] = useState(false)
-  const [errorMessage, setErrorMessage] = useState<string | null>(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated) {
-      const from = (location.state as any)?.from?.pathname || '/admin'
-      navigate(from, { replace: true })
+      const from = (location.state as any)?.from?.pathname || "/admin";
+      navigate(from, { replace: true });
     }
-  }, [isAuthenticated, navigate, location])
+  }, [isAuthenticated, navigate, location]);
 
   // Handle Form Submission
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setErrorMessage(null)
+    e.preventDefault();
+    setErrorMessage(null);
 
     if (!email.trim() || !password) {
-      setErrorMessage('Please enter your email and password.')
-      return
+      setErrorMessage("Please enter your email and password.");
+      return;
     }
 
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     try {
-      const result = await login(email.trim(), password)
+      const result = await login(email.trim(), password);
       if (result.success) {
-        const from = (location.state as any)?.from?.pathname || '/admin'
-        navigate(from, { replace: true })
+        const from = (location.state as any)?.from?.pathname || "/admin";
+        navigate(from, { replace: true });
       } else {
-        setErrorMessage(result.message || 'Invalid credentials. Please verify and try again.')
+        setErrorMessage(
+          result.message || "Invalid credentials. Please verify and try again.",
+        );
       }
     } catch (err: any) {
-      setErrorMessage(err?.message || 'An error occurred while connecting to the server.')
+      setErrorMessage(
+        err?.message || "An error occurred while connecting to the server.",
+      );
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   // Quick fill demo credentials
   const fillDemoCredentials = () => {
-    setEmail('admin@mayaexports.com')
-    setPassword('ChangeMeNow123!')
-    setErrorMessage(null)
-  }
+    setEmail("admin@mayaexports.com");
+    setPassword("ChangeMeNow123!");
+    setErrorMessage(null);
+  };
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] flex flex-col justify-between font-[Inter,system-ui,sans-serif] text-slate-800 antialiased selection:bg-slate-200">
@@ -77,33 +81,32 @@ export default function LoginPage() {
             <div className="text-sm font-bold text-slate-900 tracking-tight leading-tight">
               ShivaSun Moderno Impex
             </div>
-            <div className="text-[11px] text-slate-500">Sourcing & Product Admin</div>
+            <div className="text-[11px] text-slate-500">
+              Sourcing & Product Admin
+            </div>
           </div>
         </Link>
 
         <div className="flex items-center gap-3">
           <div
             className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border ${
-              apiStatus === 'connected'
-                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                : apiStatus === 'checking'
-                ? 'bg-amber-50 text-amber-700 border-amber-200'
-                : 'bg-rose-50 text-rose-700 border-rose-200'
+              apiStatus === "connected"
+                ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                : apiStatus === "checking"
+                  ? "bg-amber-50 text-amber-700 border-amber-200"
+                  : "bg-rose-50 text-rose-700 border-rose-200"
             }`}
             title={`API: ${apiUrl}`}
           >
             <span
               className={`w-1.5 h-1.5 rounded-full ${
-                apiStatus === 'connected'
-                  ? 'bg-emerald-500 animate-pulse'
-                  : 'bg-rose-500'
+                apiStatus === "connected"
+                  ? "bg-emerald-500 animate-pulse"
+                  : "bg-rose-500"
               }`}
             />
-            <span className="hidden sm:inline font-mono text-[11px]">
-              {apiStatus === 'connected' ? 'API 5000 Online' : 'API Offline'}
-            </span>
-            <span className="sm:hidden text-[11px]">
-              {apiStatus === 'connected' ? 'Online' : 'Offline'}
+            <span className="font-medium text-[11px]">
+              {apiStatus === "connected" ? "System Operational" : "Offline"}
             </span>
           </div>
 
@@ -135,7 +138,7 @@ export default function LoginPage() {
             <div className="min-w-0">
               <div className="text-[11px] font-semibold text-slate-700 flex items-center gap-1.5">
                 <FiKey size={12} className="text-slate-500" />
-                <span>Backend Admin Account</span>
+                <span>Default Admin Account</span>
               </div>
               <div className="text-[11px] text-slate-500 font-mono truncate">
                 admin@mayaexports.com
@@ -153,7 +156,10 @@ export default function LoginPage() {
           {/* Error Banner */}
           {errorMessage && (
             <div className="mb-5 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-start gap-2.5 animate-in fade-in duration-150">
-              <FiAlertCircle size={15} className="text-rose-500 shrink-0 mt-0.5" />
+              <FiAlertCircle
+                size={15}
+                className="text-rose-500 shrink-0 mt-0.5"
+              />
               <div className="flex-1 leading-relaxed">{errorMessage}</div>
             </div>
           )}
@@ -193,7 +199,9 @@ export default function LoginPage() {
                 >
                   Password
                 </label>
-                <span className="text-[11px] text-slate-400">JWT Protected</span>
+                <span className="text-[11px] text-slate-400">
+                  JWT Protected
+                </span>
               </div>
               <div className="relative">
                 <FiLock
@@ -202,7 +210,7 @@ export default function LoginPage() {
                 />
                 <input
                   id="password"
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   required
                   autoComplete="current-password"
                   value={password}
@@ -213,7 +221,7 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors p-1 cursor-pointer"
                 >
                   {showPassword ? <FiEyeOff size={15} /> : <FiEye size={15} />}
@@ -243,15 +251,16 @@ export default function LoginPage() {
           {/* Secure connection notice */}
           <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-center gap-1.5 text-[11px] text-slate-400">
             <FiCheckCircle size={13} className="text-emerald-500 shrink-0" />
-            <span>Target API: {apiUrl}</span>
+            <span>Secure Enterprise Session</span>
           </div>
         </div>
       </main>
 
       {/* Footer */}
       <footer className="w-full max-w-5xl mx-auto px-4 py-4 text-center text-xs text-slate-400">
-        © {new Date().getFullYear()} ShivaSun Moderno Impex Pvt. Ltd. All rights reserved.
+        © {new Date().getFullYear()} ShivaSun Moderno Impex Pvt. Ltd. All rights
+        reserved.
       </footer>
     </div>
-  )
+  );
 }

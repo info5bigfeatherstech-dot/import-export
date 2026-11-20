@@ -230,6 +230,41 @@ export const api = {
         method: 'DELETE',
       })
     },
+    downloadTemplate: async () => {
+      const res = await fetch(`${API_BASE_URL.replace(/\/$/, '')}/products/import/template`, {
+        method: 'GET',
+        credentials: 'include',
+      })
+      if (!res.ok) throw new Error('Failed to download template')
+      const blob = await res.blob()
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'maya-exports-product-import.csv'
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      window.URL.revokeObjectURL(url)
+    },
+    previewImport: async (sheetFile: File) => {
+      const formData = new FormData()
+      formData.append('sheet', sheetFile)
+      return request<any>('/products/import/preview', {
+        method: 'POST',
+        body: formData,
+      })
+    },
+    importBulk: async (sheetFile: File, zipFile?: File | null) => {
+      const formData = new FormData()
+      formData.append('sheet', sheetFile)
+      if (zipFile) {
+        formData.append('imagesZip', zipFile)
+      }
+      return request<any>('/products/import', {
+        method: 'POST',
+        body: formData,
+      })
+    },
   },
 
   // Categories

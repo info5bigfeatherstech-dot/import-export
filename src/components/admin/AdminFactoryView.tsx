@@ -31,7 +31,7 @@ export default function AdminFactoryView({
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h2 className="text-sm font-bold text-slate-900">
-            Manufacturing Partner Sourcing Database
+            Manufacturing Partners & Sourcing Network
           </h2>
           <p className="text-xs text-slate-500">
             Approved garment production factories, assigned F-codes, and running styles.
@@ -76,58 +76,72 @@ export default function AdminFactoryView({
         </form>
       )}
 
-      {/* Grid of factories */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {factories.map((fac) => {
-          const factoryProducts = products.filter((p) => p.factoryName === fac)
-          const totalUnits = factoryProducts.reduce((acc, p) => {
+      {/* Grid of factories or clean empty state */}
+      {factories.length === 0 ? (
+        <div className="bg-white rounded-xl border border-slate-200 p-12 text-center space-y-3">
+          <div className="w-12 h-12 rounded-xl bg-slate-100 text-slate-400 mx-auto flex items-center justify-center">
+            <FiTruck size={24} />
+          </div>
+          <h3 className="text-sm font-semibold text-slate-800">
+            No Manufacturing Partners Found
+          </h3>
+          <p className="text-xs text-slate-500 max-w-sm mx-auto">
+            No factories have been added yet. Click &quot;Add Manufacturing Factory&quot; above to register your first partner.
+          </p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {factories.map((fac) => {
+            const factoryProducts = products.filter((p) => p.factoryName === fac)
+            const totalUnits = factoryProducts.reduce((acc, p) => {
+              return (
+                acc +
+                (p.readyStockAvailability === 'Yes'
+                  ? Number(p.readyStockQuantity) || 0
+                  : 0)
+              )
+            }, 0)
+
             return (
-              acc +
-              (p.readyStockAvailability === 'Yes'
-                ? Number(p.readyStockQuantity) || 0
-                : 0)
+              <div
+                key={fac}
+                className="bg-white rounded-xl border border-slate-200 p-4.5 hover:border-navy/30 transition-all shadow-2xs space-y-3"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="w-8 h-8 rounded-lg bg-navy/5 text-navy flex items-center justify-center font-bold text-xs">
+                    <FiTruck size={16} />
+                  </div>
+                  <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    Approved Vendor
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-slate-900 text-sm">{fac}</h3>
+                  <span className="text-[11px] text-slate-500">
+                    Assigned Styles: <strong>{factoryProducts.length}</strong> styles
+                  </span>
+                </div>
+
+                <div className="pt-2 border-t border-slate-100 space-y-1.5 text-xs">
+                  <div className="flex items-center justify-between text-slate-600">
+                    <span>Factory Codes:</span>
+                    <span className="font-mono font-semibold text-navy">
+                      {factoryProducts.map((p) => p.factoryCode).filter(Boolean).join(', ') || 'N/A'}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-slate-600">
+                    <span>Ready Stock in Line:</span>
+                    <span className="font-mono text-slate-800">
+                      {totalUnits.toLocaleString()} pcs
+                    </span>
+                  </div>
+                </div>
+              </div>
             )
-          }, 0)
-
-          return (
-            <div
-              key={fac}
-              className="bg-white rounded-xl border border-slate-200 p-4.5 hover:border-navy/30 transition-all shadow-2xs space-y-3"
-            >
-              <div className="flex items-center justify-between">
-                <div className="w-8 h-8 rounded-lg bg-navy/5 text-navy flex items-center justify-center font-bold text-xs">
-                  <FiTruck size={16} />
-                </div>
-                <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                  Approved Vendor
-                </span>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-slate-900 text-sm">{fac}</h3>
-                <span className="text-[11px] text-slate-500">
-                  Assigned Styles: <strong>{factoryProducts.length}</strong> styles
-                </span>
-              </div>
-
-              <div className="pt-2 border-t border-slate-100 space-y-1.5 text-xs">
-                <div className="flex items-center justify-between text-slate-600">
-                  <span>Factory Codes:</span>
-                  <span className="font-mono font-semibold text-navy">
-                    {factoryProducts.map((p) => p.factoryCode).join(', ') || 'F26-00X'}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-slate-600">
-                  <span>Ready Stock in Line:</span>
-                  <span className="font-mono text-slate-800">
-                    {totalUnits.toLocaleString()} pcs
-                  </span>
-                </div>
-              </div>
-            </div>
-          )
-        })}
-      </div>
+          })}
+        </div>
+      )}
     </div>
   )
 }

@@ -103,7 +103,7 @@ export default function AdminDashboardView({
             className="flex items-center gap-1.5 px-3.5 py-2 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold rounded-xl border border-slate-200 shadow-2xs transition-colors cursor-pointer disabled:opacity-50"
           >
             <FiRefreshCw size={13} className={isSyncing ? 'animate-spin text-navy' : 'text-slate-500'} />
-            <span>{isSyncing ? 'Refreshing...' : 'Refresh API'}</span>
+            <span>{isSyncing ? 'Refreshing...' : 'Refresh'}</span>
           </button>
 
           <button
@@ -243,9 +243,9 @@ export default function AdminDashboardView({
             </div>
           ) : (
             <div className="space-y-3.5 pt-1">
-              {['Garments', 'Footwears', 'Kitchen', 'Accessories'].map((cat, i) => {
-                const count = products.filter((p) => p.category?.toLowerCase().includes(cat.toLowerCase())).length || (i === 0 ? 5 : 0)
-                const pct = totalProductsCount > 0 ? Math.round((count / totalProductsCount) * 100) : 25
+              {['Garments', 'Footwears', 'Kitchen', 'Accessories'].map((cat) => {
+                const count = products.filter((p) => p.category?.toLowerCase().includes(cat.toLowerCase())).length
+                const pct = totalProductsCount > 0 ? Math.round((count / totalProductsCount) * 100) : 0
                 return (
                   <div key={cat} className="space-y-1.5">
                     <div className="flex items-center justify-between text-xs">
@@ -334,7 +334,7 @@ export default function AdminDashboardView({
                 Recent Product Activity & Master Updates
               </h3>
               <p className="text-xs text-slate-500">
-                Latest catalog changes from the live MongoDB database
+                Latest catalog changes and product updates
               </p>
             </div>
             <FiClock className="text-slate-400" size={16} />
