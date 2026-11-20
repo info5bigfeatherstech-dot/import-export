@@ -187,6 +187,7 @@ export default function Footer() {
             <Link to="/contact" className="text-slate-600 hover:text-amber-600 transition-colors font-medium">Privacy Policy</Link>
             <Link to="/contact" className="text-slate-600 hover:text-amber-600 transition-colors font-medium">Terms of Trade</Link>
             <Link to="/contact" className="text-slate-600 hover:text-amber-600 transition-colors font-medium">Quality Assurance</Link>
+            <Link to="/admin" className="text-slate-600 hover:text-amber-600 transition-colors font-medium">Admin Portal</Link>
           </div>
         </div>
       </div>

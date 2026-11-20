@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import type { AdminProduct } from '../types/adminProduct'
 import {
   getStoredProducts,
@@ -8,26 +8,29 @@ import {
   getStoredCustomers,
   saveStoredCustomers,
 } from '../utils/adminStorage'
+import { api, type ApiCategory, type DashboardSummary } from '../lib/api'
+import { apiProductToAdminProduct, adminProductToApiPayload } from '../utils/productAdapter'
 import AdminSidebar from '../components/admin/AdminSidebar'
 import AdminHeader from '../components/admin/AdminHeader'
 import AdminStats from '../components/admin/AdminStats'
+import AdminDashboardView from '../components/admin/AdminDashboardView'
 import AdminProductTable from '../components/admin/AdminProductTable'
 import AdminProductModal from '../components/admin/AdminProductModal'
 import AdminProductDetailModal from '../components/admin/AdminProductDetailModal'
-import AdminVariantView from '../components/admin/AdminVariantView'
 import AdminFactoryView from '../components/admin/AdminFactoryView'
 import AdminCustomerView from '../components/admin/AdminCustomerView'
-import AdminAnalyticsView from '../components/admin/AdminAnalyticsView'
-import { INITIAL_ADMIN_PRODUCTS } from '../data/adminInitialData'
-import { FiCheckCircle, FiInfo, FiTrash2, FiDownload, FiRotateCcw } from 'react-icons/fi'
+import AdminCategoryView from '../components/admin/AdminCategoryView'
+import { countAllCategories } from '../utils/categoryUtils'
+import { FiCheckCircle, FiInfo, FiTrash2, FiAlertCircle } from 'react-icons/fi'
 
 export default function AdminPage() {
   const [products, setProducts] = useState<AdminProduct[]>([])
   const [factories, setFactories] = useState<string[]>([])
   const [customers, setCustomers] = useState<string[]>([])
+  const [categories, setCategories] = useState<ApiCategory[]>([])
+  const [dashboardSummary, setDashboardSummary] = useState<DashboardSummary | null>(null)
 
-  const [currentTab, setCurrentTab] = useState<string>('products')
-  const [searchTerm, setSearchTerm] = useState<string>('')
+  const [currentTab, setCurrentTab] = useState<string>('dashboard')
   const [selectedIds, setSelectedIds] = useState<string[]>([])
 
   // Modal states
@@ -36,49 +39,185 @@ export default function AdminPage() {
   const [isDetailOpen, setIsDetailOpen] = useState<boolean>(false)
   const [detailProduct, setDetailProduct] = useState<AdminProduct | null>(null)
 
-  // Notification Toast
-  const [toastMessage, setToastMessage] = useState<string | null>(null)
+  // Sync state
+  const [isSyncing, setIsSyncing] = useState<boolean>(false)
 
-  const showToast = (msg: string) => {
-    setToastMessage(msg)
+  // Notification Toast
+  const [toastMessage, setToastMessage] = useState<{ text: string; type?: 'success' | 'error' | 'info' } | null>(null)
+
+  const showToast = (text: string, type: 'success' | 'error' | 'info' = 'success') => {
+    setToastMessage({ text, type })
     setTimeout(() => {
       setToastMessage(null)
-    }, 3500)
+    }, 4000)
   }
 
-  // Load from local storage
-  useEffect(() => {
-    const loadedProducts = getStoredProducts()
-    const loadedFactories = getStoredFactories()
-    const loadedCustomers = getStoredCustomers()
-
-    setProducts(loadedProducts)
-    setFactories(loadedFactories)
-    setCustomers(loadedCustomers)
+  const refreshCategories = useCallback(async () => {
+    const catRes = await api.categories.list()
+    if (catRes.data && Array.isArray(catRes.data)) {
+      setCategories(catRes.data)
+    }
   }, [])
 
-  // Save product (create or update)
-  const handleSaveProduct = (updated: AdminProduct) => {
-    let nextList: AdminProduct[]
-    const exists = products.some((p) => p.id === updated.id)
+  // Load and sync from Backend API
+  const syncWithApi = useCallback(async (notify = false) => {
+    setIsSyncing(true)
+    try {
+      // 1. Categories
+      try {
+        await refreshCategories()
+      } catch (e) {
+        console.warn('Could not fetch categories from API:', e)
+      }
 
-    if (exists) {
-      nextList = products.map((p) => (p.id === updated.id ? updated : p))
-      showToast(`Updated product "${updated.productName}" (${updated.productCode})`)
-    } else {
-      nextList = [updated, ...products]
-      showToast(`Created new product "${updated.productName}" (${updated.productCode})`)
+      // 2. Dashboard summary
+      try {
+        const sumRes = await api.dashboard.getSummary()
+        if (sumRes.data) {
+          setDashboardSummary(sumRes.data)
+        }
+      } catch (e) {
+        console.warn('Could not fetch dashboard summary:', e)
+      }
+
+      // 3. Factories
+      try {
+        const factRes = await api.factories.list()
+        if (factRes.data && Array.isArray(factRes.data) && factRes.data.length > 0) {
+          const names = factRes.data.map((f) => f.name)
+          setFactories(names)
+          saveStoredFactories(names)
+        } else {
+          // If backend has no factories yet, load stored
+          const loaded = getStoredFactories()
+          setFactories(loaded)
+        }
+      } catch {
+        const loaded = getStoredFactories()
+        setFactories(loaded)
+      }
+
+      // 4. Customers
+      try {
+        const custRes = await api.customers.list()
+        if (custRes.data && Array.isArray(custRes.data) && custRes.data.length > 0) {
+          const names = custRes.data.map((c) => c.name)
+          setCustomers(names)
+          saveStoredCustomers(names)
+        } else {
+          const loaded = getStoredCustomers()
+          setCustomers(loaded)
+        }
+      } catch {
+        const loaded = getStoredCustomers()
+        setCustomers(loaded)
+      }
+
+      // 5. Products from API
+      const prodRes = await api.products.list({ includeInactive: true })
+      if (prodRes.data && Array.isArray(prodRes.data) && prodRes.data.length > 0) {
+        const mappedProducts = prodRes.data.map(apiProductToAdminProduct)
+        setProducts(mappedProducts)
+        saveStoredProducts(mappedProducts)
+        if (notify) {
+          showToast(`Synced ${mappedProducts.length} live products from MongoDB API!`)
+        }
+      } else {
+        // If API has 0 products, fall back to stored products or initial
+        const loaded = getStoredProducts()
+        setProducts(loaded)
+        if (notify) {
+          showToast('Connected to API. Catalog is currently empty on server.', 'info')
+        }
+      }
+    } catch (err: any) {
+      console.warn('Backend API sync notice:', err)
+      // Fallback to local storage
+      const loadedProducts = getStoredProducts()
+      const loadedFactories = getStoredFactories()
+      const loadedCustomers = getStoredCustomers()
+      setProducts(loadedProducts)
+      setFactories(loadedFactories)
+      setCustomers(loadedCustomers)
+      if (notify) {
+        showToast('Using cached local data. API sync unavailable.', 'info')
+      }
+    } finally {
+      setIsSyncing(false)
+    }
+  }, [])
+
+  // Initial load
+  useEffect(() => {
+    syncWithApi(false)
+  }, [syncWithApi])
+
+  // Get default category ID for creating products
+  const getDefaultCategoryId = (): string => {
+    if (categories.length > 0) {
+      // Find Garments or first
+      const garmentCat = categories.find((c) => c.slug === 'garments' || c.name.toLowerCase().includes('garment'))
+      return garmentCat ? garmentCat.id : categories[0].id
+    }
+    // Fallback known Garments ID from MongoDB
+    return '6b0009b601475ad9dd4d72d2'
+  }
+
+  // Save product (create or update)
+  const handleSaveProduct = async (updated: AdminProduct) => {
+    const exists = products.some((p) => p.id === updated.id)
+    const categoryId = getDefaultCategoryId()
+
+    try {
+      if (exists) {
+        // Update product via API if valid id
+        const isMongoId = /^[0-9a-fA-F]{24}$/.test(updated.id)
+        if (isMongoId) {
+          const payload = adminProductToApiPayload(updated, categoryId)
+          await api.products.update(updated.id, payload)
+        }
+        const nextList = products.map((p) => (p.id === updated.id ? updated : p))
+        setProducts(nextList)
+        saveStoredProducts(nextList)
+        showToast(`Updated product "${updated.productName}" (${updated.productCode})`)
+      } else {
+        // Create new product via API
+        const payload = adminProductToApiPayload(updated, categoryId)
+        let newProdItem = updated
+        try {
+          const res = await api.products.create(payload)
+          if (res?.data) {
+            newProdItem = apiProductToAdminProduct(res.data)
+          }
+        } catch (apiErr: any) {
+          console.warn('API product creation notice:', apiErr)
+        }
+
+        const nextList = [newProdItem, ...products]
+        setProducts(nextList)
+        saveStoredProducts(nextList)
+        showToast(`Created new product "${updated.productName}" (${updated.productCode})`)
+      }
+    } catch (err: any) {
+      showToast(err?.message || 'Error saving product', 'error')
     }
 
-    setProducts(nextList)
-    saveStoredProducts(nextList)
     setEditingProduct(null)
   }
 
   // Delete product
-  const handleDeleteProduct = (id: string) => {
+  const handleDeleteProduct = async (id: string) => {
     const target = products.find((p) => p.id === id)
     if (window.confirm(`Are you sure you want to delete product ${target?.productCode || id}?`)) {
+      try {
+        const isMongoId = /^[0-9a-fA-F]{24}$/.test(id)
+        if (isMongoId) {
+          await api.products.delete(id)
+        }
+      } catch (err: any) {
+        console.warn('API delete warning:', err)
+      }
+
       const nextList = products.filter((p) => p.id !== id)
       setProducts(nextList)
       saveStoredProducts(nextList)
@@ -88,7 +227,7 @@ export default function AdminPage() {
   }
 
   // Duplicate product
-  const handleDuplicateProduct = (original: AdminProduct) => {
+  const handleDuplicateProduct = async (original: AdminProduct) => {
     const currentYearDigits = new Date().getFullYear().toString().slice(-2)
     const newCode = `ST-${1000 + products.length + 1}`
     const duplicated: AdminProduct = {
@@ -104,6 +243,22 @@ export default function AdminPage() {
       updatedAtDate: new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
     }
 
+    // Try saving duplicated item to backend API
+    try {
+      const payload = adminProductToApiPayload(duplicated, getDefaultCategoryId())
+      const res = await api.products.create(payload)
+      if (res?.data) {
+        const mapped = apiProductToAdminProduct(res.data)
+        const nextList = [mapped, ...products]
+        setProducts(nextList)
+        saveStoredProducts(nextList)
+        showToast(`Duplicated ${original.productCode} as ${newCode} (synced to server)`)
+        return
+      }
+    } catch {
+      // local save fallback
+    }
+
     const nextList = [duplicated, ...products]
     setProducts(nextList)
     saveStoredProducts(nextList)
@@ -111,9 +266,18 @@ export default function AdminPage() {
   }
 
   // Bulk Delete
-  const handleBulkDelete = () => {
+  const handleBulkDelete = async () => {
     if (selectedIds.length === 0) return
     if (window.confirm(`Delete ${selectedIds.length} selected products?`)) {
+      for (const id of selectedIds) {
+        if (/^[0-9a-fA-F]{24}$/.test(id)) {
+          try {
+            await api.products.delete(id)
+          } catch {
+            // continue
+          }
+        }
+      }
       const nextList = products.filter((p) => !selectedIds.includes(p.id))
       setProducts(nextList)
       saveStoredProducts(nextList)
@@ -172,7 +336,7 @@ export default function AdminPage() {
       `"${p.productCode}"`,
       `"${p.sku}"`,
       `"${p.purchaseCode}"`,
-      `"${p.productName.replace(/"/g, '""')}"`,
+      `"${(p.productName || '').replace(/"/g, '""')}"`,
       `"${p.productType}"`,
       `"${p.variant}"`,
       `"${p.gender}"`,
@@ -226,58 +390,57 @@ export default function AdminPage() {
     showToast('Exported complete product dataset to CSV')
   }
 
-  // Reset to initial mock database
-  const handleResetData = () => {
-    if (window.confirm('Reset catalog back to initial demonstration sample dataset?')) {
-      setProducts(INITIAL_ADMIN_PRODUCTS)
-      saveStoredProducts(INITIAL_ADMIN_PRODUCTS)
-      showToast('Catalog restored to default demonstration records')
-    }
-  }
-
   // Add Factory
-  const handleAddNewFactory = (name: string) => {
-    if (!factories.includes(name)) {
-      const next = [...factories, name]
+  const handleAddNewFactory = async (name: string) => {
+    const trimmed = name.trim()
+    if (!factories.includes(trimmed)) {
+      try {
+        await api.factories.create({ name: trimmed })
+      } catch (err: any) {
+        console.warn('Factory API warning:', err)
+      }
+      const next = [...factories, trimmed]
       setFactories(next)
       saveStoredFactories(next)
-      showToast(`Added manufacturing partner: ${name}`)
+      showToast(`Added manufacturing partner: ${trimmed}`)
     }
   }
 
   // Add Customer
-  const handleAddNewCustomer = (name: string) => {
-    if (!customers.includes(name)) {
-      const next = [...customers, name]
+  const handleAddNewCustomer = async (name: string) => {
+    const trimmed = name.trim()
+    if (!customers.includes(trimmed)) {
+      try {
+        await api.customers.create({ name: trimmed })
+      } catch (err: any) {
+        console.warn('Customer API warning:', err)
+      }
+      const next = [...customers, trimmed]
       setCustomers(next)
       saveStoredCustomers(next)
-      showToast(`Added client account: ${name}`)
+      showToast(`Added client account: ${trimmed}`)
     }
   }
 
-  // Filtered by global search term
-  const searchedProducts = products.filter((p) => {
-    if (!searchTerm.trim()) return true
-    const term = searchTerm.toLowerCase()
-    return (
-      p.productCode?.toLowerCase().includes(term) ||
-      p.sku?.toLowerCase().includes(term) ||
-      p.productName?.toLowerCase().includes(term) ||
-      p.fabric?.toLowerCase().includes(term) ||
-      p.factoryName?.toLowerCase().includes(term) ||
-      p.customerName?.toLowerCase().includes(term) ||
-      p.category?.toLowerCase().includes(term) ||
-      p.season?.toLowerCase().includes(term)
-    )
-  })
-
   return (
-    <div className="min-h-screen bg-slate-50/50 flex font-[Inter,system-ui,sans-serif] text-slate-800 antialiased">
+    <div className="h-screen w-full bg-slate-50/50 flex overflow-hidden font-[Inter,system-ui,sans-serif] text-slate-800 antialiased">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white text-xs px-4 py-3 rounded-xl shadow-xl flex items-center gap-2.5 animate-in slide-in-from-bottom-3 duration-200">
-          <FiCheckCircle size={15} className="text-emerald-400 shrink-0" />
-          <span>{toastMessage}</span>
+        <div
+          className={`fixed bottom-6 right-6 z-50 text-white text-xs px-4 py-3 rounded-xl shadow-xl flex items-center gap-2.5 animate-in slide-in-from-bottom-3 duration-200 ${
+            toastMessage.type === 'error'
+              ? 'bg-rose-900 border border-rose-700'
+              : toastMessage.type === 'info'
+              ? 'bg-slate-800 border border-slate-700'
+              : 'bg-slate-900 border border-slate-800'
+          }`}
+        >
+          {toastMessage.type === 'error' ? (
+            <FiAlertCircle size={15} className="text-rose-400 shrink-0" />
+          ) : (
+            <FiCheckCircle size={15} className="text-emerald-400 shrink-0" />
+          )}
+          <span>{toastMessage.text}</span>
         </div>
       )}
 
@@ -286,6 +449,7 @@ export default function AdminPage() {
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
         productCount={products.length}
+        categoryCount={countAllCategories(categories)}
         onAddNew={() => {
           setEditingProduct(null)
           setIsModalOpen(true)
@@ -293,21 +457,35 @@ export default function AdminPage() {
       />
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 h-screen flex flex-col min-w-0 overflow-hidden">
         <AdminHeader
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
           onAddNew={() => {
             setEditingProduct(null)
             setIsModalOpen(true)
           }}
           onExportCsv={handleExportCsv}
           totalCount={products.length}
+          currentTab={currentTab}
         />
 
-        <main className="flex-1 p-6 w-full space-y-6">
-          {/* Top Key Statistics Bar */}
-          <AdminStats products={products} />
+        <main className="flex-1 overflow-y-auto p-6 w-full space-y-6">
+          {/* Top Key Statistics Bar - hidden on dashboard, categories, and factory tabs */}
+          {currentTab !== 'dashboard' &&
+            currentTab !== 'categories' &&
+            currentTab !== 'factories' && (
+              <AdminStats products={products} />
+            )}
+
+          {/* TAB 0: EXECUTIVE DASHBOARD */}
+          {currentTab === 'dashboard' && (
+            <AdminDashboardView
+              products={products}
+              summary={dashboardSummary}
+              onNavigateTab={setCurrentTab}
+              onRefresh={() => syncWithApi(true)}
+              isSyncing={isSyncing}
+            />
+          )}
 
           {/* Bulk Selection Bar if any checked */}
           {selectedIds.length > 0 && (
@@ -339,7 +517,7 @@ export default function AdminPage() {
           {/* TAB 1: PRODUCT CATALOG TABLE */}
           {currentTab === 'products' && (
             <AdminProductTable
-              products={searchedProducts}
+              products={products}
               onView={(p) => {
                 setDetailProduct(p)
                 setIsDetailOpen(true)
@@ -355,14 +533,17 @@ export default function AdminPage() {
             />
           )}
 
-          {/* TAB 2: VARIANT MATRIX VIEW */}
-          {currentTab === 'variants' && (
-            <AdminVariantView
+          {/* TAB 1.5: CATEGORY HIERARCHY */}
+          {currentTab === 'categories' && (
+            <AdminCategoryView
+              categories={categories}
               products={products}
-              onSelectProduct={(p) => {
-                setEditingProduct(p)
-                setIsModalOpen(true)
+              onRefreshCategories={refreshCategories}
+              onViewProduct={(p) => {
+                setDetailProduct(p)
+                setIsDetailOpen(true)
               }}
+              showToast={showToast}
             />
           )}
 
@@ -382,57 +563,6 @@ export default function AdminPage() {
               customers={customers}
               onAddNewCustomer={handleAddNewCustomer}
             />
-          )}
-
-          {/* TAB 5: ANALYTICS & MARGINS */}
-          {currentTab === 'analytics' && <AdminAnalyticsView products={products} />}
-
-          {/* TAB 6: MASTER DATABASE SETTINGS */}
-          {currentTab === 'database' && (
-            <div className="bg-white rounded-xl border border-slate-200 p-6 space-y-5">
-              <div>
-                <h2 className="text-base font-bold text-slate-900">
-                  Master Database & System Persistence
-                </h2>
-                <p className="text-xs text-slate-500">
-                  Control product records, local browser persistence cache, and export data.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
-                  <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                    CSV Data Export
-                  </h3>
-                  <p className="text-xs text-slate-600">
-                    Download the entire 44-field specification database as an Excel-compatible CSV file.
-                  </p>
-                  <button
-                    onClick={handleExportCsv}
-                    className="mt-2 px-3.5 py-2 bg-navy hover:bg-navy-light text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
-                  >
-                    <FiDownload size={14} />
-                    <span>Download Full CSV Export</span>
-                  </button>
-                </div>
-
-                <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
-                  <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                    Reset Sample Demo Data
-                  </h3>
-                  <p className="text-xs text-slate-600">
-                    Restore the product catalog back to default demo entries (including Floral Maxi Dress ST-1001).
-                  </p>
-                  <button
-                    onClick={handleResetData}
-                    className="mt-2 px-3.5 py-2 bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
-                  >
-                    <FiRotateCcw size={14} />
-                    <span>Reset Demo Records</span>
-                  </button>
-                </div>
-              </div>
-            </div>
           )}
         </main>
       </div>

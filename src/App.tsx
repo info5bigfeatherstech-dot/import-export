@@ -8,18 +8,44 @@ import ServiceDetailPage from './pages/ServiceDetailPage'
 import CategoryDetailPage from './pages/CategoryDetailPage'
 import ProductCategoryPage from './pages/ProductCategoryPage'
 import AdminPage from './pages/AdminPage'
+import LoginPage from './pages/LoginPage'
+import ProtectedRoute from './components/ProtectedRoute'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 
 export default function App() {
   const location = useLocation()
   const isAdmin = location.pathname.startsWith('/admin')
+  const isLoginPage = location.pathname === '/login' || location.pathname === '/admin/login'
+
+  if (isLoginPage) {
+    return (
+      <Routes>
+        <Route path="/admin/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    )
+  }
 
   if (isAdmin) {
     return (
       <Routes>
-        <Route path="/admin" element={<AdminPage />} />
-        <Route path="/admin/*" element={<AdminPage />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/*"
+          element={
+            <ProtectedRoute>
+              <AdminPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     )
   }

@@ -10,9 +10,7 @@ import {
   FiArrowUp,
   FiArrowDown,
   FiLayers,
-  FiChevronDown,
   FiChevronRight,
-  FiSliders,
 } from 'react-icons/fi'
 import type { AdminProduct } from '../../types/adminProduct'
 import { calculateMargin } from '../../utils/adminStorage'
@@ -48,15 +46,11 @@ export default function AdminProductTable({
   // Expanded rows
   const [expandedRowIds, setExpandedRowIds] = useState<string[]>([])
 
-  // Density: 'comfortable' vs 'compact'
-  const [density, setDensity] = useState<'comfortable' | 'compact'>('comfortable')
-
   // Column visibility
-  const [showColumnMenu, setShowColumnMenu] = useState(false)
-  const [showSpecs, setShowSpecs] = useState(true)
-  const [showSourcing, setShowSourcing] = useState(true)
-  const [showPricing, setShowPricing] = useState(true)
-  const [showStock, setShowStock] = useState(true)
+  const showSpecs = true
+  const showSourcing = true
+  const showPricing = true
+  const showStock = true
 
   // Categories list
   const uniqueCategories = Array.from(new Set(products.map((p) => p.category))).filter(Boolean)
@@ -192,86 +186,6 @@ export default function AdminProductTable({
               ))}
             </select>
           </div>
-
-          {/* Density Switch */}
-          <div className="flex items-center rounded-lg border border-slate-200 p-0.5 bg-slate-50 text-xs">
-            <button
-              onClick={() => setDensity('comfortable')}
-              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${
-                density === 'comfortable'
-                  ? 'bg-white text-navy font-bold shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              Roomy
-            </button>
-            <button
-              onClick={() => setDensity('compact')}
-              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${
-                density === 'compact'
-                  ? 'bg-white text-navy font-bold shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              Compact
-            </button>
-          </div>
-
-          {/* Adjust Columns Toggle Menu */}
-          <div className="relative">
-            <button
-              onClick={() => setShowColumnMenu(!showColumnMenu)}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 hover:border-navy/40 text-slate-700 text-xs font-semibold rounded-lg transition-colors shadow-xs cursor-pointer"
-            >
-              <FiSliders size={13} className="text-navy" />
-              <span>Adjust Columns</span>
-              <FiChevronDown size={12} className="text-slate-400" />
-            </button>
-
-            {showColumnMenu && (
-              <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-200 p-3 z-40 space-y-2 text-xs">
-                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                  Show / Hide Columns
-                </div>
-                <label className="flex items-center justify-between hover:bg-slate-50 p-1 rounded cursor-pointer">
-                  <span className="text-slate-700">Fabric & Specifications</span>
-                  <input
-                    type="checkbox"
-                    checked={showSpecs}
-                    onChange={(e) => setShowSpecs(e.target.checked)}
-                    className="rounded accent-navy text-navy focus:ring-navy"
-                  />
-                </label>
-                <label className="flex items-center justify-between hover:bg-slate-50 p-1 rounded cursor-pointer">
-                  <span className="text-slate-700">Factory & Sourcing</span>
-                  <input
-                    type="checkbox"
-                    checked={showSourcing}
-                    onChange={(e) => setShowSourcing(e.target.checked)}
-                    className="rounded accent-navy text-navy focus:ring-navy"
-                  />
-                </label>
-                <label className="flex items-center justify-between hover:bg-slate-50 p-1 rounded cursor-pointer">
-                  <span className="text-slate-700">Pricing & Margins</span>
-                  <input
-                    type="checkbox"
-                    checked={showPricing}
-                    onChange={(e) => setShowPricing(e.target.checked)}
-                    className="rounded accent-navy text-navy focus:ring-navy"
-                  />
-                </label>
-                <label className="flex items-center justify-between hover:bg-slate-50 p-1 rounded cursor-pointer">
-                  <span className="text-slate-700">Stock & Inventory</span>
-                  <input
-                    type="checkbox"
-                    checked={showStock}
-                    onChange={(e) => setShowStock(e.target.checked)}
-                    className="rounded accent-navy text-navy focus:ring-navy"
-                  />
-                </label>
-              </div>
-            )}
-          </div>
         </div>
       </div>
 
@@ -366,7 +280,7 @@ export default function AdminProductTable({
               const isSelected = selectedIds.includes(p.id)
               const isExpanded = expandedRowIds.includes(p.id)
               const margin = calculateMargin(p.factoryPriceExw, p.salePrice)
-              const cellPadding = density === 'comfortable' ? 'py-4' : 'py-2.5'
+              const cellPadding = 'py-3.5'
 
               return (
                 <Fragment key={p.id}>

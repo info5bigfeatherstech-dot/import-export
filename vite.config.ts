@@ -8,6 +8,21 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  server: {
+    port: 5173,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+        configure: (proxy) => {
+          proxy.on('proxyReq', (proxyReq) => {
+            proxyReq.setHeader('origin', 'http://localhost:3000')
+          })
+        },
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(import.meta.dirname, './src'),

@@ -1,11 +1,14 @@
 import type { AdminProduct } from '../../types/adminProduct'
 import { calculateMargin } from '../../utils/adminStorage'
+import type { DashboardSummary } from '../../lib/api'
+import { FiPackage, FiLayers, FiCheckCircle, FiDatabase } from 'react-icons/fi'
 
 interface AdminAnalyticsViewProps {
   products: AdminProduct[]
+  dashboardSummary?: DashboardSummary | null
 }
 
-export default function AdminAnalyticsView({ products }: AdminAnalyticsViewProps) {
+export default function AdminAnalyticsView({ products, dashboardSummary }: AdminAnalyticsViewProps) {
   return (
     <div className="space-y-6">
       <div>
@@ -16,6 +19,63 @@ export default function AdminAnalyticsView({ products }: AdminAnalyticsViewProps
           Financial yields comparing Factory EXW costs, FOB port prices, and customer sales invoices.
         </p>
       </div>
+
+      {/* Backend API Dashboard Summary Cards if available */}
+      {dashboardSummary && (
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+          <div className="p-3 bg-slate-50 rounded-lg">
+            <div className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+              <FiPackage size={12} className="text-slate-700" />
+              <span>MongoDB Products</span>
+            </div>
+            <div className="text-lg font-bold text-slate-900 mt-1">
+              {dashboardSummary.totalProducts}
+            </div>
+            <div className="text-[10px] text-slate-500 mt-0.5">
+              {dashboardSummary.activeProducts} Active in DB
+            </div>
+          </div>
+
+          <div className="p-3 bg-slate-50 rounded-lg">
+            <div className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+              <FiLayers size={12} className="text-slate-700" />
+              <span>Categories</span>
+            </div>
+            <div className="text-lg font-bold text-slate-900 mt-1">
+              {dashboardSummary.totalCategories}
+            </div>
+            <div className="text-[10px] text-slate-500 mt-0.5">
+              Garments, Footwears & More
+            </div>
+          </div>
+
+          <div className="p-3 bg-slate-50 rounded-lg">
+            <div className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+              <FiCheckCircle size={12} className="text-emerald-600" />
+              <span>Ready Stock Units</span>
+            </div>
+            <div className="text-lg font-bold text-emerald-700 mt-1">
+              {dashboardSummary.readyStockTotalUnits.toLocaleString()}
+            </div>
+            <div className="text-[10px] text-slate-500 mt-0.5">
+              {dashboardSummary.readyStockProducts} Styles with Stock
+            </div>
+          </div>
+
+          <div className="p-3 bg-slate-50 rounded-lg">
+            <div className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+              <FiDatabase size={12} className="text-amber-600" />
+              <span>New This Month</span>
+            </div>
+            <div className="text-lg font-bold text-amber-700 mt-1">
+              +{dashboardSummary.newProductsThisMonth}
+            </div>
+            <div className="text-[10px] text-slate-500 mt-0.5">
+              Fresh additions
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Pricing Comparison Table */}
       <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-2xs">
@@ -48,17 +108,17 @@ export default function AdminAnalyticsView({ products }: AdminAnalyticsViewProps
                     {p.category} • {p.subcategory}
                   </td>
                   <td className="py-3 px-4">
-                    <span className="text-slate-800 font-medium block">{p.factoryName}</span>
+                    <span className="text-slate-800 font-medium block">{p.factoryName || 'Direct'}</span>
                     <span className="text-slate-400 text-[11px]">{p.fobPort} Port</span>
                   </td>
                   <td className="py-3 px-4 font-mono font-semibold text-slate-700">
-                    ${Number(p.factoryPriceExw).toFixed(2)}
+                    ${Number(p.factoryPriceExw || 0).toFixed(2)}
                   </td>
                   <td className="py-3 px-4 font-mono text-slate-700">
-                    ${Number(p.fobPrice).toFixed(2)}
+                    ${Number(p.fobPrice || 0).toFixed(2)}
                   </td>
-                  <td className="py-3 px-4 font-mono font-bold text-navy">
-                    ${Number(p.salePrice).toFixed(2)}
+                  <td className="py-3 px-4 font-mono font-bold text-slate-900">
+                    ${Number(p.salePrice || 0).toFixed(2)}
                   </td>
                   <td className="py-3 px-4 font-mono font-semibold text-emerald-600">
                     +${m.profit.toFixed(2)}

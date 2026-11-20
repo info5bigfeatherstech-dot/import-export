@@ -1,41 +1,51 @@
 import {
+  FiGrid,
   FiBox,
-  FiLayers,
+  FiFolder,
   FiTruck,
   FiUsers,
-  FiBarChart2,
   FiExternalLink,
-  FiPlus,
-  FiDatabase,
+  FiLogOut,
 } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
 
 interface AdminSidebarProps {
   currentTab: string
   setCurrentTab: (tab: string) => void
   productCount: number
-  onAddNew: () => void
+  categoryCount?: number
+  onAddNew?: () => void
 }
 
 export default function AdminSidebar({
   currentTab,
   setCurrentTab,
   productCount,
-  onAddNew,
+  categoryCount,
 }: AdminSidebarProps) {
+  const { admin, logout } = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    if (window.confirm('Are you sure you want to sign out of the Admin Panel?')) {
+      await logout()
+      navigate('/admin/login', { replace: true })
+    }
+  }
+
   const menuItems = [
+    { id: 'dashboard', label: 'Dashboard Overview', icon: FiGrid },
     { id: 'products', label: 'Product Catalog', icon: FiBox, count: productCount },
-    { id: 'variants', label: 'Variant Matrix', icon: FiLayers },
+    { id: 'categories', label: 'Category Hierarchy', icon: FiFolder, count: categoryCount },
     { id: 'factories', label: 'Factory Sourcing', icon: FiTruck },
     { id: 'customers', label: 'Client Accounts', icon: FiUsers },
-    { id: 'analytics', label: 'Cost & Margin Analytics', icon: FiBarChart2 },
-    { id: 'database', label: 'Master Settings', icon: FiDatabase },
   ]
 
   return (
-    <aside className="w-64 shrink-0 bg-white border-r border-slate-200 flex flex-col h-screen sticky top-0 select-none z-30">
+    <aside className="w-64 shrink-0 bg-white border-r border-slate-200 flex flex-col h-screen select-none z-30 overflow-hidden">
       {/* Brand Header */}
-      <div className="h-16 border-b border-slate-200 px-5 flex items-center justify-between">
+      <div className="h-16 shrink-0 border-b border-slate-200 px-5 flex items-center justify-between">
         <Link to="/admin" className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-navy text-white flex items-center justify-center font-bold text-sm shadow-xs shadow-navy/20">
             S
@@ -49,24 +59,10 @@ export default function AdminSidebar({
             </div>
           </div>
         </Link>
-        <span className="text-[10px] font-semibold uppercase tracking-wider px-1.5 py-0.5 bg-amber-50 text-amber-800 border border-amber-200/60 rounded">
-          v2.6
-        </span>
-      </div>
-
-      {/* Action button */}
-      <div className="p-4">
-        <button
-          onClick={onAddNew}
-          className="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 bg-navy hover:bg-navy-light text-white text-xs font-semibold rounded-lg shadow-sm shadow-navy/20 transition-all duration-150 cursor-pointer"
-        >
-          <FiPlus className="stroke-[2.5]" size={15} />
-          <span>New Product Entry</span>
-        </button>
       </div>
 
       {/* Navigation Links */}
-      <div className="flex-1 px-3 py-2 space-y-1 overflow-y-auto">
+      <div className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
         <div className="px-3 pb-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">
           Management
         </div>
@@ -107,24 +103,32 @@ export default function AdminSidebar({
         })}
       </div>
 
-      {/* Footer Info & Return to Website */}
-      <div className="p-3 border-t border-slate-200 bg-slate-50/50 space-y-2">
-        <div className="px-2 py-1.5 rounded-lg bg-white border border-slate-200 text-xs">
-          <div className="flex items-center justify-between text-slate-500 text-[11px]">
-            <span>System Status</span>
-            <span className="inline-flex items-center gap-1 text-emerald-600 font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              Live Sync
-            </span>
+      {/* Footer User Info & Return to Website */}
+      <div className="shrink-0 p-3 border-t border-slate-200 bg-slate-50/50 space-y-2">
+        {/* User Card */}
+        {admin && (
+          <div className="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200 text-xs shadow-2xs">
+            <div className="truncate pr-1">
+              <div className="text-[11px] font-bold text-slate-800 truncate">
+                {admin.email}
+              </div>
+              <div className="text-[10px] text-emerald-600 font-medium">
+                Admin Session Active
+              </div>
+            </div>
+            <button
+              onClick={handleLogout}
+              title="Sign Out"
+              className="p-1 text-slate-400 hover:text-rose-600 rounded hover:bg-rose-50 transition-colors cursor-pointer"
+            >
+              <FiLogOut size={13} />
+            </button>
           </div>
-          <div className="text-[11px] text-slate-600 mt-1 font-mono">
-            DB: LocalStorage Active
-          </div>
-        </div>
+        )}
 
         <Link
           to="/"
-          className="flex items-center justify-center gap-1.5 w-full py-2 px-3 text-xs font-medium text-slate-600 hover:text-navy hover:bg-slate-100 rounded-lg border border-slate-200 bg-white transition-colors"
+          className="flex items-center justify-center gap-1.5 w-full py-1.5 px-3 text-xs font-medium text-slate-600 hover:text-navy hover:bg-slate-100 rounded-lg border border-slate-200 bg-white transition-colors"
         >
           <FiExternalLink size={13} />
           <span>Exit to Main Website</span>
