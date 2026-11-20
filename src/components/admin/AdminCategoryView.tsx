@@ -18,6 +18,7 @@ import {
   FiRefreshCw,
   FiPackage,
   FiX,
+  FiCheck,
   FiCheckCircle,
   FiLayers,
   FiGitCommit,
@@ -66,6 +67,8 @@ export default function AdminCategoryView({
   const [formParentId, setFormParentId] = useState<string>('')
   const [formDescription, setFormDescription] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isParentDropdownOpen, setIsParentDropdownOpen] = useState(false)
+  const [parentSearch, setParentSearch] = useState('')
 
   // Delete confirmation
   const [categoryToDelete, setCategoryToDelete] = useState<ApiCategory | null>(null)
@@ -163,6 +166,8 @@ export default function AdminCategoryView({
     setFormName('')
     setFormParentId(defaultParentId || '')
     setFormDescription('')
+    setIsParentDropdownOpen(false)
+    setParentSearch('')
     setIsFormModalOpen(true)
   }
 
@@ -172,8 +177,33 @@ export default function AdminCategoryView({
     setFormName(cat.name)
     setFormParentId(cat.parentId || '')
     setFormDescription(cat.description || '')
+    setIsParentDropdownOpen(false)
+    setParentSearch('')
     setIsFormModalOpen(true)
   }
+
+  // Parent Category selection helpers
+  const selectedParentCategory = useMemo(() => {
+    return allCategories.find((c) => c.id === formParentId)
+  }, [allCategories, formParentId])
+
+  const selectedParentLabel = selectedParentCategory
+    ? selectedParentCategory.path || selectedParentCategory.name
+    : 'None (Top-Level Root Domain)'
+
+  const eligibleParentCategories = useMemo(() => {
+    return allCategories.filter((c) => !editingCategory || c.id !== editingCategory.id)
+  }, [allCategories, editingCategory])
+
+  const filteredParentCategories = useMemo(() => {
+    if (!parentSearch.trim()) return eligibleParentCategories
+    const q = parentSearch.toLowerCase()
+    return eligibleParentCategories.filter(
+      (c) =>
+        c.name.toLowerCase().includes(q) ||
+        (c.path && c.path.toLowerCase().includes(q))
+    )
+  }, [eligibleParentCategories, parentSearch])
 
   // Submit Create or Edit
   const handleFormSubmit = async (e: FormEvent) => {
@@ -907,22 +937,22 @@ export default function AdminCategoryView({
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-none animate-in fade-in duration-150">
           <form
             onSubmit={handleFormSubmit}
-            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full border border-slate-200 overflow-hidden"
+            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col"
           >
-            <div className="p-5 border-b border-slate-100 flex items-center justify-between">
+            <div className="p-5 border-b border-slate-100 flex items-center justify-between shrink-0">
               <h3 className="text-sm font-bold text-slate-900">
                 {editingCategory ? `Edit "${editingCategory.name}"` : 'Create New Category'}
               </h3>
               <button
                 type="button"
                 onClick={() => setIsFormModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700"
+                className="text-slate-400 hover:text-slate-700 cursor-pointer"
               >
                 <FiX size={16} />
               </button>
             </div>
 
-            <div className="p-6 space-y-4 text-xs">
+            <div className="p-6 space-y-4 text-xs overflow-y-auto">
               <div>
                 <label className="font-semibold text-slate-700 block mb-1">
                   Category Name <span className="text-red-500">*</span>
@@ -941,22 +971,109 @@ export default function AdminCategoryView({
                 <label className="font-semibold text-slate-700 block mb-1">
                   Parent Category (Hierarchy Level)
                 </label>
-                <select
-                  value={formParentId}
-                  onChange={(e) => setFormParentId(e.target.value)}
-                  className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg outline-none focus:border-navy focus:bg-white text-slate-800"
+                
+                {/* Trigger button */}
+                <button
+                  type="button"
+                  onClick={() => setIsParentDropdownOpen(!isParentDropdownOpen)}
+                  className={`w-full px-3 py-2 text-xs bg-slate-50 border rounded-lg outline-none flex items-center justify-between transition-all cursor-pointer ${
+                    isParentDropdownOpen
+                      ? 'border-navy bg-white shadow-2xs ring-1 ring-navy/20'
+                      : 'border-slate-300 hover:bg-white text-slate-800'
+                  }`}
                 >
-                  <option value="">None (Top-Level Root Domain)</option>
-                  {allCategories
-                    .filter((c) => !editingCategory || c.id !== editingCategory.id)
-                    .map((c) => (
-                      <option key={c.id} value={c.id}>
-                        {c.path || c.name}
-                      </option>
-                    ))}
-                </select>
+                  <span className="truncate font-medium text-slate-800">
+                    {selectedParentLabel}
+                  </span>
+                  <FiChevronDown
+                    size={14}
+                    className={`text-slate-400 shrink-0 ml-2 transition-transform duration-150 ${
+                      isParentDropdownOpen ? 'rotate-180 text-navy' : ''
+                    }`}
+                  />
+                </button>
+
+                {/* Collapsible search and options container (stays 100% inside the modal card) */}
+                {isParentDropdownOpen && (
+                  <div className="mt-1.5 p-2 bg-slate-50 rounded-xl border border-slate-200/90 space-y-2">
+                    <div className="relative">
+                      <FiSearch
+                        className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400"
+                        size={12}
+                      />
+                      <input
+                        type="text"
+                        value={parentSearch}
+                        onChange={(e) => setParentSearch(e.target.value)}
+                        placeholder="Search category hierarchy (e.g. Footwear, Men)..."
+                        className="w-full pl-8 pr-7 py-1.5 text-xs bg-white border border-slate-200 rounded-lg outline-none focus:border-navy"
+                        autoFocus
+                      />
+                      {parentSearch && (
+                        <button
+                          type="button"
+                          onClick={() => setParentSearch('')}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs px-1"
+                        >
+                          ×
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="max-h-48 overflow-y-auto space-y-0.5 pr-0.5 divide-y divide-slate-100">
+                      {/* Top-Level Root Option */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setFormParentId('')
+                          setIsParentDropdownOpen(false)
+                          setParentSearch('')
+                        }}
+                        className={`w-full text-left px-2.5 py-2 rounded-lg text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                          !formParentId
+                            ? 'bg-navy text-white font-semibold'
+                            : 'hover:bg-slate-200/60 text-slate-700'
+                        }`}
+                      >
+                        <span className="font-medium">None (Top-Level Root Domain)</span>
+                        {!formParentId && <FiCheck size={13} className="shrink-0 ml-2" />}
+                      </button>
+
+                      {/* Filtered categories list */}
+                      {filteredParentCategories.map((c) => {
+                        const isSelected = formParentId === c.id
+                        return (
+                          <button
+                            key={c.id}
+                            type="button"
+                            onClick={() => {
+                              setFormParentId(c.id)
+                              setIsParentDropdownOpen(false)
+                              setParentSearch('')
+                            }}
+                            className={`w-full text-left px-2.5 py-2 rounded-lg text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                              isSelected
+                                ? 'bg-navy text-white font-semibold'
+                                : 'hover:bg-slate-200/60 text-slate-700'
+                            }`}
+                          >
+                            <span className="truncate">{c.path || c.name}</span>
+                            {isSelected && <FiCheck size={13} className="shrink-0 ml-2" />}
+                          </button>
+                        )
+                      })}
+
+                      {filteredParentCategories.length === 0 && (
+                        <div className="py-3 text-center text-slate-400 text-xs">
+                          No matching categories found
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 <p className="text-[11px] text-slate-400 mt-1">
-                  Leave as "None" to create a main root category, or select a parent to nest as a subcategory.
+                  Leave as &quot;None&quot; to create a main root category, or select a parent to nest as a subcategory.
                 </p>
               </div>
 
@@ -974,7 +1091,7 @@ export default function AdminCategoryView({
               </div>
             </div>
 
-            <div className="p-4 border-t border-slate-100 bg-slate-50 flex items-center justify-end gap-2.5">
+            <div className="p-4 border-t border-slate-100 bg-slate-50 flex items-center justify-end gap-2.5 shrink-0">
               <button
                 type="button"
                 onClick={() => setIsFormModalOpen(false)}
